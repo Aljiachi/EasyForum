@@ -1,0 +1,57 @@
+<form name="search" method="post" action="index.php?action=search_do">
+  <table width="97%" border="0"  align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="2" class="thead"><div>{lang.adsearch}</div></td>
+    </tr>
+    <tr>
+   <td class="tct"  width="50%">
+   <fieldset>
+   <legend>{lang.search_word}</legend>
+   	<input type="text" name="search_word" />
+   </fieldset>
+   </td>
+   <td class="tct" >
+   <fieldset>
+   <legend>{lang.search_user}</legend>
+   		<input type="text" id="User" name="search_user" autocomplete="off" onkeypress="GetUser(this.value,'User');"/>
+   		<div id="getUser" class="FMenu"></div>
+	</fieldset>
+   </td>
+    </tr>
+  </table>
+
+  <table width="97%" border="0"  align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="2" class="thead"><div>{lang.search_options}</div></td>
+    </tr>
+    <tr>
+   <td class="tct" width="50%">
+   <fieldset>
+   <legend>{lang.search_forum}</legend>
+        <select name="section" size="5" multiple>
+        <option value="all" selected>{lang.all_forums}</option>
+        {ForumsList}
+        </select>
+   </fieldset>
+   </td>
+   <td class="tct" >
+   <fieldset>
+   <legend>{lang.search_order}</legend>
+        <select name="order">
+        <option value="DESC">{lang.order_desc}</option>
+        <option value="ASC">{lang.order_asc}</option>
+        </select>
+   </fieldset>
+   
+    <fieldset>
+   <legend>{lang.search_in}</legend>
+        <select name="in">
+        <option value="title">{lang.search_titles}</option>
+        <option value="post">{lang.search_posts}</option>
+        </select>
+   </fieldset>
+   </td>
+    </tr>
+    <td colspan="2" class="forumRule"><div align="center"><input type="submit" name="search_do" value="{lang.send_search}" /></div></td>
+  </table>
+</form>

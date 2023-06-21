@@ -1,0 +1,26 @@
+<form method="post" id="edit_form" name="editusercp" enctype="multipart/form-data">
+<table border="0" width="100%"  align="center" id="UsercpAvatar" >
+
+<td class="thead" colspan="2">{lang.usercp_editavatar}</td>
+
+<tr>
+
+<td  class="tct">{lang.avatar_url}</td>
+
+<td  class="tct"><input type="text" name="avatarlink" id="AvatarUrl"  style="display:none;" /> <span id="UrlText" onclick="Upavatar('Url');">{lang.avatar_urlclick}</span></td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.avatar_upload}</td>
+
+<td class="tct"><input type="file" name="avatarup" id="AvatarUp" style="display:none;"  /> <span id="UpText" onclick="Upavatar('Uploader');">{lang.avatar_uploadclick}</span></td>
+
+</tr>
+
+</table> 
+
+<div align="center"><input type="submit" name="edit_avatar" value="{lang.edit}" /></div>
+
+</form>

@@ -1,0 +1,97 @@
+<table width="97%" align="center" border="0" cellspacing="0" cellspacing="0">
+
+  <tr>
+
+    <td colspan="5" class="thead"><div>{lang.sort_forums} " {Forum.name} "</div></td>
+
+  </tr>
+
+  <tr>
+
+      <td width="3%" class="tool">&nbsp;</td>
+
+    <td class="tool" width="51%">{lang.forum_name}</td>
+
+    <td class="tool" width="16%">{lang.forum_stats}</td>
+
+    <td class="tool" width="30%">{lang.last_post}</td>
+
+  </tr>
+
+  {loop name="{vars.row}" sql="{eaf.SortQuery}"}
+
+  
+
+  {php}
+
+  
+
+  	$this->_vars['ForumsSort'] = $eaf->db->query("SELECT * FROM " . tablenamestart('sections') . " WHERE sort=".$this->_vars['row']['fid'] . " order by `order` asc"); 
+
+  
+
+  	$this->_vars['Totalsort'] = $eaf->db->dbnum($this->_vars['ForumsSort']); 
+
+  
+
+  {/php}
+
+    <tr>
+
+      <td class="tct" ><img src="imager.php?image={$row.catimg}&height=<?php print GetMaxIconSizeH(); ?>&width=<?php print GetMaxIconSizeW(); ?>" /></td>
+
+      <td class="tct" >
+      
+          	<div class="forumName"><a href='?action=forum&fid={$row.fid}'>{$row.name}</a></div>
+
+      		{if name="!empty({vars.row:more})"}<div class="forumCaption">{$row.more}</div>{/if}
+
+        
+      {if name="{GetTotalModers.$this->_vars['row']['fid']} == true"}
+        
+      <strong>{lang.the_moders}</strong> :  {GetModers.$this->_vars['row']['fid']} <br />
+
+
+		{/if}
+
+        {if name="{vars.Totalsort} !== 0"} 
+        
+        <strong>{lang.sort_sections} :</strong> 
+
+         {loop name="{vars.rows}" sql="{vars.ForumsSort}"} 
+
+       
+         <a href="?action=forum&fid={$rows.fid}" title="{$rows.name}">{$rows.name}</a>  
+
+       
+
+         {/loop}
+
+        
+
+        {/if}
+
+        </td>
+
+      <td class="tct" valign="top">
+        <div><b>{lang.total_theard}</b> : {$row.total_topics} </div>
+        <div style="margin-top:5px;"><b>{lang.total_replay}</b> : {$row.total_replays}</div>
+      </td>
+      <td class="tct" valign="top">
+       {if name="!empty({vars.row:last_topic})"}
+            <div class="lastpost" style="direction:rtl;"><img src="{$row.last_posticon}" />
+          <a href="?action=showtheard&tid={$row.last_postid}" style="color:#bf5d01; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold;" title="{$row.last_postdate}">{substr.$this->_vars['row']['last_topic'],0,45}...</a>
+            
+            <div class="lastpostInfo">
+            {lang.post_by} : <a href="index.php?action=profile&uid={$row.last_postuid}">{$row.last_postuser}</a>
+            </div>
+            <div>{$row.last_postdate}</div>
+            </div>
+       {/else}
+          <div class="addfriend" style="text-shadow:none;"><strong>{lang.nothing}</strong></div>
+      {/if}
+         </td> 
+    </tr>
+  {/loop}
+</table>
+

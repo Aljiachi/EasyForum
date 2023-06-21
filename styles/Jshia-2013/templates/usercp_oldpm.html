@@ -1,0 +1,28 @@
+<form action="" method="post">
+<table width="97%" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+    <td colspan="4" class="thead"><div>{lang.usercp_readed}</div></td>
+  </tr>
+  <tr>
+    <td class="Tabletitle">{lang.pm_title} </td>
+    <td class="Tabletitle">{lang.pm_from} </td>
+    <td class="Tabletitle">{lang.pm_date}</td>
+    <td class="Tabletitle">{lang.pm_delete}</td>
+  </tr>
+  {loop name="{vars.oldpm}" sql="{eaf.OldPm}"}
+  <tr>
+    <td class="tct"><a href="index.php?action=usercp&do=showpm&pmid={$oldpm.sid}">{$oldpm.stitle}</a></td>
+    <td class="tct">{$oldpm.s_fname}</td>
+    <td class="tct">{$oldpm.sdata}</td>
+    <td class="tct"><input type="checkbox" name="oldsid[]" value="{$oldpm.sid}" /></td>
+  </tr>
+  {/loop}
+</table>
+<center>
+<input type="submit" value="{lang.pm_delete_selected}" name="delete_oldpm" /> 
+<input type="reset"  value="{lang.pm_rest}" name="rest" />
+</center>
+</form>
+</td>
+  </tr>
+</table>

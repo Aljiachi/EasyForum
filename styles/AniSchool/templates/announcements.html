@@ -1,0 +1,19 @@
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+<tr>
+<td colspan="4" class="thead">{lang.announcements}</td>
+</tr>
+<tr>
+<td class="Tabletitle">{lang.announcement_title}</td>
+<td class="Tabletitle">{lang.write_name}</td>
+<td class="Tabletitle">{lang.write_date}</td>
+<td class="Tabletitle">{lang.views}</td>
+</tr>
+{loop name="{vars.rows}" sql="{query}"}
+<tr>
+<td><a href="index.php?action=announcement&id={$rows.id}">{$rows.title}</a></td>
+<td>{$rows.u_name}</td>
+<td>{$rows.date}</td>
+<td>{$rows.views}</td>
+</tr>
+{/loop}
+</table>

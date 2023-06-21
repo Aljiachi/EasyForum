@@ -1,0 +1,185 @@
+<!-- AddThis Hack By Php4u !-->
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4e46862d141e3c1a"></script>
+<!-- AddThis Button END -->
+<!-- AddThis Hack By Php4u !-->{if name="{Showtheard:Closed} == 0 && !empty({session.username})"}
+
+
+
+<a href="index.php?action=add_post&tid={$tid}" class="button" style="display:block; width:110px;">{lang.addpost}</a>
+
+
+
+{/else}
+
+
+
+<a class="buttonClosed">{lang.closed}</a>
+
+
+
+{/if}
+
+<table width="100%" align="center" >
+
+<tr>
+
+<td class="thead" colspan="2">{Showtheard:Date}</td>
+
+</tr>
+
+<tr>
+
+<td class="Tabletitle" colspan="2"><img src="{Showtheard:Icon}" /> {Showtheard:Title}</td>
+
+</tr>
+
+<tr>
+
+
+
+<td class="tct" width="300px" valign="top">
+
+<span class="span">{lang.theard_info}</span>
+
+
+<div class="text" align="center">
+{Profile:Showtheard.Avatar}
+</div>
+
+<div class="usermore" dir="rtl">
+
+<div class="text" align="center"><a href="index.php?action=profile&uid={Profile:Showtheard.Userid}">
+
+{Profile:Showtheard.Username}
+
+</a></div>
+
+<div class="text" align="center">{Profile:Showtheard.Usertitle}</div>
+
+
+
+<div class="text" align="center"><img src="{Profile:Showtheard.Userstars}" /></div>
+
+
+
+<div class="text">{Profile:Showtheard.Online}</div>
+
+</div>
+
+
+
+</div>
+
+<div class="text">{lang.user_id} : {Profile:Showtheard.Userid}</div>
+
+<div class="text">{lang.signup_date} : {Profile:Showtheard.JoinDate}</div>
+
+<div class="text">{lang.last_login} : {Profile:Showtheard.Lastloggedin}</div>
+
+<div class="text">{lang.user_sex} : {Profile:Showtheard.Usersex}</div>
+
+<div class="text">{lang.user_age} : {Profile:Showtheard.Userage}</div>
+
+<div class="text">{lang.user_country} : {Profile:Showtheard.Country}</div>
+
+<div class="text">{lang.user_mytopics} : {Profile:Showtheard.Numberoftheards}</div>
+
+<div class="text">{lang.user_myposts} : {Profile:Showtheard.Numberofposts}</div>
+
+<div class="text">{lang.user_reputation} : <a href="index.php?action=addreputation&id={Profile:Showtheard.Userid}&tid={$tid}"  rel="superbox[iframe]"  style="color:green; font-weight:bold;">{Profile:Showtheard.Reputation}+</a></div>
+
+<div class="text">{lang.user_warning} : <a href="index.php?action=addwarning&id={Profile:Showtheard.Userid}&tid={$tid}"  rel="superbox[iframe]" style="color:red; font-weight:bold;">{Profile:Showtheard.Warning}+</a></div>
+
+
+{loop name="{vars.inputrows}" sql="{QueryInputs.Showtheard}"}
+
+<div class="text">{$inputrows.input_name} : {input_value:inputrows.Showtheard}</div>
+
+{/loop}
+
+
+
+
+<a onclick="return addfriend('{Profile:Showtheard.Userid}');" class="button"> {Profile:Showtheard.Username} {lang.user_addfriend}</a> <br />
+ 
+
+
+</td>
+
+<td class="tct" valign="top">
+
+<div style="">
+
+{Showtheard:Text}
+
+
+<div style="margin-top:15px;"></div>
+
+
+
+<fieldset style="width:60%; margin-left:auto; margin-right:auto; direction:rtl;"><legend>{lang.user_sig} : {Profile:Showtheard.Username}</legend>
+
+
+
+{Profile:Showtheard.Signature}
+
+
+
+</fieldset>
+
+
+
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+<td class="tct"><span id="RatingDo"><img onclick="rating('{$tid}');" src="styles/{stylefolder}/i-like.png" title="{lang.rating}" /></span>
+<span style="margin-right:3px;">
+{if name="{group.10} == 1"}
+
+<img src="styles/{stylefolder}/ip.png" title="{lang.ip} : {Profile:Showtheard.Ip}" />
+
+{/if}
+</span>
+</td>
+<td class="tct">
+
+<div align="left">
+
+{if name="{group.3} == 1 or {UserEdit} or {moder.0} == 1"}
+
+<a href="index.php?action=edit_post&tid={$tid}" class="button" style="padding:7px; margin:">{lang.theard_edit}</a>
+
+{/if}
+
+{if name="{group.4} == 1 or {UserDelete}"}
+
+<a onclick="return DeleteTopic('{$tid}');" class="button" style="padding:7px;">{lang.theard_delete}</a>
+
+{/if}
+
+{if name="{Showtheard:Closed} == 0 && !empty({session.username})"}
+
+<a href="index.php?action=add_post&do=quote&tid={$tid}" class="button" style="padding:7px;">{lang.add_quote_post}</a>
+
+{/if}
+
+</div>
+
+</td>
+
+</table>
+<div class="bothline" ></div>
+

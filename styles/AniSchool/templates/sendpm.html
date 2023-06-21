@@ -1,0 +1,127 @@
+<form name="newpm" method="post" action="">
+
+  <table border="0" cellspacing="1" cellpadding="4" class="tborder">
+
+    <tr>
+
+      <td class="thead"> {lang.send_pm}</td>
+
+    </tr>
+    
+    <tr>
+    
+              <td class="tool">{lang.sendpm_to} </td>
+
+    </tr>
+
+    <tr>
+
+          <td width="85%" class="tct">
+
+      <input name="to" type="text" value="{ToUsername}" class="textbut" id="User" onkeypress="GetUser(this.value,'User');" />
+         <div id="getUser" class="FMenu"></div>
+      </td>
+
+    </tr>
+    
+    <tr>
+    
+          <td class="tool">{lang.sendpm_title} </td>
+
+	</tr>
+
+    <tr>
+
+     <td class="tct">
+
+      <input name="title" type="text" class="textbut" id="title" /></td>
+
+    </tr>
+    
+    <tr>
+    
+          <td class="tool">{lang.sendpm_text} </td>
+
+	</tr>
+
+    <tr>
+
+<td class="tct">
+<script>
+	
+var Editor_lang = {
+'bold' : 'الخط عريض' ,
+'Italic' : 'الخط مائل' ,
+'Underline' : 'الخط مسطر' ,
+'strikethrough' : 'خط في المنتصف' ,
+'right' : 'اليمين' ,
+'center' : 'الوسط' ,
+'left' : 'اليسار' , 
+'sub' : 'صغير للاسفل' ,
+'sup' : 'صغير للاعلى' ,
+'h1' : 'نمط الخط h1' ,
+'h2' : 'نمط الخط h2' ,
+'h3' : 'نمط الخط h3' ,
+'h4' : 'نمط الخط h4' ,
+'h5' : 'نمط الخط h5' ,
+'h6' : 'نمط الخط h6' ,
+'link' : 'إضافة رابط' ,
+'email' : 'إضافة بريد الإلكتروني' ,
+'image' : 'إضافة صورة' ,
+'font' : 'نوع الخط' ,
+'color' : 'لون الخط' ,
+'size' : 'حجم الخط' ,
+'highlight' : 'خلفية الخط' ,
+'youtube' : 'اضافة مقطع من اليوتيوب' ,
+'flash' : 'اضافة ملف فلاش' ,
+'media' : 'اضافة ملف ميديا' ,
+'php' : 'كود برمجي php' ,
+'html' : 'كود برمجي html' ,
+'quote' : 'إقتباس' ,
+'eyoutube' : 'ضع رابط ملف اليوتيوب' ,
+'elink' : 'ضع الرابط' ,
+'ephoto' : 'ضع رابط الصورة' ,
+'eemail' : 'ضع البريد الإلكتروني' ,
+'eflash' : 'ضع رابط الفلاش' ,
+'emedia' : 'ضع رابط الملف' ,
+'ewidth' : 'ضع عرض الملف' ,
+'eheigth' : 'ضع طول الملف'
+};
+
+edToolbar('box_text','full',Editor_lang);
+
+</script>
+<textarea id="box_text"  name="msg" rows="6"></textarea>
+
+</td>
+
+<tr>
+
+<td class="tct"><div class="icons">
+
+<fieldset>
+
+<legend>{lang.smileys}</legend>
+
+{loop name="{vars.smile}" sql="{smiles}"}
+
+<img src="{$smile.smile_replace}" onClick="doAddSmiley('{$smile.smile_title}','box_text');" />
+
+{/loop}
+
+</fieldset>
+
+</div></td>
+</tr>
+
+</tr>
+
+    <tr>
+      
+      <td class="tct"><input name="sendpm" type="submit" class="textbut" id="send" value="{lang.send}"></td>
+
+    </tr>
+
+  </table>
+
+</form>

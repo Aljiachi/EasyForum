@@ -1,0 +1,47 @@
+
+<!-- Vistors With Out IP | Eaf !-->
+{php}	
+
+	$this->_vars['QVistorsH'] = $eaf->db->query("select vistor_id from " . tablenamestart("hacks_addvistors"));
+	
+	$this->_vars['TVistorsH'] = $eaf->db->dbnum($this->_vars['QVistorsH']);
+			
+	$this->_vars['AddVistor'] = $eaf->db->query("insert into " . tablenamestart("hacks_addvistors") . " values ('','".$_SERVER['REMOTE_ADDR']."')");
+
+{/php}
+<div style="direction:rtl; padding:6px; margin:6px;text-align:center;">
+<span style=" background:#fff; margin:3px; padding:5px;color:#C00;">مرات الدخول : {print.$this->_vars['TVistorsH']}</span>
+
+<!-- Vistors By Ip | Eaf !-->
+{php}	
+
+	$this->_vars['QVistorsH'] = $eaf->db->query("select vistor_id from " . tablenamestart("hacks_vistors"));
+	
+	$this->_vars['TVistorsH'] = $eaf->db->dbnum($this->_vars['QVistorsH']);
+		
+    if(mysql_num_rows(mysql_query("select vistor_id from " . tablenamestart("hacks_vistors") . " where vistor_ip = '" . $_SERVER['REMOTE_ADDR']."'")) == 0){
+	
+		$this->_vars['AddVistor'] = $eaf->db->query("insert into " . tablenamestart("hacks_vistors") . " values ('','".$_SERVER['REMOTE_ADDR']."')");
+	}
+
+{/php}
+<span style=" background:#fff; margin:3px; padding:5px; color:#C00;">عدد الزيارات الكلي : {print.$this->_vars['TVistorsH']}</span>
+</div>
+<!-- Vistors By Ip | Eaf !--></div>
+
+<div class="footer">
+
+{lang.copyrights} {$ForumName}
+
+{StyleMenu} {JumpMenu}
+
+</div>
+
+</div>
+<table width="100%" style="height:100px;border:0px;" border="0">
+<tr>
+<td class="FooterRight" style="width:431px;"></td>
+<td class="FooterCenter"></td>
+<td class="FooterLeft" style="width:375px;"></td>
+</tr>
+</table>

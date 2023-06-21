@@ -1,0 +1,135 @@
+<form name="newtheard" method="post">
+
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+
+<tr>
+
+<td width="11%" class="tool">{lang.post_title}</td>
+
+<td width="89%" class="tool"><input type="text" name="title_post" value="{PostTitle}"></td>
+
+</tr>
+
+<tr>
+
+<td width="11%" class="tool">{lang.icon}</td>
+
+<td width="89%" class="tool">
+
+{loop name="{vars.icon}" sql="{Icons}"}
+
+<img src="{$icon.icon_url}" /><input type="radio" name="post_icon" value="{$icon.icon_url}" />
+
+{/loop}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="89%" class="tct" colspan="2">
+<script>
+	
+var Editor_lang = {
+'bold' : 'الخط عريض' ,
+'Italic' : 'الخط مائل' ,
+'Underline' : 'الخط مسطر' ,
+'strikethrough' : 'خط في المنتصف' ,
+'right' : 'اليمين' ,
+'center' : 'الوسط' ,
+'left' : 'اليسار' , 
+'sub' : 'صغير للاسفل' ,
+'sup' : 'صغير للاعلى' ,
+'h1' : 'نمط الخط h1' ,
+'h2' : 'نمط الخط h2' ,
+'h3' : 'نمط الخط h3' ,
+'h4' : 'نمط الخط h4' ,
+'h5' : 'نمط الخط h5' ,
+'h6' : 'نمط الخط h6' ,
+'link' : 'إضافة رابط' ,
+'email' : 'إضافة بريد الإلكتروني' ,
+'image' : 'إضافة صورة' ,
+'font' : 'نوع الخط' ,
+'color' : 'لون الخط' ,
+'size' : 'حجم الخط' ,
+'highlight' : 'خلفية الخط' ,
+'youtube' : 'اضافة مقطع من اليوتيوب' ,
+'flash' : 'اضافة ملف فلاش' ,
+'media' : 'اضافة ملف ميديا' ,
+'php' : 'كود برمجي php' ,
+'html' : 'كود برمجي html' ,
+'quote' : 'إقتباس' ,
+'eyoutube' : 'ضع رابط ملف اليوتيوب' ,
+'elink' : 'ضع الرابط' ,
+'ephoto' : 'ضع رابط الصورة' ,
+'eemail' : 'ضع البريد الإلكتروني' ,
+'eflash' : 'ضع رابط الفلاش' ,
+'emedia' : 'ضع رابط الملف' ,
+'ewidth' : 'ضع عرض الملف' ,
+'eheigth' : 'ضع طول الملف'
+};
+
+edToolbar('apost','full',Editor_lang);
+
+</script>
+<textarea id="apost" name="apost" rows="6">{PostText}</textarea>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2" class="tct">
+
+<div class="icons">
+
+<fieldset>
+
+<legend>{lang.smileys}</legend>
+
+{loop name="{vars.smile}" sql="{smiles}"}
+
+<img src="{$smile.smile_replace}" onClick="doAddSmiley('{$smile.smile_title}','apost');" />
+
+{/loop}
+
+</fieldset>
+
+</div>
+
+</td>
+</tr>
+
+<tr>
+
+<td class="tct">{lang.send}</td>
+
+<td class="tct"><input type="submit" name="edit_post" value="{lang.post_edit}" /></td>
+
+</tr>
+
+</table>
+
+</form>
+
+<table  border="0" width="97%" class="table" align="center">
+
+<tr>
+
+<td class="thead">{lang.more_options}</td>
+
+</tr>
+
+<tr>
+
+<td class="tct">
+
+<button onclick="window.open('index.php?action=attach_upload','mywindow','scrollbars=yes,width=600,height=300')">{lang.add_attachment}</button>
+
+</td>
+
+</tr>
+
+</table>

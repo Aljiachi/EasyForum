@@ -1,0 +1,27 @@
+<form method="post">
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+
+<tr>
+
+<td class="thead" colspan="2">{lang.extrainputs}</td>
+
+</tr>
+{loop name="{vars.rows}" sql="{Query.UsercpInputs}"}
+<tr>
+
+<td class="tct">{$rows.input_name}</td>
+
+<td class="tct">
+{php}
+
+$this->_vars['eaf']->Usercp->Inputs->EditInput({vars.rows:input_type},{vars.rows:input_id});
+
+{/php}
+</td>
+
+</tr>
+{/loop}
+</table>
+
+<center><input type="submit" name="edit_inputs" value="تعديل" /></center>
+</form>

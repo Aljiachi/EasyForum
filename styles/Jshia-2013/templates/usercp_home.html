@@ -1,0 +1,42 @@
+<table border="0" width="97%"  align="center">
+<tr>
+<td class="thead" colspan="2">أهلاً وسهلاً بك يا {Usercp.Username} بلوحة التحكم الخاصة بك</td>
+</tr>
+<tr>
+<td width="26%" class="tct">{lang.user_name}</td>
+<td width="74%" class="tct">{Usercp.Username}</td>
+</tr>
+<tr>
+<td class="tct">{lang.user_avatar}</td>
+<td class="tct">{Usercp.Avatar}</td>
+</tr>
+<tr>
+<td class="Tabletitle" colspan="2">{lang.user_sig}</td>
+</tr>
+<tr>
+<td class="tct" colspan="2">{Usercp.Signature}</td>
+</tr>
+</table>
+
+<table border="0" width="97%"  align="center">
+<tr>
+<td class="thead" colspan="5">{lang.user_lasttheards}</td>
+</tr>
+<tr>
+<td class="Tabletitle">{lang.ID}</td>
+<td class="Tabletitle">{lang.theard_title}</td>
+<td class="Tabletitle">{lang.write_date}</td>
+<td class="Tabletitle">{lang.views}</td>
+<td class="Tabletitle">{lang.total_replay}</td>
+</tr>
+{loop name="{vars.theardsrow}" sql="{Usercp.LastTheards}"}
+<tr>
+<td class="tct">{$theardsrow.tid}</td>
+<td class="tct"><a href="index.php?action=showtheard&tid={$theardsrow.tid}">{$theardsrow.title}</a></td>
+<td class="tct">{$theardsrow.data}</td>
+<td class="tct">{$theardsrow.views}</td>
+<td class="tct">{$theardsrow.txts}</td>
+</tr>
+{/loop}
+</table>
+

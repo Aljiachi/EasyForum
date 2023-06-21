@@ -1,0 +1,12 @@
+<table border="0" cellspacing="1" cellpadding="4" class="tborder" style="clear: both;">
+<tr>
+<td class="thead">{lang.theard_online}</td>
+</tr>
+<tr>
+<td class="tct">
+{loop name="{vars.rows}" sql="{Showtheard:WasOnline}"}
+{$rows.name} , 
+{/loop}
+</td>
+</tr>
+</table>

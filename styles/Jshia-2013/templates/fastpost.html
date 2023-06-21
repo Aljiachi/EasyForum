@@ -1,0 +1,101 @@
+<a name="post"></a>
+<script src="js/editor.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+$("#AjaxAddPost").click(function(){
+	var Icon = $("#icon").val();	
+	var postText = $("#postText").val();
+	var Send = $("#Send").val();
+	var post_tid = $("#post_tid").val();	
+	var post_fid = $("#post_fid").val();	
+	var post_title = $("#post_title").val();
+	var LastPage = $("#lastpage").val();
+	var GetLastPost = $("#lastpost").val();
+	var LastPost = parseInt(GetLastPost) + parseInt(1);
+	
+/*	if(LastPage != 0 || LastPage !== 1){
+		
+	var page = "index.php?action=showtheard&tid=" + post_tid + "&page=" + LastPage + "#post-" + LastPost;
+	
+	}else{
+		
+	}
+*/
+
+	var page = "{$siteurl}index.php?action=showtheard&tid=" + post_tid + "#post-" + LastPost;
+						
+	if(postText.length < 10){
+		
+		$("#AddInfo").html('<img src="images/error.png" />');	
+		
+		return false;
+	}
+	
+		$("#AddInfo").html('<img src="images/loading.gif" />').delay(1200);	
+		
+		$.post("index.php?action=addpost&do=ajax",{
+			"post_title" : post_title,
+			"post_tid" : post_tid ,
+			"post_fid" : post_fid ,
+			"post_text" : postText ,
+			"post_icon" : Icon ,
+			"addfastpost" : "send"
+			}
+				,function(date){
+
+			$("#AddInfo").html('<img src="images/ok.png" /> {lang.addpost_ok}');
+			
+			document.location.reload();
+		
+		});
+	
+return false;	
+});	
+});
+</script>
+<form name="newpost" method="post" id="pageForm">
+<table width="97%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2" class="thead"><div>{lang.fastpost}</div></td>
+</tr>
+<tr>
+<td style="padding:3px;" colspan="2" class="tct">
+<div style="width:80%; margin-left:auto; margin-right:auto;">
+<script type="text/javascript">getToolbar();</script>
+    <textarea id="postText" name="text" style="height:200px; margin:0px;"></textarea>
+<script type="text/javascript">initEditor("postText", false , 'pageForm');</script>
+</div>
+</td>
+</tr>
+<tr>
+<td style="padding:3px;" colspan="2"class="tct">
+<div class="icons">
+
+<fieldset>
+<legend>{lang.smileys}</legend>
+{loop name="{vars.smile}" sql="{smiles}"}
+    <img src="{$smile.smile_replace}" onClick="InsertSmile('{$smile.smile_title}')" />
+{/loop}
+
+</fieldset>
+</div>
+</td>
+</tr>
+
+<tr>
+<td style="padding:3px;" class="tct">{lang.send}</td>
+<td style="padding:3px;"  class="tct">
+<input type="submit" name="addfastpost" id="AjaxAddPost" value="{lang.add_replay}" />
+<span id="AddInfo"></span>
+</td>
+</tr>
+</table>
+
+<input type="hidden" name="post_fid" id="post_fid" value="{Showtheard:Fid}" />
+<input type="hidden" name="post_tid" id="post_tid" value="{$tid}" />
+<input type="hidden" name="post_title" id="post_title" value="{lang.RE} : {Showtheard:Title}" />
+<input type="hidden" name="lastpage" id="lastpage" value="{Showtheard:LastPage}" />
+<input type="hidden" name="lastpost" id="lastpost" value="{Showtheard:LastPost}" />
+
+</form>

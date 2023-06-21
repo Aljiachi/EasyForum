@@ -1,0 +1,38 @@
+
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+
+<tr>
+
+<td class="thead" colspan="4">{lang.usercp_reputations}</td>
+
+</tr>
+
+<tr>
+
+<td class="Tabletitle">{lang.reputation_post}</td>
+
+<td class="Tabletitle">{lang.reputation_by}</td>
+
+<td class="Tabletitle">{lang.reputation_more}</td>
+
+<td class="Tabletitle">{lang.reputation_date}</td>
+
+</tr>
+
+{loop name="{vars.rows}" sql="{UsercpReputations}"}
+
+<tr>
+
+<td class="tct">{GetPostTitle.$this->_vars['rows']['reputation_tid'],$this->_vars['rows']['reputation_pid']}</td>
+
+<td class="tct">{unamebyid.$this->_vars['rows']['reputation_by']}</td>
+
+<td class="tct"><a title="{$rows.reputation_way}">{substr.$this->_vars['rows']['reputation_way'],0,150}...</a></td>
+
+<td class="tct">{$rows.reputation_data}</td>
+
+</tr>
+
+{/loop}
+
+</table>

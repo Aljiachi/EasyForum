@@ -1,0 +1,40 @@
+<script type="text/javascript">
+
+	function addSmile(txt){
+	
+		$("textarea#text").append(txt);
+	}
+</script>
+<div align="center" id="AddInfo"></div>
+<form method="post">
+<table width="97%" cellpadding="0" cellspacing="0" border="0" align="center" >
+<tr>
+<td class="thead"><div>{lang.send_msg}</div></td>
+</tr>
+<tr>
+<td class="tct">
+<textarea id="text" dir="rtl" name="vistor_msg" rows="3"></textarea>
+</td>
+</tr>
+<tr>
+<td class="tct">
+<fieldset>
+
+<legend>{lang.smileys}</legend>
+
+{loop name="{vars.smile}" sql="{smiles}"}
+
+<img src="{$smile.smile_replace}" onClick="addSmile('{$smile.smile_title}');" />
+
+{/loop}
+
+</fieldset>
+</td>
+</tr>
+<tr>
+<td class="tct"><input type="submit" value="{lang.send}" onClick="return AddvMsg();" name="add_vistor_msg" /></td>
+</tr>
+</table>
+<input type="hidden" id="to" value="{$uid}" />
+<input type="hidden" id="page" value="{$eaf->VistorsTextPager->page}" />
+</form>

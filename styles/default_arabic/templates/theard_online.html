@@ -1,0 +1,12 @@
+<table width="97%" align="center">
+<tr>
+<td class="Tabletitle"><div>{lang.theard_online}</div></td>
+</tr>
+<tr>
+<td class="tct">
+{loop name="{vars.rows}" sql="{Showtheard:WasOnline}"}
+	{$rows.name} , 
+{/loop}
+</td>
+</tr>
+</table>

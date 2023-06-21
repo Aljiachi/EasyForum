@@ -1,0 +1,69 @@
+<div class="tools">
+
+<div class="arrow">
+
+
+
+<img src="styles/{stylefolder}/down.png" id="view" onclick="ToolsMenu();" />
+
+
+
+<img src="styles/{stylefolder}/up.png" id="hide" style="display:none;" onclick="ToolsMenu();"  />
+
+
+
+</div>
+
+
+
+	<span>{lang.morder_tools}</span>
+
+
+
+<div class="menu" style="display:none;" id="toolsMenu">
+
+
+
+
+
+{if name="{group.5} == 1 or {group.8} == 1 or {moder.2} == 1"}
+
+    <a href="index.php?action=post_tools&do=stick&tid={$tid}" class="alink">{lang.theard_sticks}</a>
+
+    {/if}
+
+{if name="{group.9} == 1 or {group.8} == 1 or {moder.4} == 1"}
+
+    <a href="index.php?action=post_tools&do=close&tid={$tid}" class="alink">{lang.theard_open_close}</a>
+
+    {/if}
+
+{if name="{group.4} == 1  or {group.8} == 1 or {moder.3} == 1"}
+
+	    <a href="index.php?action=post_tools&do=move&tid={$tid}" class="alink">{lang.theard_move}</a>
+
+    {/if}
+    
+ {if name="{group.4} == 1  or {group.8} == 1 or {moder.3} == 1"}
+
+	    <a href="index.php?action=post_tools&do=merge&tid={$tid}" class="alink">{lang.theard_merge}</a>
+
+    {/if}
+    
+{if name="{group.4} == 1  or {group.8} == 1 or {moder.6} == 1"}
+	   
+        <a href="index.php?action=post_tools&do=recy&tid={$tid}" class="alink">{lang.theard_recy}</a>
+
+{/if}
+
+</div>
+</div>
+<div class="TheardD">
+
+<a href="index.php?action=print&id={$tid}" target="_new"><img src="styles/{stylefolder}/print.png" border="0px" />{lang.printTheard}</a>
+<a href="index.php?action=tell&tid={$tid}" rel="superbox[iframe]">
+<img src="styles/{stylefolder}/tell.png" border="0px" />{lang.tellFriend}</a>
+<a href="javascript:window.external.AddFavorite(location.href,document.title);">
+<img src="styles/{stylefolder}/addfavorite.png" border="0px" />{lang.addfavorite}</a>
+</div>
+<div style="clear:both;"></div>

@@ -1,0 +1,29 @@
+<div id="Portal">
+<!-- Right Blocks View !-->
+<div id="RightBlocks">
+{loop name="{vars.Right}" sql="{RightBlocks}"}
+
+<div id="Title">{RightBlocksTitle}</div>
+<div id="Content">{RightBlocksContent}</div>
+{/loop}
+</div>
+
+<!-- Left Blocks View !-->
+<div id="LeftBlocks">
+{loop name="{vars.Left}" sql="{LeftBlocks}"}
+<div id="Title">{LeftBlocksTitle}</div>
+<div id="Content">{LeftBlocksContent}</div>
+{/loop}
+</div>
+
+<!-- Center Blocks View !-->
+
+<div id="CenterBlocks">
+{loop name="{vars.Center}" sql="{CenterBlocks}"}
+<div id="Title">{CenterBlocksTitle}</div>
+<div id="Content">{CenterBlocksContent}</div>
+{/loop}
+</div>
+<!-- End Portal Div !-->
+</div>
+<div style="clear:both;"></div>

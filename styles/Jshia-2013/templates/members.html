@@ -1,0 +1,20 @@
+<table width="94%" cellpadding="0" cellspacing="0" border="0" align="center">
+<tr>
+<td class="thead" colspan="2">{lang.members}</td>
+</tr>
+{loop name="{vars.rows}" sql="{query}"}
+<tbody class="msg-body" style="border:1px solid #ccc; background:#fff;">
+<tr>
+<td width="40px" class="sms-avatar" valign="top" align="right">{AvatarView.$this->_vars['rows']['uid']}</td>
+<td style="padding:5px; text-align:right;">
+<div class="msg-date"><strong><a href="?action=profile&uid={$rows.uid}" style="color:#006699;">{$rows.username}</a></strong></div>
+<div class="members-info">{lang.user_id} : {$rows.uid}</div>
+<div class="members-info">{lang.signup_date} : {$rows.sig_data}</div>
+<div class="members-info">{lang.last_login} : {$rows.lastlogin}</div>
+<div class="members-info">{lang.user_mytopics} : {$rows.totla_ps}</div>
+<div class="members-info">{lang.user_myposts} : {$rows.total_posts}</div>
+</td>
+</tr>
+</tbody>
+{/loop}
+</table>

@@ -1,0 +1,50 @@
+<script src="js/editor.js" type="text/javascript"></script>
+<form name="newpm" method="post" action="" id="pageForm">
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="thead"><div>{lang.send_pm}</div></td>
+    </tr>
+    <tr>
+       <td class="sortTitle">{lang.sendpm_to} </td>
+    </tr>
+    <tr>
+      <td width="85%" class="tct">
+<input name="to" type="text" value="{ToUsername}" class="textbut" id="User" autocomplete="off" onkeypress="GetUser(this.value,'User');" />
+<div id="getUser" class="FMenu"></div>
+      </td>
+    </tr>    
+    <tr>
+	<td class="sortTitle">{lang.sendpm_title} </td>
+	</tr>
+    <tr>
+     <td class="tct">
+      <input name="title" type="text" class="textbut" id="title" /></td>
+	 </tr>
+    <tr>
+    <td class="sortTitle">{lang.sendpm_text} </td>
+	</tr>
+    <tr>
+<td class="tct">
+<script type="text/javascript">getToolbar();</script>
+<textarea id="box_text" class="editoriframe" name="msg"></textarea>
+<script type="text/javascript">initEditor("box_text", true , 'pageForm');</script>
+</td>
+<tr>
+<td class="tct"><div class="icons">
+<fieldset>
+<legend>{lang.smileys}</legend>
+{loop name="{vars.smile}" sql="{smiles}"}
+<img src="{$smile.smile_replace}" OnClick="AddSmileyIcon('{$smile.smile_replace}');" />
+{/loop}
+</fieldset>
+</div>
+</td>
+</tr>
+</tr>
+    <tr>
+      <td class="tct"><input name="sendpm" onClick="comm._submit();" type="submit" class="textbut" id="send" value="{lang.send}"></td>
+    </tr>
+
+  </table>
+
+</form>

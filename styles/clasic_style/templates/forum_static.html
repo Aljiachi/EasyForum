@@ -1,0 +1,14 @@
+<table width="97%" align="center">
+<tr>
+<td class="thead" width="70%s">{lang.forum_online}</td>
+<td class="thead">{lang.the_moders} : </td>
+</tr>
+<tr>
+<td class="tct">
+{loop name="{vars.rows}" sql="{forumOnline}"}
+{$rows.name} , 
+{/loop}
+</td>
+<td class="tct">{GetModers}</td>
+</tr>
+</table>

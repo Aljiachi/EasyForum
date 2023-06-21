@@ -1,0 +1,52 @@
+<form method="post" id="signup_form" name="signup">
+<table border="0" width="97%"  align="center">
+
+<tr>
+
+<td colspan="2" class="thead"><div>{lang.forum_signup} {$ForumName}</div></td>
+
+</tr>
+
+<tr>
+
+<td width="28%" class="tct">{lang.username}</td>
+
+<td width="72%" class="tct"><input type="text" name="username" onblur="user_finde(this.value)" /><span id="userfinde"></span></td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.password}</td>
+
+<td class="tct"><input type="password" onblur="return passvild()"  name="password" id="password" /> <span id="passvild"></span></td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.repassword}</td>
+
+<td class="tct"><input type="password" name="repass" id="repass" /></td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.yourEmail}</td>
+
+<td class="tct"><input type="text" name="email" id="email" /></td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.send}</td>
+
+<td class="tct"><input type="submit" name="adduser" onclick="return send_data()" value="{lang.send_signup}" /></td>
+
+</tr>
+
+</table>
+
+</form>

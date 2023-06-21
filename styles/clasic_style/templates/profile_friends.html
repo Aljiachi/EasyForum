@@ -1,0 +1,3 @@
+{loop name="{vars.rows}" sql="$this->_vars['eaf']->Profile->Friends"}
+<strong><a href="index.php?action=profile&uid={$rows.friend_id}">{$rows.friend_name}</a></strong> , 
+{/loop}

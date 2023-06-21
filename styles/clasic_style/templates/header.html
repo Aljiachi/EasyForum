@@ -1,0 +1,102 @@
+<!-- Start: contnet -->
+
+<link href="../theme/style.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+			$("#userTitle").click(function(){
+			
+				if($("#userBox").css("display") == "none"){
+					
+					$("#userBox").slideDown('slow');	
+			
+				}else{
+					
+					$("#userBox").slideUp('slow');	
+
+				}
+				
+			});
+		});
+</script>
+<div id="content">
+      
+      {if name="!empty({session.username})"}
+      <div id="userBox">
+      <div id="div_size">
+
+       <a href="index.php?action=usercp" >{lang.usercp}</a>
+       <a href="index.php?action=usercp&do=friends"> {lang.fwanted} <span class="userStats">{$Got.NewFriends}</span> </a> 
+       <a href="index.php?action=usercp&do=pm&act=new"> {lang.pminbox} <span class="userStats">{$Got.Newpm}</span> </a>
+       <a href="index.php?action=logout" >{lang.logout}</a>       
+       
+       </div>
+       </div>
+		{/if}       
+<div id="UserBar">
+                          <div id="div_size">
+                    {if name="empty({session.username})"}
+
+					<div style="float:right;">
+                    
+                   	<a href="index.php?action=register" id="HLink">{lang.signup}</a>
+                   	<a href="index.php?action=login" id="HLink">{lang.login}</a>
+                   	
+                    </div>
+
+                    {else}
+  
+    	<div style="float:left;">
+      <div id="userTitle" class="userTitle"> {$username} </div>
+      </div>
+
+
+                     {/if}
+
+      			</div>
+
+<div style="clear:both;"></div>
+</div>
+	<!-- Start: header -->
+
+<div id="header">
+    
+		<div id="headcont">
+        
+              <div id="div_size">{$ForumName}</div>
+              
+		</div>
+        
+<div id="headbar">
+	      <div id="div_size">
+
+				<ul>
+
+					<li><a href="index.php">{lang.home}</a></li>
+
+  					<li><a href="index.php?action=portal">{lang.portal}</a></li>
+
+					<li><a href="index.php?action=search">{lang.search}</a></li>
+
+					<li><a href="index.php?action=members">{lang.members}</a></li>
+                               
+					{loop name="{vars.prows}" sql="{getpages}"}
+
+					<li><a href="index.php?action=getpage&id={$prows.page_id}">{$prows.page_name}</a></li>
+
+                	{/loop}
+ 				                
+					<li><a href="index.php?action=contact">{lang.contact}</a></li>
+                
+
+				</ul>
+
+			</div>
+            
+		</div>
+
+		
+ </div>
+
+ <div id="page">

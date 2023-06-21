@@ -1,0 +1,845 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 2.10.3
+-- http://www.phpmyadmin.net
+-- 
+-- المزود: localhost
+-- أنشئ في: 08 نوفمبر 2012 الساعة 14:29
+-- إصدارة المزود: 5.0.51
+--  PHP إصدارة: 5.2.6
+
+SET SQL_MODE=\"NO_AUTO_VALUE_ON_ZERO\";
+
+-- 
+-- قاعدة البيانات: `ef`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `members`
+-- 
+
+CREATE TABLE `members` (
+  `uid` int(11) NOT NULL auto_increment,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `cant` varchar(255) NOT NULL,
+  `lastlogin` varchar(255) NOT NULL,
+  `signt` text NOT NULL,
+  `totla_ps` int(11) NOT NULL,
+  `sig_data` varchar(255) NOT NULL,
+  `age` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `usertitle` int(11) NOT NULL,
+  `sex` varchar(255) NOT NULL,
+  `total_posts` int(11) NOT NULL,
+  `out` int(11) NOT NULL,
+  `retitle` int(11) NOT NULL,
+  `groupid` int(11) NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  `browser` varchar(255) NOT NULL,
+  `moder_title` varchar(255) NOT NULL,
+  `moder_gid` int(11) NOT NULL,
+  `your_style` int(11) NOT NULL,
+  `option_getpm` int(11) NOT NULL,
+  `option_getgm` int(11) NOT NULL,
+  `option_online` int(11) NOT NULL,
+  PRIMARY KEY  (`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `members`
+-- 
+
+INSERT INTO `members` VALUES (1, 'admin', '202cb962ac59075b964b07152d234b70', 'avatars/avatar.jpg', 'Ø§Ù„Ø¹Ø±Ø§Ù‚', 'Nov 08, 2012', '\r\n[center][font=Arial][color=rgb(204, 0, 0)][size=7][b]Oops!![/b]\r\n[/size][/color][/font][/center]\r\n', 4, 'May 2012', '19 Ø³Ù†Ø©', 'php4u@hotmail.com', 0, 'Ø°ÙƒØ±', 36, 0, 0, 3, '127.0.0.1', '', '', 0, 0, 0, 0, 0);
+INSERT INTO `members` VALUES (2, 'asdasdasd', '4297f44b13955235245b2497399d7a93', '', '', '', '', 0, 'May 2012', '', 'mcoder@hotmail.com', 0, '', 0, 0, 0, 2, '127.0.0.1', 'Mozilla Firefox - 12.0', '', 0, 0, 0, 0, 0);
+INSERT INTO `members` VALUES (3, 'حسين', '4297f44b13955235245b2497399d7a93', '', '', '', '', 0, 'Jun 2012', '', 'php4u@live.com', 0, '', 0, 0, 0, 2, '127.0.0.1', 'Mozilla Firefox - 13.0.1', '', 0, 0, 0, 0, 0);
+INSERT INTO `members` VALUES (4, 'superB2ST', '218140990315bb39d948a523d61549b4', 'avatars/AN080.JPG', '', 'Nov 03, 2012', '', 0, 'Oct 2012', '', 'mnd.star2@gmail.com', 0, '', 2, 0, 0, 2, '127.0.0.1', 'Mozilla Firefox - 9.0', '', 0, 0, 0, 0, 0);
+INSERT INTO `members` VALUES (5, 'mr.php', '4297f44b13955235245b2497399d7a93', 'avatars/48695239690535316_TFi9JN9Q_f.jpg', '', '', '', 0, 'Nov 2012', '', 'php4m3@hot.com', 0, 'ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ', 1, 0, 0, 2, '127.0.0.1', 'Mozilla Firefox - 9.0', '', 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_announcements`
+-- 
+
+CREATE TABLE `phpforyou_announcements` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `in` varchar(50) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  `views` int(11) default NULL,
+  `u_name` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_announcements`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_attachments`
+-- 
+
+CREATE TABLE `phpforyou_attachments` (
+  `aid` int(11) NOT NULL auto_increment,
+  `a_uid` int(11) NOT NULL,
+  `a_name` varchar(255) NOT NULL,
+  `a_type` varchar(255) NOT NULL,
+  `a_size` varchar(255) NOT NULL,
+  `total` int(11) NOT NULL,
+  `salt` varchar(255) NOT NULL,
+  PRIMARY KEY  (`aid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_attachments`
+-- 
+
+INSERT INTO `phpforyou_attachments` VALUES (6, 1, 'iu_by_deekay_by_deekay130-d3cn6dd.jpg', 'jpg', '282 KB ', 2, '7a75a09d6744405dbd351a94716243b6');
+INSERT INTO `phpforyou_attachments` VALUES (4, 1, 'button.png', 'png', '3 KB ', 56, '81581fe3b1142f71291e19d293a8322f');
+INSERT INTO `phpforyou_attachments` VALUES (5, 1, 'vlcsnap-2012-10-24-15h53m30s238.png', 'png', '262 KB ', 5, 'fa6a3be1acb255ae3ec20cebff08a2a7');
+INSERT INTO `phpforyou_attachments` VALUES (7, 1, 'Hallo.php', 'php', '0 KB ', 2, '2984b74aba9791b75dc5b3c211f4d914');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_contact`
+-- 
+
+CREATE TABLE `phpforyou_contact` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `msg` text NOT NULL,
+  `data` varchar(255) NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_contact`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_friends`
+-- 
+
+CREATE TABLE `phpforyou_friends` (
+  `id` int(11) NOT NULL auto_increment,
+  `friend_uid` varchar(255) NOT NULL,
+  `friend_active` varchar(255) NOT NULL,
+  `friend_name` varchar(255) NOT NULL,
+  `friend_id` varchar(255) NOT NULL,
+  `friend_date` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_friends`
+-- 
+
+INSERT INTO `phpforyou_friends` VALUES (3, '1', 'yes', 'admin', '1', '10-26-2012 , 12:14 AM');
+INSERT INTO `phpforyou_friends` VALUES (6, '1', 'yes', 'superB2ST', '4', 'Nov 03, 2012');
+INSERT INTO `phpforyou_friends` VALUES (5, '4', 'yes', 'admin', '1', '10-26-2012 , 03:00 PM');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_groups`
+-- 
+
+CREATE TABLE `phpforyou_groups` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `style` varchar(900) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `out` int(11) NOT NULL,
+  `add_topic` int(11) NOT NULL,
+  `add_post` int(11) NOT NULL,
+  `edit_topic` int(11) NOT NULL,
+  `edit_post` int(11) NOT NULL,
+  `delete_topic` int(11) NOT NULL,
+  `delete_post` int(11) NOT NULL,
+  `send_pm` int(11) NOT NULL,
+  `attach_up` int(11) NOT NULL,
+  `view_forums` int(11) NOT NULL,
+  `view_topics` int(11) NOT NULL,
+  `attach_down` int(11) NOT NULL,
+  `mod_edit` int(11) NOT NULL,
+  `mod_delete` int(11) NOT NULL,
+  `mod_move` int(11) NOT NULL,
+  `mod_sticky` int(11) NOT NULL,
+  `view_online` int(11) NOT NULL,
+  `view_memberlist` int(11) NOT NULL,
+  `show_in_online` int(11) NOT NULL,
+  `mod_close` int(11) NOT NULL,
+  `rename` int(11) NOT NULL,
+  `search` int(11) NOT NULL default '1',
+  `script` int(11) NOT NULL,
+  `is_mod` int(11) NOT NULL,
+  `is_admin` int(11) NOT NULL,
+  `closed` int(11) NOT NULL,
+  `view_profile` int(11) NOT NULL default '1',
+  `view_userip` int(11) NOT NULL default '0',
+  `rigester` int(11) NOT NULL default '1',
+  `admin_title` int(11) NOT NULL,
+  `admin_tools` int(11) NOT NULL,
+  `admin_members` int(11) NOT NULL,
+  `admin_hacks` int(11) NOT NULL,
+  `admin_icons` int(11) NOT NULL,
+  `admin_smiles` int(11) NOT NULL,
+  `admin_styles` int(11) NOT NULL,
+  `admin_sections` int(11) NOT NULL,
+  `admin_setting` int(11) NOT NULL,
+  `admin_filem` int(11) NOT NULL,
+  `admin_theards` int(11) NOT NULL,
+  `admin_groups` int(11) NOT NULL,
+  `admin_portal` int(11) NOT NULL,
+  `admin_inputs` int(11) NOT NULL,
+  `admin_langs` int(11) NOT NULL,
+  `view_portal` int(11) NOT NULL,
+  `view_selftopics` int(11) NOT NULL,
+  `admin_pages` int(11) NOT NULL,
+  `admin_ancs` int(11) NOT NULL,
+  `mod_merge` int(11) NOT NULL,
+  `mod_recy` int(11) NOT NULL,
+  `view_getpage` int(11) NOT NULL,
+  `theards_rating` int(11) NOT NULL,
+  `tell_freind` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `show_in_online` (`show_in_online`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_groups`
+-- 
+
+INSERT INTO `phpforyou_groups` VALUES (1, 'الزوار', '<span color=\"#000\">{name}</span>', 'زائر', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1);
+INSERT INTO `phpforyou_groups` VALUES (2, 'Ø§Ù„Ø£Ø¹Ø¶Ø§Ø¡', '<span style=\"color:#0000ff\">{name}</span>', 'Ø¹Ø¶Ùˆ', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1);
+INSERT INTO `phpforyou_groups` VALUES (3, 'Ø§Ù„Ù…Ø¯ÙŠØ± Ø§Ù„Ø¹Ø§Ù…', '<span style=\"color:#f00;background:#fff;\">{name}</span>', 'Ø§Ù„Ù…Ø¯ÙŠØ± Ø§Ù„Ø¹Ø§Ù…', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+INSERT INTO `phpforyou_groups` VALUES (4, 'المراقبين', '<span style=\"color:green;\">{name}</span>', 'المراقب العام', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `phpforyou_groups` VALUES (5, 'المشرفين', '<span style=\"color:#c00; background:#fff;\">{name}</span>', 'مشرف', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1);
+INSERT INTO `phpforyou_groups` VALUES (6, 'المحظورين', '<span style=\"color:#000;text-decoration:line-through;\">{name}</span>', 'محظور', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `phpforyou_groups` VALUES (7, 'بإنتظار التفعيل', '<span style=\"color:#ccc\">{name}</span>', 'بإنتظار التفعيل', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_hacks`
+-- 
+
+CREATE TABLE `phpforyou_hacks` (
+  `block_id` int(11) NOT NULL auto_increment,
+  `block_title` varchar(255) NOT NULL,
+  `block_code` text NOT NULL,
+  `hack_option` text NOT NULL,
+  `filedir` varchar(255) NOT NULL,
+  `is_actived` int(11) NOT NULL,
+  `hack_other` varchar(2500) NOT NULL,
+  `hack_ver` varchar(250) NOT NULL,
+  `hack_url` varchar(250) NOT NULL,
+  PRIMARY KEY  (`block_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_hacks`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_icons`
+-- 
+
+CREATE TABLE `phpforyou_icons` (
+  `icon_id` int(11) NOT NULL auto_increment,
+  `icon_title` varchar(255) NOT NULL,
+  `icon_url` varchar(255) NOT NULL,
+  PRIMARY KEY  (`icon_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_icons`
+-- 
+
+INSERT INTO `phpforyou_icons` VALUES (1, 'bell', 'images/icons/bell.gif');
+INSERT INTO `phpforyou_icons` VALUES (2, 'video', 'images/icons/video.gif');
+INSERT INTO `phpforyou_icons` VALUES (3, 'info', 'images/icons/exclamation.gif');
+INSERT INTO `phpforyou_icons` VALUES (4, 'star', 'images/icons/star.gif');
+INSERT INTO `phpforyou_icons` VALUES (5, 'wink', 'images/icons/wink.gif');
+INSERT INTO `phpforyou_icons` VALUES (6, 'heart', 'images/icons/heart.gif');
+INSERT INTO `phpforyou_icons` VALUES (7, 'lightning', 'images/icons/lightning.gif');
+INSERT INTO `phpforyou_icons` VALUES (13, ':LKA:', 'upload/icons/4445-minus.gif');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_infosite`
+-- 
+
+CREATE TABLE `phpforyou_infosite` (
+  `title` varchar(255) NOT NULL,
+  `meta` varchar(255) NOT NULL,
+  `close_do` int(11) NOT NULL,
+  `close_msg` varchar(255) NOT NULL,
+  `style_id` int(11) NOT NULL,
+  `sig_html` int(11) NOT NULL,
+  `sig_pass` int(11) NOT NULL,
+  `post_html` int(11) NOT NULL,
+  `post_usicon` varchar(255) NOT NULL,
+  `user_pm` int(11) NOT NULL,
+  `register` int(11) NOT NULL,
+  `page_forum` int(11) NOT NULL,
+  `sig_title` int(11) NOT NULL,
+  `post_fast` int(11) NOT NULL,
+  `cat_usicon` varchar(255) NOT NULL,
+  `replace_words` text NOT NULL,
+  `wavatar` int(11) NOT NULL,
+  `havatar` int(11) NOT NULL,
+  `wicon` int(11) NOT NULL,
+  `hicon` int(11) NOT NULL,
+  `topics_sort` varchar(255) NOT NULL,
+  `types` text NOT NULL,
+  `attach_size` int(11) NOT NULL,
+  `attach_do` int(11) NOT NULL,
+  `admin_msg` text NOT NULL,
+  `avatar_up_size` int(11) NOT NULL,
+  `delete_avatar` int(11) NOT NULL,
+  `page_posts` int(11) NOT NULL,
+  `page_online` int(11) NOT NULL,
+  `page_members` int(11) NOT NULL,
+  `page_attachments` int(11) NOT NULL,
+  `pblocks_order` varchar(255) NOT NULL,
+  `register_group` int(11) NOT NULL,
+  `actived_group` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `active_do` int(11) NOT NULL default '1',
+  `language` int(11) NOT NULL,
+  `signup_data` varchar(255) NOT NULL,
+  `datatype` varchar(255) NOT NULL,
+  `timetype` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_infosite`
+-- 
+
+INSERT INTO `phpforyou_infosite` VALUES ('Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„Ù…Ù†ØªØ¯Ù‰ Ø§Ù„Ø³Ù‡Ù„ Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù†ØªØ¯ÙŠØ§Øª', 'Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù†ØªØ¯ÙŠØ§Øª Ù…Ø¬Ø§Ù†ÙŠ Ùˆ Ù…ÙØªÙˆØ­ Ø§Ù„Ù…ØµØ¯Ø±', 1, 'Text', 1, 1, 5, 0, 'images/default_post.gif', 1, 1, 10, 0, 1, 'images/default_icon.png', 'xss\r|root', 180, 215, 65, 56, 'DESC', 'png|psd|zip|jpeg|gif|php|jpg', 1024000, 1, 'Admin Content', 2147483647, 1, 10, 10, 10, 10, 'DESC', 2, 2, 'http://localhost/easyForum', 'php4u@hotmail.com', 0, 1, 'M Y', 'M d, Y', '');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_inputs`
+-- 
+
+CREATE TABLE `phpforyou_inputs` (
+  `input_id` int(11) NOT NULL auto_increment,
+  `input_type` varchar(255) NOT NULL,
+  `input_value` text NOT NULL,
+  `input_strings` text NOT NULL,
+  `input_name` varchar(255) NOT NULL,
+  `input_order` int(11) NOT NULL default '0',
+  `input_view` int(11) NOT NULL,
+  `input_exists` int(11) NOT NULL,
+  `input_edit` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`input_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_inputs`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_languages`
+-- 
+
+CREATE TABLE `phpforyou_languages` (
+  `lang_id` int(11) NOT NULL auto_increment,
+  `lang_name` varchar(255) NOT NULL,
+  `lang_folder` varchar(255) NOT NULL,
+  PRIMARY KEY  (`lang_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_languages`
+-- 
+
+INSERT INTO `phpforyou_languages` VALUES (1, 'Arabic', 'ar');
+INSERT INTO `phpforyou_languages` VALUES (2, 'English', 'eng');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_moderators`
+-- 
+
+CREATE TABLE `phpforyou_moderators` (
+  `id` int(11) NOT NULL auto_increment,
+  `section_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `edit` int(11) NOT NULL,
+  `delete` int(11) NOT NULL,
+  `move` int(11) NOT NULL,
+  `sticky` int(11) NOT NULL,
+  `merge` int(11) NOT NULL,
+  `close` int(11) NOT NULL,
+  `recy` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_moderators`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_moderlogs`
+-- 
+
+CREATE TABLE `phpforyou_moderlogs` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `theard_id` int(11) NOT NULL,
+  `do` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_moderlogs`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_names`
+-- 
+
+CREATE TABLE `phpforyou_names` (
+  `name_id` int(11) NOT NULL auto_increment,
+  `user_title` varchar(255) NOT NULL,
+  `user_star` varchar(255) NOT NULL,
+  `user_post` int(11) NOT NULL,
+  PRIMARY KEY  (`name_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_names`
+-- 
+
+INSERT INTO `phpforyou_names` VALUES (1, 'Ø¹Ø¶Ùˆ Ø¬Ø¯ÙŠØ¯', 'images/stars/1Star.gif', 10);
+INSERT INTO `phpforyou_names` VALUES (2, 'Ø§Ù„Ù…Ø¯ÙŠØ± Ø§Ù„Ø¹Ø§Ù…', 'upload/labels/8409-6Star.gif', 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_online`
+-- 
+
+CREATE TABLE `phpforyou_online` (
+  `id` int(11) NOT NULL auto_increment,
+  `ip` varchar(255) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `where` varchar(255) NOT NULL,
+  `lastmove_time` varchar(255) NOT NULL,
+  `f_id` int(11) NOT NULL,
+  `t_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5313 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_online`
+-- 
+
+INSERT INTO `phpforyou_online` VALUES (5312, '127.0.0.1', '1352374163', 'admin', 1, 'Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„Ù…Ù†ØªØ¯Ù‰ Ø§Ù„Ø³Ù‡Ù„ Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù†ØªØ¯ÙŠØ§Øª', '', 0, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_pages`
+-- 
+
+CREATE TABLE `phpforyou_pages` (
+  `page_id` int(11) NOT NULL auto_increment,
+  `page_name` varchar(255) NOT NULL,
+  `page_views` int(11) NOT NULL,
+  `page_text` text NOT NULL,
+  `page_active` int(11) NOT NULL,
+  `page_time` int(11) NOT NULL,
+  `page_date` varchar(255) NOT NULL,
+  PRIMARY KEY  (`page_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_pages`
+-- 
+
+INSERT INTO `phpforyou_pages` VALUES (1, 'Ø§Ù„Ø£Ø­ØµØ§Ø¦ÙŠØ§Øª Ø§Ù„Ø¹Ø§Ù…Ø©', 0, '<div class=\"text\">??? ???????? ????? : <!--?php print TotalTopics(); ?--></div>\r\n<div class=\"text\">??? ????????? ????? : <!--?php print TotalPosts(); ?--></div>\r\n<div class=\"text\">??? ??????? ????? : <!--?php print TotalUsers(); ?--></div>\r\n<div class=\"text\">??? ??? ???? : <!--?php print LastUser(); ?--></div>\r\n<div class=\"text\">??????? ?????????? : <!--?php print $eaf--->online-&gt;OnlineUsers(); ?&gt;</div>\r\n<div class=\"text\">?????? ?????????? : <!--?php print $eaf--->online-&gt;OnlineGuest(); ?&gt;</div>\r\n<br />\r\n<!--?php $LIGQUERYS = $eaf--->db-&gt;query(\"select * from `members` where `totla_ps` != 0 order by `totla_ps` desc limit 10\"); ?&gt;db-&gt;_object($LIGQUERYS)): ?&gt;<table style=\"width:50%;margin-left:auto;margin-right:auto;\"><tbody><tr><td class=\"Tabletitle\" colspan=\"2\">???? ??? ?? ??? ????????</td>\r\n</tr>\r\n<tr><td class=\"tool\">??? ????????</td>\r\n<td class=\"tool\">??? ????????</td>\r\n</tr>\r\n<!--?php while($LIGQUERYROWS = $eaf---><tr><td><a href=\"./?action=profile=%3C?php%20print%20$LIGQUERYROWS-%3Euid;%20?%3E\"><!--?php print $LIGQUERYROWS--->username; ?&gt;</a></td>\r\n<td><!--?php print $LIGQUERYROWS--->totla_ps; ?&gt;</td>\r\n</tr>\r\n<!--? endwhile; ?--></tbody>\r\n</table>\r\n<br />\r\n<!--?php $LIXGQUERYS = $eaf--->db-&gt;query(\"select * from `members` where `total_posts` != 0 order by `total_posts` desc limit 10\"); ?&gt;db-&gt;_object($LIXGQUERYS)): ?&gt;<table style=\"width:50%;margin-left:auto;margin-right:auto;\"><tbody><tr><td class=\"Tabletitle\" colspan=\"2\">???? ??? ?? ??? ?????????</td>\r\n</tr>\r\n<tr><td class=\"tool\">??? ??? ????????</td>\r\n<td class=\"tool\">??? ?????????</td>\r\n</tr>\r\n<!--?php while($LIXGQUERYROWS = $eaf---><tr><td><a href=\"./?action=profile=%3C?php%20print%20$LIXGQUERYROWS-%3Euid;%20?%3E\"><!--?php print $LIXGQUERYROWS--->username; ?&gt;</a></td>\r\n<td><!--?php print $LIXGQUERYROWS--->total_posts; ?&gt;</td>\r\n</tr>\r\n<!--? endwhile; ?--></tbody>\r\n</table>\r\n', 0, 1316963786, '09-25-2011 , 10:16 AM');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_pblocks`
+-- 
+
+CREATE TABLE `phpforyou_pblocks` (
+  `block_id` int(11) NOT NULL auto_increment,
+  `block_title` varchar(255) NOT NULL,
+  `block_content` text NOT NULL,
+  `block_active` varchar(255) NOT NULL,
+  `block_sort` int(11) NOT NULL default '0',
+  `block_where` varchar(255) NOT NULL,
+  `block_temp` int(11) NOT NULL,
+  PRIMARY KEY  (`block_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_pblocks`
+-- 
+
+INSERT INTO `phpforyou_pblocks` VALUES (1, 'أقسام الموقع', '<?php print ForumsMenu(); ?>', 'yes', 1, '1', 0);
+INSERT INTO `phpforyou_pblocks` VALUES (2, 'الساعة', '<H1>adsasd</h1>', 'yes', 2, '1', 1);
+INSERT INTO `phpforyou_pblocks` VALUES (8, 'ÙƒÙ…Ù„Ø© Ø§Ù„Ø³Ø±', '<?php print md5(rand(111,999)); ?>', '0', 0, '1', 1);
+INSERT INTO `phpforyou_pblocks` VALUES (3, 'المتواجدون الان', 'الأعضاء : \r\n<?php print $eaf->online->OnlineUsers(); ?> , \r\nالزوار : \r\n<?php print $eaf->online->OnlineGuest(); ?> ', 'yes', 1, '2', 0);
+INSERT INTO `phpforyou_pblocks` VALUES (4, 'Ø§Ù„Ø£Ø­ØµØ§Ø¦ÙŠØ§Øª Ø§Ù„Ø¹Ø§Ù…Ø©', '???????? : <?php print TotalTopics(); ?>\r\n,\r\n?????????  : <?php print TotalPosts(); ?>\r\n,\r\n???????  : <?php print TotalUsers(); ?>', '0', 2, '2', 0);
+INSERT INTO `phpforyou_pblocks` VALUES (5, 'أفضل أعضاء', '<?php\r\nfunction GetTopUser($By){\r\n\r\n	global $eaf;\r\n	\r\n	$Query = $eaf->db->query({ReplaceArowa}select username,uid from members order by $By desc limit 1{ReplaceArowa});\r\n	\r\n	$Rows  = $eaf->db->_object($Query);\r\n	\r\n	return {ReplaceArowa}<a href=\\{ReplaceArowa}?profile&uid=$Rows->uid\\{ReplaceArowa}>$Rows->username</a>{ReplaceArowa};	\r\n}\r\n?>\r\n<p>أفضل كاتب للمواضيع : <?php print \r\nGetTopUser({ReplaceArowa}totla_ps{ReplaceArowa}); ?></p>\r\n<p>افضل كاتب للمشاركات : <?php print GetTopUser({ReplaceArowa}total_posts{ReplaceArowa}); ?></p>', 'yes', 3, '2', 0);
+INSERT INTO `phpforyou_pblocks` VALUES (6, 'جديد المواضيع', '<?php\r\n$GetLastTopicsMenu = $eaf->db->query({ReplaceArowa}select * from {ReplaceArowa} . tablenamestart({ReplaceArowa}topics{ReplaceArowa}) . {ReplaceArowa} order by tid desc limit 20{ReplaceArowa});\r\n	print {ReplaceArowa}\\n<ol>\\n{ReplaceArowa};\r\n	while($RowsGetLastTopicsMenu = $eaf->db->_object($GetLastTopicsMenu)) : \r\n	\r\n		print {ReplaceArowa}\\n<li><a href=\\{ReplaceArowa}?showtheard&tid=$RowsGetLastTopicsMenu->tid\\{ReplaceArowa} title=\\{ReplaceArowa}{ReplaceArowa}.substr(strip_tags(GetBbCode($RowsGetLastTopicsMenu->text)),0,250).{ReplaceArowa}\\{ReplaceArowa}>$RowsGetLastTopicsMenu->title</a></li>\\n{ReplaceArowa};\r\n\r\n	endwhile;\r\n	print {ReplaceArowa}\\n </ol>\\n{ReplaceArowa};\r\n?>', 'yes', 1, '3', 0);
+INSERT INTO `phpforyou_pblocks` VALUES (7, 'Ø¬Ø¯ÙŠØ¯ Ø§Ù„Ù…ÙˆØ§Ø¶ÙŠØ¹', '<?php print date({ReplaceArowa}Y,M,d{ReplaceArowa} , time());?>', '1', 0, '1', 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_pm`
+-- 
+
+CREATE TABLE `phpforyou_pm` (
+  `sid` int(11) NOT NULL auto_increment,
+  `stitle` varchar(255) NOT NULL,
+  `sdata` varchar(255) NOT NULL,
+  `sfrom` varchar(255) NOT NULL,
+  `sact` varchar(255) NOT NULL,
+  `smsg` text NOT NULL,
+  `s_uid` int(11) NOT NULL,
+  `s_fname` varchar(255) NOT NULL,
+  `admin_view` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`sid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_pm`
+-- 
+
+INSERT INTO `phpforyou_pm` VALUES (14, 'Ù…ØµØ§Ø¯Ø±Ø© Ø­Ù…ÙˆÙ„Ø© Ù‚Ø§Ø¯Ù…Ø© Ù…Ù† Ø¨ØºØ¯Ø§Ø¯', 'Nov 03, 2012', '1', '2', 'Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© \r\nØªÙ…Ø«Ù„ Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ  ÙˆØªØ¶Ù… Ø§Ù„Ø´Ø¨ÙƒØ© Ø¹Ø¯Ø© Ù…ÙˆØ§Ù‚Ø¹ ØªØ­Øª Ø¹Ù†ÙˆØ§Ù† www.alkafeel.netØŒ ÙˆÙ‚Ø¯ ØªÙ…Øª Ø¨Ø±Ù…Ø¬ØªÙ‡Ø§  ÙˆØªØµÙ…ÙŠÙ…Ù‡Ø§ ÙˆØ¥Ø¹Ø¯Ø§Ø¯ Ù…ÙˆØ§Ø¯Ù‡Ø§ Ù…Ù† Ù‚Ø¨Ù„ ÙƒØ§Ø¯Ø± ÙÙ†ÙŠ Ù…ØªØ®ØµØµ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø¬Ø§Ù„ Ø¶Ù…Ù† Ø´Ø¹Ø¨Ø©  Ø§Ù„Ø¥Ù†ØªØ±Ù†Øª\r\nÙÙŠ Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆØªÙØ¯Ø§Ø± Ø§Ù„Ø´Ø¨ÙƒØ© ÙˆÙŠØªÙ… ØªØ­Ø¯ÙŠØ« Ù…ÙˆØ§Ù‚Ø¹Ù‡Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹ Ù…Ù†  Ù‚Ø¨Ù„ Ù†ÙØ³ Ø§Ù„ÙƒØ§Ø¯Ø±ØŒ \r\nØ­ÙŠØ« Ø¥Ù† Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙŠÙØ¹Ø±Ø¶ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¨Ø«Ù„Ø§Ø« Ù„ØºØ§Øª Ù‡ÙŠ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©  ÙˆØ§Ù„Ø¥Ù†ÙƒÙ„ÙŠØ²ÙŠØ© ÙˆØ§Ù„ÙØ§Ø±Ø³ÙŠØ©ØŒ ÙˆÙŠØªÙ… Ø§Ù„Ø¹Ù…Ù„ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¹Ù„Ù‰ Ø¥Ø¹Ø¯Ø§Ø¯ ÙˆØ¨Ø±Ù…Ø¬Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ù„ØºØ§Øª  Ø£Ø®Ø±Ù‰ Ù‡ÙŠ Ø§Ù„Ø£ÙˆØ±Ø¯ÙŠØ© ÙˆØ§Ù„ØªØ±ÙƒÙŠØ© ÙˆØ§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ©ØŒ ÙˆÙŠØªÙˆÙ„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ø§Ù„Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ø§Ù„ØªØ¹Ø±ÙŠÙ  Ø¨Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ\r\n ÙˆÙ…Ø´Ø§Ø±ÙŠØ¹ Ø£Ù‚Ø³Ø§Ù…Ù‡Ø§ØŒ Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ù†Ø´Ø± Ø£ÙÙƒØ§Ø± ÙˆØ¢Ø«Ø§Ø± Ø£Ù‡Ù„ Ø§Ù„Ø¨ÙŠØª  Ø¹Ù„ÙŠÙ‡Ù… Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØªÙ…ÙƒÙŠÙ† Ù…Ø­Ø¨ÙŠÙ‡Ù… Ù…Ù† Ø§Ù„Ø²ÙŠØ§Ø±Ø© Ø¹Ù† Ø¨Ø¹Ø¯ Ø¨Ø´ÙƒÙ„ Ù…Ø¨Ø§Ø´Ø±. \r\n \r\nØµÙØ­Ø§Øª Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø¹Ø±Ø¨ÙŠ \r\nØ§Ù„Ø¹Ø¨Ø§Ø³ Ø¨Ù† Ø¹Ù„ÙŠ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø®ØªØ§Ø±Ø© Ø¹Ù†  Ø­ÙŠØ§Ø© Ø§Ø¨ÙŠ Ø§Ù„ÙØ¶Ù„ Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…\r\n ÙˆØ¯ÙˆØ±Ù‡ Ø§Ù„Ù…Ø¨Ø§Ø±Ùƒ ÙÙŠ ÙˆØ§Ù‚Ø¹Ø© Ø§Ù„Ø·Ù. \r\n[quote]Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø©: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¨Ø« Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙÙŠÙ…Ø§ ÙŠØ®Øµ Ø¥Ù†Ø¬Ø§Ø²Ø§ØªÙ‡Ø§ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ù…ÙŠØ© ÙˆØ§Ù„Ø®Ø¯Ù…ÙŠØ© ÙˆØºÙŠØ±Ù‡Ø§ØŒ ÙˆØ§Ù„Ù…Ù‚Ø¯Ù…Ø© Ù„Ù„Ø²Ø§Ø¦Ø±ÙŠÙ†. ØªØ£Ø±ÙŠØ® Ø§Ù„Ø¹ØªØ¨Ø©: ØªØ­ØªÙˆÙŠ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¹Ù„Ù‰ ØªÙˆØ¶ÙŠØ­ Ù…Ø±Ø§Ø­Ù„ Ø§Ù„Ø¨Ù†Ø§Ø¡ ÙˆØ§Ù„ØªØ·ÙˆÙŠØ± Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙˆÙ…Ø±Ø§Ø­Ù„ Ø§Ù„ØªÙ‡Ø¯ÙŠÙ… ÙˆØ§Ù„Ø¹Ø¯ÙˆØ§Ù† Ø§Ù„ØªÙŠ ØªØ¹Ø±Ø¶Øª Ù„Ù‡Ø§.   [/quote][b]\r\n[/b]\r\n', 1, 'admin', 0);
+INSERT INTO `phpforyou_pm` VALUES (15, 'ØµÙˆØ±Ø© Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 03, 2012', '1', '1', '\r\n[center][i][size=5]ÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„\r\n[/size][/i][/center]\r\n', 1, 'admin', 0);
+INSERT INTO `phpforyou_pm` VALUES (16, 'ØµÙˆØ±Ø© Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 03, 2012', '1', '1', '\r\n[center][i][size=5]ÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„\r\n[/size][/i][/center]\r\n', 1, 'admin', 0);
+INSERT INTO `phpforyou_pm` VALUES (8, 'عاشرواء الحسين عليه السلام', '06-15-2012 , 06:02 PM', '1', '2', '[CENTER][b][font=Arial][size=5]تتواصل أعمال اللجنة الإعلامية لمهرجان ربيع الشهادة الثقافي العالمي الثامن وهي لجنة مشتركة بين إعلامي العتبتين ‏المقدستين الحسينية والعباسية ‏ لتضع خريطة إعلامية تسير عليها اللجنة وتوزيع المهام على أعضاءها لأن إي عمل بدون ‏تسويق أعلامي صحيح وواعي لا يحقق أهدافه المنشودة، لذا يجب تكوين رؤية داخلية وخارجية لإيصال وتصدير فعاليات ‏المهرجان لكل دول العالم هذا بحسب ما تحدث به لشبكة الكفيل مسؤول اللجنة الإعلامية للمهرجان السيد عقيل الياسري ‏‏. ‏\r\nوأضاف\" تكفلت اللجنة الإعلامية للمهرجان بعدد من المهام التي من شأنها تصب في خدمته إعلاميا وهناك جهد يبذل من ‏أجل إبراز وإظهار المهرجان بأجمل وأبهى صورة بدأ من الإعلان عنه في وسائل الأعلام أو عن طريق الإعلانات في ‏الأماكن العامة داخل وخارج محافظة كربلاء، كذلك ستعمل على تغطية ومتابعة كافة فعاليات المهرجان المتنوعة والعمل ‏على تحرير وتوثيق الفعاليات الثقافية للمهرجان إلى جانب اللقاءات والتصاريح للشخصيات المشاركة والوافدة للمهرجان ‏وهي تعمل تحت أشراف الأعلام في العتبتين المقدستين \".‏\r\nوبين إضافة لهذه الأعمال\" فأنها ستعمل على نقله بصورته الحقيقة بكافة وسائل الأعلام المتاحة المسموعة والمقروءة ‏والمرئية والإلكترونية وتغطية فعاليات المهرجان ونشاطاته اليومية بالتنسيق مع الفضائيات والإذاعات والصحف ‏والمجلات من داخل كربلاء وخارجها، حيث تم تأجير مرسلة فضائية لبث نشاطات المهرجان واعطاء الفضائيات بث هذه ‏المرسلة مجاناً، كذلك قامت اللجنة بطبع مطويات وفلكسات تعريفية، وستقوم بإصدار نشرة يومية ينشر من خلالها أخبار ‏وفعاليات المهرجان ، وعمل لقاءات وحوارات مع المشاركين والضيوف للتعرف على إحداث المهرجان اليومية ‏وأنطباعتهم وملاحظاتهم \". ‏\r\nوأكدت اللجنة الإعلامية على العمل بجهد واجتهاد من أجل إنجاح هذا المهرجان والعمل على إخراجه بصورة مشرفة ‏واستعدادها لتلبية متطلبات كافة الجهات المشاركة في المهرجان والتنسيق معها حيال كافة الأمور الصحفية والإعلامية ‏ويأتي هذا انطلاقاً من أهداف المهرجان الرامية إلى إبراز فعاليات تلك الجهات والمساهمة في إرساء مفهوم مميز ‏للمهرجان ينسجم مع مكانة كربلاء المقدسة وبما يتلاءم مع إمكاناتها ومقوماتها و يعزز مكانتها الدينية والثقافية. ‏\r\nالجدير بالذكر إن شعبة الانترنت في العتبة العباسية المقدسة ستقوم بتصميم و برمجة موقع الكتروني خاص بمهرجان ‏ربيع الشهادة والذي سيكون أحد أهم النوافذ الإعلامية التي يطل بها المهرجان على العالم وسيتم من خلاله تغطية معظم ‏فعاليات وفقرات المهرجان، وتم تهيئة فريق عمل خاص لنشر ومتابعة الموقع الالكتروني. ‏\r\nعلماً أن عدد المؤسسات ودور النشر المشاركة في معرض الكتاب وهو أحد فعاليات المهرجان قد تجاوز 100 مؤسسة ‏‏ودار نشر، وان الوفود المشاركة هي من أكثر من 45 دولة وتضم هذه الوفود المشاركة شخصيات دينية ومؤسساتية ‏‏واجتماعية وباحثين وكتاب وأدباء وشعراء وفنانين ، من أديان ومذاهب مختلفة تجمعهم رسالة الإمام الحسين عليه السلام ‏وثورته من اجل الإنسانية التي لا ‏تحدها حدود . ‏\r\n[/size][/font][/b][/CENTER]', 1, 'admin', 0);
+INSERT INTO `phpforyou_pm` VALUES (13, 'Ù…ØµØ§Ø¯Ø±Ø© Ø­Ù…ÙˆÙ„Ø© Ù‚Ø§Ø¯Ù…Ø© Ù…Ù† Ø¨ØºØ¯Ø§Ø¯', 'Nov 03, 2012', '1', '1', 'Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© \r\nØªÙ…Ø«Ù„ Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ  ÙˆØªØ¶Ù… Ø§Ù„Ø´Ø¨ÙƒØ© Ø¹Ø¯Ø© Ù…ÙˆØ§Ù‚Ø¹ ØªØ­Øª Ø¹Ù†ÙˆØ§Ù† www.alkafeel.netØŒ ÙˆÙ‚Ø¯ ØªÙ…Øª Ø¨Ø±Ù…Ø¬ØªÙ‡Ø§  ÙˆØªØµÙ…ÙŠÙ…Ù‡Ø§ ÙˆØ¥Ø¹Ø¯Ø§Ø¯ Ù…ÙˆØ§Ø¯Ù‡Ø§ Ù…Ù† Ù‚Ø¨Ù„ ÙƒØ§Ø¯Ø± ÙÙ†ÙŠ Ù…ØªØ®ØµØµ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø¬Ø§Ù„ Ø¶Ù…Ù† Ø´Ø¹Ø¨Ø©  Ø§Ù„Ø¥Ù†ØªØ±Ù†Øª\r\nÙÙŠ Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆØªÙØ¯Ø§Ø± Ø§Ù„Ø´Ø¨ÙƒØ© ÙˆÙŠØªÙ… ØªØ­Ø¯ÙŠØ« Ù…ÙˆØ§Ù‚Ø¹Ù‡Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹ Ù…Ù†  Ù‚Ø¨Ù„ Ù†ÙØ³ Ø§Ù„ÙƒØ§Ø¯Ø±ØŒ \r\nØ­ÙŠØ« Ø¥Ù† Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙŠÙØ¹Ø±Ø¶ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¨Ø«Ù„Ø§Ø« Ù„ØºØ§Øª Ù‡ÙŠ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©  ÙˆØ§Ù„Ø¥Ù†ÙƒÙ„ÙŠØ²ÙŠØ© ÙˆØ§Ù„ÙØ§Ø±Ø³ÙŠØ©ØŒ ÙˆÙŠØªÙ… Ø§Ù„Ø¹Ù…Ù„ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¹Ù„Ù‰ Ø¥Ø¹Ø¯Ø§Ø¯ ÙˆØ¨Ø±Ù…Ø¬Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ù„ØºØ§Øª  Ø£Ø®Ø±Ù‰ Ù‡ÙŠ Ø§Ù„Ø£ÙˆØ±Ø¯ÙŠØ© ÙˆØ§Ù„ØªØ±ÙƒÙŠØ© ÙˆØ§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ©ØŒ ÙˆÙŠØªÙˆÙ„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ø§Ù„Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ø§Ù„ØªØ¹Ø±ÙŠÙ  Ø¨Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ\r\n ÙˆÙ…Ø´Ø§Ø±ÙŠØ¹ Ø£Ù‚Ø³Ø§Ù…Ù‡Ø§ØŒ Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ù†Ø´Ø± Ø£ÙÙƒØ§Ø± ÙˆØ¢Ø«Ø§Ø± Ø£Ù‡Ù„ Ø§Ù„Ø¨ÙŠØª  Ø¹Ù„ÙŠÙ‡Ù… Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØªÙ…ÙƒÙŠÙ† Ù…Ø­Ø¨ÙŠÙ‡Ù… Ù…Ù† Ø§Ù„Ø²ÙŠØ§Ø±Ø© Ø¹Ù† Ø¨Ø¹Ø¯ Ø¨Ø´ÙƒÙ„ Ù…Ø¨Ø§Ø´Ø±. \r\n \r\nØµÙØ­Ø§Øª Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø¹Ø±Ø¨ÙŠ \r\nØ§Ù„Ø¹Ø¨Ø§Ø³ Ø¨Ù† Ø¹Ù„ÙŠ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø®ØªØ§Ø±Ø© Ø¹Ù†  Ø­ÙŠØ§Ø© Ø§Ø¨ÙŠ Ø§Ù„ÙØ¶Ù„ Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…\r\n ÙˆØ¯ÙˆØ±Ù‡ Ø§Ù„Ù…Ø¨Ø§Ø±Ùƒ ÙÙŠ ÙˆØ§Ù‚Ø¹Ø© Ø§Ù„Ø·Ù. \r\n[quote]Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø©: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¨Ø« Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙÙŠÙ…Ø§ ÙŠØ®Øµ Ø¥Ù†Ø¬Ø§Ø²Ø§ØªÙ‡Ø§ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ù…ÙŠØ© ÙˆØ§Ù„Ø®Ø¯Ù…ÙŠØ© ÙˆØºÙŠØ±Ù‡Ø§ØŒ ÙˆØ§Ù„Ù…Ù‚Ø¯Ù…Ø© Ù„Ù„Ø²Ø§Ø¦Ø±ÙŠÙ†. ØªØ£Ø±ÙŠØ® Ø§Ù„Ø¹ØªØ¨Ø©: ØªØ­ØªÙˆÙŠ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¹Ù„Ù‰ ØªÙˆØ¶ÙŠØ­ Ù…Ø±Ø§Ø­Ù„ Ø§Ù„Ø¨Ù†Ø§Ø¡ ÙˆØ§Ù„ØªØ·ÙˆÙŠØ± Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙˆÙ…Ø±Ø§Ø­Ù„ Ø§Ù„ØªÙ‡Ø¯ÙŠÙ… ÙˆØ§Ù„Ø¹Ø¯ÙˆØ§Ù† Ø§Ù„ØªÙŠ ØªØ¹Ø±Ø¶Øª Ù„Ù‡Ø§.   [/quote][b]\r\n[/b]\r\n', 1, 'admin', 0);
+INSERT INTO `phpforyou_pm` VALUES (12, 'Ø¥Ù‚Ø§Ù…Ø© Ù‚Ø³Ù… Ø§Ù„Ø¥Ø¹Ù„Ø§Ù†Ø§Øª Ø§Ù„Ø¯ÙˆÙ„ÙŠØ©', 'Nov 03, 2012', '1', '2', '[size=4]Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© \r\nØªÙ…Ø«Ù„ Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ  ÙˆØªØ¶Ù… Ø§Ù„Ø´Ø¨ÙƒØ© Ø¹Ø¯Ø© Ù…ÙˆØ§Ù‚Ø¹ ØªØ­Øª Ø¹Ù†ÙˆØ§Ù† www.alkafeel.netØŒ ÙˆÙ‚Ø¯ ØªÙ…Øª Ø¨Ø±Ù…Ø¬ØªÙ‡Ø§  ÙˆØªØµÙ…ÙŠÙ…Ù‡Ø§ ÙˆØ¥Ø¹Ø¯Ø§Ø¯ Ù…ÙˆØ§Ø¯Ù‡Ø§ Ù…Ù† Ù‚Ø¨Ù„ ÙƒØ§Ø¯Ø± ÙÙ†ÙŠ Ù…ØªØ®ØµØµ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø¬Ø§Ù„ Ø¶Ù…Ù† Ø´Ø¹Ø¨Ø©  Ø§Ù„Ø¥Ù†ØªØ±Ù†Øª ÙÙŠ Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆØªÙØ¯Ø§Ø± Ø§Ù„Ø´Ø¨ÙƒØ© ÙˆÙŠØªÙ… ØªØ­Ø¯ÙŠØ« Ù…ÙˆØ§Ù‚Ø¹Ù‡Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹ Ù…Ù†  Ù‚Ø¨Ù„ Ù†ÙØ³ Ø§Ù„ÙƒØ§Ø¯Ø±ØŒ Ø­ÙŠØ« Ø¥Ù† Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙŠÙØ¹Ø±Ø¶ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¨Ø«Ù„Ø§Ø« Ù„ØºØ§Øª Ù‡ÙŠ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©  ÙˆØ§Ù„Ø¥Ù†ÙƒÙ„ÙŠØ²ÙŠØ© ÙˆØ§Ù„ÙØ§Ø±Ø³ÙŠØ©ØŒ ÙˆÙŠØªÙ… Ø§Ù„Ø¹Ù…Ù„ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¹Ù„Ù‰ Ø¥Ø¹Ø¯Ø§Ø¯ ÙˆØ¨Ø±Ù…Ø¬Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ù„ØºØ§Øª  Ø£Ø®Ø±Ù‰ Ù‡ÙŠ Ø§Ù„Ø£ÙˆØ±Ø¯ÙŠØ© ÙˆØ§Ù„ØªØ±ÙƒÙŠØ© ÙˆØ§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ©ØŒ ÙˆÙŠØªÙˆÙ„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ø§Ù„Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ø§Ù„ØªØ¹Ø±ÙŠÙ  Ø¨Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆÙ…Ø´Ø§Ø±ÙŠØ¹ Ø£Ù‚Ø³Ø§Ù…Ù‡Ø§ØŒ Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ù†Ø´Ø± Ø£ÙÙƒØ§Ø± ÙˆØ¢Ø«Ø§Ø± Ø£Ù‡Ù„ Ø§Ù„Ø¨ÙŠØª  Ø¹Ù„ÙŠÙ‡Ù… Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØªÙ…ÙƒÙŠÙ† Ù…Ø­Ø¨ÙŠÙ‡Ù… Ù…Ù† Ø§Ù„Ø²ÙŠØ§Ø±Ø© Ø¹Ù† Ø¨Ø¹Ø¯ Ø¨Ø´ÙƒÙ„ Ù…Ø¨Ø§Ø´Ø±. \r\n\r\nØµÙØ­Ø§Øª Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø¹Ø±Ø¨ÙŠ [/size] [size=4]\r\nØ§Ù„Ø¹Ø¨Ø§Ø³ Ø¨Ù† Ø¹Ù„ÙŠ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø®ØªØ§Ø±Ø© Ø¹Ù†  Ø­ÙŠØ§Ø© Ø§Ø¨ÙŠ Ø§Ù„ÙØ¶Ù„ Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØ¯ÙˆØ±Ù‡ Ø§Ù„Ù…Ø¨Ø§Ø±Ùƒ ÙÙŠ ÙˆØ§Ù‚Ø¹Ø© Ø§Ù„Ø·Ù. \r\n[php]Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø©: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¨Ø« Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙÙŠÙ…Ø§ ÙŠØ®Øµ Ø¥Ù†Ø¬Ø§Ø²Ø§ØªÙ‡Ø§ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ù…ÙŠØ© ÙˆØ§Ù„Ø®Ø¯Ù…ÙŠØ© ÙˆØºÙŠØ±Ù‡Ø§ØŒ ÙˆØ§Ù„Ù…Ù‚Ø¯Ù…Ø© Ù„Ù„Ø²Ø§Ø¦Ø±ÙŠÙ†. ØªØ£Ø±ÙŠØ® Ø§Ù„Ø¹ØªØ¨Ø©: ØªØ­ØªÙˆÙŠ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¹Ù„Ù‰ ØªÙˆØ¶ÙŠØ­ Ù…Ø±Ø§Ø­Ù„ Ø§Ù„Ø¨Ù†Ø§Ø¡ ÙˆØ§Ù„ØªØ·ÙˆÙŠØ± Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙˆÙ…Ø±Ø§Ø­Ù„ Ø§Ù„ØªÙ‡Ø¯ÙŠÙ… ÙˆØ§Ù„Ø¹Ø¯ÙˆØ§Ù† Ø§Ù„ØªÙŠ ØªØ¹Ø±Ø¶Øª Ù„Ù‡Ø§.   [/php][b]\r\n[/b][/size]\r\n', 1, 'admin', 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_posts`
+-- 
+
+CREATE TABLE `phpforyou_posts` (
+  `pid` int(11) NOT NULL auto_increment,
+  `t_id` int(11) NOT NULL,
+  `f_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `ptitle` varchar(255) NOT NULL,
+  `pdata` varchar(255) NOT NULL,
+  `pusername` varchar(255) NOT NULL,
+  `ptext` text NOT NULL,
+  `picon` varchar(255) NOT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY  (`pid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_posts`
+-- 
+
+INSERT INTO `phpforyou_posts` VALUES (1, 1, 2, 1, '', '06-13-2012 , 09:02 PM', 'admin', '?? ????? .\r\n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (2, 1, 2, 1, 'رد : رد : new topic', '06-14-2012 , 10:15 PM', 'admin', '	[quote name=admin]\r\n\r\n		رد تجريب .\r\n\r\n	[/quote]\r\n\r\n[CENTER][b]السلام عليكم ورحمة الله وبركاته[/b][/CENTER]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (4, 2, 2, 1, '', '06-18-2012 , 08:33 PM', 'admin', '[attachment=3 /]\r\n[attachment=2 /]\r\n[attachment=4 /]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (14, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 01:43 PM', 'admin', 'Ø§Ù„Ù„Ù‡Ù… ØµÙ„ Ø¹Ù„Ù‰ Ù…Ø­Ù…Ø¯ ÙˆØ¢Ù„ Ù…Ø­Ù…Ø¯ \n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (6, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', '10-26-2012 , 12:01 AM', 'admin', '[attachment=5 /]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (7, 4, 5, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', '10-26-2012 , 12:08 AM', 'admin', '[php]&lt;?php $upload = move_uploaded_file(FROM , TO); ?&gt;[/php]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (8, 4, 5, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', '10-26-2012 , 12:08 AM', 'admin', '[php]&lt;?php $var = *=q=*Value*=q=*; ?&gt;[/php]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (15, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 01:47 PM', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (17, 1, 2, 4, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 01:54 PM', 'superB2ST', '[b]s[/b]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (19, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 02:02 PM', 'admin', '[color=FF0000][font=Arial][size=5]Ø§Ù„Ù„Ù‡Ù… ØµÙ„ Ø¹Ù„Ù‰ Ù…Ø­Ù…Ø¯ ÙˆØ¢Ù„ Ù…Ø­Ù…Ø¯ \nÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„[/size][/font][/color]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (20, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 02:06 PM', 'admin', '[b][color=993300]Ø§Ù„Ù„Ù‡Ù… ØµÙ„ Ø¹Ù„Ù‰ Ù…Ø­Ù…Ø¯ ÙˆØ¢Ù„ Ù…Ø­Ù…Ø¯\nÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„ [/color][/b]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (21, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 02:07 PM', 'admin', '[size=5][color=rgb(204, 0, 0)][font=Arial]Bay Gays , Hi Lades[/font][/color][/size]', 'images/icons/video.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (22, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 02:10 PM', 'admin', 'Ø´ÙŠØ´Ø³ÙŠØ´Ø³ÙŠ', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (23, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 02:30 PM', 'admin', '\r\n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (24, 1, 2, 4, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '10-26-2012 , 02:54 PM', 'superB2ST', '[color=#990066][font=Comic Sans MS][size=4][b]Ø´ÙƒØ±Ø§Ù‹ Ø¬Ø²ÙŠÙ„Ø§Ù‹ Ù„Ùƒ \n[/b][/size][/font][/color]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (25, 1, 2, 1, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '11-01-2012 , 01:10 PM', 'admin', '[quote name=superB2ST][color=#990066][font=Comic Sans MS][size=4][b]Ø´ÙƒØ±Ø§Ù‹ Ø¬Ø²ÙŠÙ„Ø§Ù‹ Ù„Ùƒ \r\n[/b][/size][/font][/color][/quote]\r\nØ§Ù„Ø´ÙƒØ± Ù„Ùƒ Ø£Ø®ÙŠ\r\n[attachment=6 /]\r\n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (26, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', '11-01-2012 , 11:50 PM', 'admin', '[attachment=7 /]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (27, 4, 5, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', 'Nov 03, 2012', 'admin', '[php]&lt;?php \n\n  # For Example .\n  $file = $_FILES[''photo''][''tmp_name''];\n  $name = $_FILES[''photo''][''name''];\n  \n  if(move_uploaded_file($file , \"upload/\" . $name)){\n\n    print ''ok'';\n\n  }else{\n\n    print ''error'';\n  \n  }\n?&gt;[/php]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (28, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (29, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (30, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (31, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (32, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (33, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (34, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (35, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '[img=http://localhost/brSchools/style/index_22.jpg]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (36, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', 'esoTalk has encountered an nasty error which is making it impossible to do whatever it is that you''re doing. But don''t feel down - here are a few things you can try:\n\n    Try again. Everyone makes mistakes - maybe the computer made one this time!\n\n    Go back and check your settings. In particular, make sure your database information is correct.\n\n    Get help. Go on the esoTalk support forum and search to see if anyone else is having the same problem as you are. If not, start a new conversation about your problem, including the error details below.\n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (37, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '[b]esoTalk has encountered an nasty error which is making it impossible to do whatever it is that you''re doing. But don''t feel down - here are a few things you can try:\n\n    Try again. Everyone makes mistakes - maybe the computer made one this time!\n\n    Go back and check your settings. In particular, make sure your database information is correct.\n\n    Get help. Go on the esoTalk support forum and search to see if anyone else is having the same problem as you are. If not, start a new conversation about your problem, including the error details below.\n[/b]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (38, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', 'esoTalk has encountered an nasty error which is making it impossible to do whatever it is that you''re doing. But don''t feel down - here are a few things you can try:\n\n    Try again. Everyone makes mistakes - maybe the computer made one this time!\n\n    Go back and check your settings. In particular, make sure your database information is correct.\n\n    Get help. Go on the esoTalk support forum and search to see if anyone else is having the same problem as you are. If not, start a new conversation about your problem, including the error details below.\n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (39, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', 'esoTalk has encountered an nasty error which is making it impossible to do whatever it is that you''re doing. But don''t feel down - here are a few things you can try:\n\n    Try again. Everyone makes mistakes - maybe the computer made one this time!\n\n    Go back and check your settings. In particular, make sure your database information is correct.\n\n    Get help. Go on the esoTalk support forum and search to see if anyone else is having the same problem as you are. If not, start a new conversation about your problem, including the error details below.\n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (40, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', 'esoTalk has encountered an nasty error which is making it impossible to do whatever it is that you''re doing. But don''t feel down - here are a few things you can try:\n\n    Try again. Everyone makes mistakes - maybe the computer made one this time!\n\n    Go back and check your settings. In particular, make sure your database information is correct.\n\n    Get help. Go on the esoTalk support forum and search to see if anyone else is having the same problem as you are. If not, start a new conversation about your problem, including the error details below.\n', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (41, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '[size=5]esoTalk has encountered an nasty error which is making it impossible to do whatever it is that you''re doing. But don''t feel down - here are a few things you can try:\n\n    Try again. Everyone makes mistakes - maybe the computer made one this time!\n\n    Go back and check your settings. In particular, make sure your database information is correct.\n\n    Get help. Go on the esoTalk support forum and search to see if anyone else is having the same problem as you are. If not, start a new conversation about your problem, including the error details below.\n[/size]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (42, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '[color=#993300][font=Arial][size=4]esoTalk has encountered an nasty error which is making it impossible to do whatever it is that you''re doing. But don''t feel down - here are a few things you can try:\n\n    Try again. Everyone makes mistakes - maybe the computer made one this time!\n\n    Go back and check your settings. In particular, make sure your database information is correct.\n\n    Get help. Go on the esoTalk support forum and search to see if anyone else is having the same problem as you are. If not, start a new conversation about your problem, including the error details below.\n[/size][/font][/color]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (43, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', '[font=Tahoma][color=#993300][b][size=4]`type` varchar(255) DEFAULT NULL,\n	`memberId` int(11) unsigned NOT NULL,\n	`fromMemberId` int(11) unsigned DEFAULT NULL,\n	`data` tinyblob DEFAULT NULL,\n	`conversationId` int(11) unsigned DEFAULT NULL,\n	`postId` int(11) unsigned DEFAULT NULL,\n	`time` int(11) unsigned DEFAULT NULL,\n	`read` tinyint(1) DEFAULT ''0'',\n	PRIMARY KEY (`activityId`),\n	KEY `activity_memberId` ([/size][/b][/color][/font]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (44, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', 'Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ø§Ù„Ø°ÙŠ ÙŠÙ…Ù†Ø­Ù‡ ÙØ±ÙŠÙ‚ Ø§Ù„ØªØ­Ø±ÙŠØ± Ø¹Ù†Ø§ÙŠØ© Ø®Ø§ØµØ© Ù…Ù† Ù†Ø§Ø­ÙŠØ© Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ø£Ø³Ø¦Ù„Ø© ÙˆØ§Ù„Ø¥Ø¬Ø§Ø¨Ø§Øª Ø¹Ù„ÙŠÙ‡Ø§ØŒ ÙˆØªÙ„Ù‚Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¹Ù„Ù‰ Ø¹Ø¯Ø¯ Ù…Ù† Ø§Ù„Ø§Ø³ØªÙØªØ§Ø¡Ø§Øª Ø§Ù„ØªÙŠ Ø·Ø±Ø­Ù‡Ø§ØŒ Ù…Ø¦Ø§Øª Ø¢Ù„Ø§Ù ', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (45, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', 'Ø´Ø³ÙŠØ´Ø³ÙŠØ´Ø³ÙŠØ´Ø³ÙŠØ´Ø³ÙŠØ´Ø³ÙŠØ´Ø³ÙŠ', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (46, 3, 2, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'Nov 04, 2012', 'admin', 'Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ø§Ù„Ø°ÙŠ ÙŠÙ…Ù†Ø­Ù‡ ÙØ±ÙŠÙ‚ Ø§Ù„ØªØ­Ø±ÙŠØ± Ø¹Ù†Ø§ÙŠØ© Ø®Ø§ØµØ© Ù…Ù† Ù†Ø§Ø­ÙŠØ© Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ø£Ø³Ø¦Ù„Ø© ÙˆØ§Ù„Ø¥Ø¬Ø§Ø¨Ø§Øª Ø¹Ù„ÙŠÙ‡Ø§ØŒ ÙˆØªÙ„Ù‚Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¹Ù„Ù‰ Ø¹Ø¯Ø¯ Ù…Ù† Ø§Ù„Ø§Ø³ØªÙØªØ§Ø¡Ø§Øª Ø§Ù„ØªÙŠ Ø·Ø±Ø­Ù‡Ø§ØŒ Ù…Ø¦Ø§Øª Ø¢Ù„Ø§Ù ', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (47, 4, 5, 5, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', 'Nov 07, 2012', 'mr.php', '[b][center]Ø´ÙƒØ±Ø§Ù‹ Ø¹Ø²ÙŠØ²ÙŠ Ù„Ø·Ø±Ø­Ùƒ Ø§Ù„Ø±Ø§Ø¦Ø¹\nØªØ­ÙŠØ§ØªÙŠ[/center][/b]', 'images/default_post.gif', 0);
+INSERT INTO `phpforyou_posts` VALUES (48, 4, 5, 1, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', 'Nov 08, 2012', 'admin', ':LKA:\nØ§Ù„Ø³Ù„Ø§Ù… Ø¹Ù„ÙŠÙƒÙ… Ø¹Ø²ÙŠØ²ÙŠ ÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„\n', 'images/default_post.gif', 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_reputation`
+-- 
+
+CREATE TABLE `phpforyou_reputation` (
+  `reputation_id` int(11) NOT NULL auto_increment,
+  `reputation_userid` int(11) NOT NULL,
+  `reputation_way` text NOT NULL,
+  `reputation_data` varchar(255) NOT NULL,
+  `reputation_time` int(11) NOT NULL,
+  `reputation_by` int(11) NOT NULL,
+  `reputation_tid` int(11) NOT NULL,
+  `reputation_pid` int(11) NOT NULL,
+  PRIMARY KEY  (`reputation_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_reputation`
+-- 
+
+INSERT INTO `phpforyou_reputation` VALUES (1, 1, 'Ø´ÙƒØ±Ø§Ù‹ Ø¬Ø²ÙŠÙ„Ø§Ù‹ Ù„Ùƒ ', '10-26-2012 , 12:37 AM', 1351197446, 4, 4, 7);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_sections`
+-- 
+
+CREATE TABLE `phpforyou_sections` (
+  `fid` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  `more` varchar(9000) NOT NULL,
+  `open` int(11) NOT NULL,
+  `total_topics` int(11) NOT NULL,
+  `total_replays` int(11) NOT NULL,
+  `last_topic` text NOT NULL,
+  `sort` int(11) NOT NULL,
+  `catimg` varchar(255) NOT NULL,
+  `last_postid` int(11) NOT NULL,
+  `last_postuser` varchar(255) NOT NULL,
+  `last_postuid` int(11) NOT NULL,
+  `guset_show` int(11) NOT NULL,
+  `user_show` int(11) NOT NULL,
+  `rule` text NOT NULL,
+  `mods_show` int(11) NOT NULL,
+  `out_show` int(11) NOT NULL,
+  `morder_show` int(11) NOT NULL,
+  `last_postdate` varchar(255) NOT NULL,
+  `last_posticon` varchar(255) NOT NULL,
+  `view_self` int(11) NOT NULL,
+  `order` int(11) NOT NULL default '0',
+  `act_show` int(11) NOT NULL,
+  PRIMARY KEY  (`fid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_sections`
+-- 
+
+INSERT INTO `phpforyou_sections` VALUES (1, 'Ø§Ù„Ø£Ù‚Ø³Ø§Ù… Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©', 'ÙŠØ¶Ù… Ø¬Ù…ÙŠØ¹ Ø§Ù„ØªØµØ§Ù†ÙŠÙ Ø§Ù„Ø¹Ø§Ù…Ø©\r\n', 1, 0, 0, '', 0, 'images/default_icon.png', 0, '', 0, 0, 0, '', 0, 0, 0, '', '', 0, 1, 1);
+INSERT INTO `phpforyou_sections` VALUES (2, 'Ø§Ù„Ù…Ù†ØªØ¯Ù‰ Ø§Ù„Ø¹Ø§Ù…', '??? ???????', 1, 3, 34, 'Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 1, 'upload/sections/7885-vlcsnap-2012-10-04-22h02m44s108.png', 3, 'admin', 1, 0, 0, '', 0, 0, 0, '06-19-2012 , 04:04 PM', 'images/default_post.gif', 1, 1, 1);
+INSERT INTO `phpforyou_sections` VALUES (3, 'Ù…Ù†ØªØ¯Ù‰ Ø§Ù„Ø­ÙˆØ§Ø± Ø§Ù„Ø¹Ø§Ù…', '', 1, 0, 0, '', 2, 'images/default_icon.png', 0, '', 0, 0, 0, '', 0, 0, 0, '', '', 1, 0, 1);
+INSERT INTO `phpforyou_sections` VALUES (5, 'Ù…Ù†ØªØ¯Ù‰ Ø§Ù„ØªÙƒÙ†Ù„ÙˆØ¬ÙŠØ©', 'ÙŠØ®ØªØµ Ø¨Ø¬Ø¯ÙŠØ¯ Ø§Ù„Ù‡ÙˆØ§ØªÙ Ùˆ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ± Ùˆ Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªØ´ØºÙ„ Ùˆ Ø§Ù„Ø¨Ø±Ø§Ù…Ø¬ Ùˆ ØºÙŠØ±Ù‡\r\n', 1, 1, 5, 'Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', 1, 'upload/sections/963-vlcsnap-2012-10-22-14h08m06s78.png', 4, 'admin', 1, 0, 0, 'ÙŠØ®ØªØµ Ø¨Ø¬Ø¯ÙŠØ¯ Ø§Ù„Ù‡ÙˆØ§ØªÙ Ùˆ Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ± Ùˆ Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªØ´ØºÙ„ Ùˆ Ø§Ù„Ø¨Ø±Ø§Ù…Ø¬ Ùˆ ØºÙŠØ±Ù‡', 0, 0, 0, '10-26-2012 , 12:07 AM', 'images/default_post.gif', 1, 0, 1);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_smiles`
+-- 
+
+CREATE TABLE `phpforyou_smiles` (
+  `smile_id` int(11) NOT NULL auto_increment,
+  `smile_title` varchar(255) NOT NULL,
+  `smile_replace` varchar(255) NOT NULL,
+  PRIMARY KEY  (`smile_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_smiles`
+-- 
+
+INSERT INTO `phpforyou_smiles` VALUES (3, ':LKA:', 'upload/smiles/6157-add.gif');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_styles`
+-- 
+
+CREATE TABLE `phpforyou_styles` (
+  `style_id` int(11) NOT NULL auto_increment,
+  `style_name` varchar(255) NOT NULL,
+  `style_folder` varchar(255) NOT NULL,
+  `style_select` int(11) NOT NULL,
+  PRIMARY KEY  (`style_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_styles`
+-- 
+
+INSERT INTO `phpforyou_styles` VALUES (1, 'default arabic', 'default_arabic', 1);
+INSERT INTO `phpforyou_styles` VALUES (3, 'Clasic', 'clasic_style', 1);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_topics`
+-- 
+
+CREATE TABLE `phpforyou_topics` (
+  `tid` int(11) NOT NULL auto_increment,
+  `f_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `data` varchar(255) NOT NULL,
+  `views` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `txts` int(11) NOT NULL,
+  `icon_id` varchar(255) NOT NULL,
+  `close` int(11) NOT NULL,
+  `stayed` int(11) NOT NULL,
+  `lastpage` int(11) NOT NULL,
+  `wtime` int(11) NOT NULL,
+  `lastpostid` int(11) NOT NULL,
+  `lastpost_title` varchar(255) NOT NULL,
+  `lastpost_icon` varchar(255) NOT NULL,
+  `lastpost_user` varchar(255) NOT NULL,
+  `lastpost_time` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL default '0',
+  `rating` int(11) NOT NULL,
+  PRIMARY KEY  (`tid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_topics`
+-- 
+
+INSERT INTO `phpforyou_topics` VALUES (1, 2, 1, 'admin', 'Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', '08-30-2011 , 12:42 PM', 342, '\r\n[center][b][size=6]hallo[/size][/b][/center]\r\n ', 12, 'images/default_post.gif', 0, 1, 2, 1351764635, 25, 'Ø±Ø¯ : Ø§Ùˆ ÙŠØ§ Ø§Ù„Ù„Ù‡', 'images/default_post.gif', 'admin', 0, 0, 1);
+INSERT INTO `phpforyou_topics` VALUES (2, 2, 1, 'admin', 'Ù…ØµØ§Ø¯Ø±Ø© Ø­Ù…ÙˆÙ„Ø© Ù‚Ø§Ø¯Ù…Ø© Ù…Ù† Ø¨ØºØ¯Ø§Ø¯ Ø¹Ù„Ù‰ Ø·Ø±ÙŠÙ‚ Ø§Ù„Ø­Ù„Ø© Ø§Ù„ÙˆØ§ØµÙ„ Ø¨ÙƒØ±ÙƒÙˆÙƒ', '06-17-2012 , 04:53 PM', 72, '\r\n[right][font=Arial][b][size=5]Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© \r\nØªÙ…Ø«Ù„ Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ  ÙˆØªØ¶Ù… Ø§Ù„Ø´Ø¨ÙƒØ© Ø¹Ø¯Ø© Ù…ÙˆØ§Ù‚Ø¹ ØªØ­Øª Ø¹Ù†ÙˆØ§Ù† www.alkafeel.netØŒ ÙˆÙ‚Ø¯ ØªÙ…Øª Ø¨Ø±Ù…Ø¬ØªÙ‡Ø§  ÙˆØªØµÙ…ÙŠÙ…Ù‡Ø§ ÙˆØ¥Ø¹Ø¯Ø§Ø¯ Ù…ÙˆØ§Ø¯Ù‡Ø§ Ù…Ù† Ù‚Ø¨Ù„ ÙƒØ§Ø¯Ø± ÙÙ†ÙŠ Ù…ØªØ®ØµØµ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø¬Ø§Ù„ Ø¶Ù…Ù† Ø´Ø¹Ø¨Ø©  Ø§Ù„Ø¥Ù†ØªØ±Ù†Øª ÙÙŠ Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆØªÙØ¯Ø§Ø± Ø§Ù„Ø´Ø¨ÙƒØ© ÙˆÙŠØªÙ… ØªØ­Ø¯ÙŠØ« Ù…ÙˆØ§Ù‚Ø¹Ù‡Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹ Ù…Ù†  Ù‚Ø¨Ù„ Ù†ÙØ³ Ø§Ù„ÙƒØ§Ø¯Ø±ØŒ Ø­ÙŠØ« Ø¥Ù† Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙŠÙØ¹Ø±Ø¶ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¨Ø«Ù„Ø§Ø« Ù„ØºØ§Øª Ù‡ÙŠ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©  ÙˆØ§Ù„Ø¥Ù†ÙƒÙ„ÙŠØ²ÙŠØ© ÙˆØ§Ù„ÙØ§Ø±Ø³ÙŠØ©ØŒ ÙˆÙŠØªÙ… Ø§Ù„Ø¹Ù…Ù„ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¹Ù„Ù‰ Ø¥Ø¹Ø¯Ø§Ø¯ ÙˆØ¨Ø±Ù…Ø¬Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ù„ØºØ§Øª  Ø£Ø®Ø±Ù‰ Ù‡ÙŠ Ø§Ù„Ø£ÙˆØ±Ø¯ÙŠØ© ÙˆØ§Ù„ØªØ±ÙƒÙŠØ© ÙˆØ§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ©ØŒ ÙˆÙŠØªÙˆÙ„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ø§Ù„Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ø§Ù„ØªØ¹Ø±ÙŠÙ  Ø¨Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆÙ…Ø´Ø§Ø±ÙŠØ¹ Ø£Ù‚Ø³Ø§Ù…Ù‡Ø§ØŒ Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ù†Ø´Ø± Ø£ÙÙƒØ§Ø± ÙˆØ¢Ø«Ø§Ø± Ø£Ù‡Ù„ Ø§Ù„Ø¨ÙŠØª  Ø¹Ù„ÙŠÙ‡Ù… Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØªÙ…ÙƒÙŠÙ† Ù…Ø­Ø¨ÙŠÙ‡Ù… Ù…Ù† Ø§Ù„Ø²ÙŠØ§Ø±Ø© Ø¹Ù† Ø¨Ø¹Ø¯ Ø¨Ø´ÙƒÙ„ Ù…Ø¨Ø§Ø´Ø±. \r\n\r\nØµÙØ­Ø§Øª Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø¹Ø±Ø¨ÙŠ \r\nØ§Ù„Ø¹Ø¨Ø§Ø³ Ø¨Ù† Ø¹Ù„ÙŠ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø®ØªØ§Ø±Ø© Ø¹Ù†  Ø­ÙŠØ§Ø© Ø§Ø¨ÙŠ Ø§Ù„ÙØ¶Ù„ Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØ¯ÙˆØ±Ù‡ Ø§Ù„Ù…Ø¨Ø§Ø±Ùƒ ÙÙŠ ÙˆØ§Ù‚Ø¹Ø© Ø§Ù„Ø·Ù. \r\nØ£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø©: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¨Ø« Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙÙŠÙ…Ø§ ÙŠØ®Øµ Ø¥Ù†Ø¬Ø§Ø²Ø§ØªÙ‡Ø§ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ù…ÙŠØ© ÙˆØ§Ù„Ø®Ø¯Ù…ÙŠØ© ÙˆØºÙŠØ±Ù‡Ø§ØŒ ÙˆØ§Ù„Ù…Ù‚Ø¯Ù…Ø© Ù„Ù„Ø²Ø§Ø¦Ø±ÙŠÙ†. \r\nØªØ£Ø±ÙŠØ® Ø§Ù„Ø¹ØªØ¨Ø©: ØªØ­ØªÙˆÙŠ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¹Ù„Ù‰ ØªÙˆØ¶ÙŠØ­ Ù…Ø±Ø§Ø­Ù„ Ø§Ù„Ø¨Ù†Ø§Ø¡ ÙˆØ§Ù„ØªØ·ÙˆÙŠØ± Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙˆÙ…Ø±Ø§Ø­Ù„ Ø§Ù„ØªÙ‡Ø¯ÙŠÙ… ÙˆØ§Ù„Ø¹Ø¯ÙˆØ§Ù† Ø§Ù„ØªÙŠ ØªØ¹Ø±Ø¶Øª Ù„Ù‡Ø§.  \r\n \r\nØ´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© \r\nØªÙ…Ø«Ù„ Ø´Ø¨ÙƒØ© Ø§Ù„ÙƒÙÙŠÙ„ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ  ÙˆØªØ¶Ù… Ø§Ù„Ø´Ø¨ÙƒØ© Ø¹Ø¯Ø© Ù…ÙˆØ§Ù‚Ø¹ ØªØ­Øª Ø¹Ù†ÙˆØ§Ù† www.alkafeel.netØŒ ÙˆÙ‚Ø¯ ØªÙ…Øª Ø¨Ø±Ù…Ø¬ØªÙ‡Ø§  ÙˆØªØµÙ…ÙŠÙ…Ù‡Ø§ ÙˆØ¥Ø¹Ø¯Ø§Ø¯ Ù…ÙˆØ§Ø¯Ù‡Ø§ Ù…Ù† Ù‚Ø¨Ù„ ÙƒØ§Ø¯Ø± ÙÙ†ÙŠ Ù…ØªØ®ØµØµ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø¬Ø§Ù„ Ø¶Ù…Ù† Ø´Ø¹Ø¨Ø©  Ø§Ù„Ø¥Ù†ØªØ±Ù†Øª ÙÙŠ Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆØªÙØ¯Ø§Ø± Ø§Ù„Ø´Ø¨ÙƒØ© ÙˆÙŠØªÙ… ØªØ­Ø¯ÙŠØ« Ù…ÙˆØ§Ù‚Ø¹Ù‡Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹ Ù…Ù†  Ù‚Ø¨Ù„ Ù†ÙØ³ Ø§Ù„ÙƒØ§Ø¯Ø±ØŒ Ø­ÙŠØ« Ø¥Ù† Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙŠÙØ¹Ø±Ø¶ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¨Ø«Ù„Ø§Ø« Ù„ØºØ§Øª Ù‡ÙŠ Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©  ÙˆØ§Ù„Ø¥Ù†ÙƒÙ„ÙŠØ²ÙŠØ© ÙˆØ§Ù„ÙØ§Ø±Ø³ÙŠØ©ØŒ ÙˆÙŠØªÙ… Ø§Ù„Ø¹Ù…Ù„ Ø­Ø§Ù„ÙŠØ§Ù‹ Ø¹Ù„Ù‰ Ø¥Ø¹Ø¯Ø§Ø¯ ÙˆØ¨Ø±Ù…Ø¬Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ù„ØºØ§Øª  Ø£Ø®Ø±Ù‰ Ù‡ÙŠ Ø§Ù„Ø£ÙˆØ±Ø¯ÙŠØ© ÙˆØ§Ù„ØªØ±ÙƒÙŠØ© ÙˆØ§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ©ØŒ ÙˆÙŠØªÙˆÙ„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¨Ø§Ù„Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ø§Ù„ØªØ¹Ø±ÙŠÙ  Ø¨Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø©ØŒ ÙˆÙ…Ø´Ø§Ø±ÙŠØ¹ Ø£Ù‚Ø³Ø§Ù…Ù‡Ø§ØŒ Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ù†Ø´Ø± Ø£ÙÙƒØ§Ø± ÙˆØ¢Ø«Ø§Ø± Ø£Ù‡Ù„ Ø§Ù„Ø¨ÙŠØª  Ø¹Ù„ÙŠÙ‡Ù… Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØªÙ…ÙƒÙŠÙ† Ù…Ø­Ø¨ÙŠÙ‡Ù… Ù…Ù† Ø§Ù„Ø²ÙŠØ§Ø±Ø© Ø¹Ù† Ø¨Ø¹Ø¯ Ø¨Ø´ÙƒÙ„ Ù…Ø¨Ø§Ø´Ø±. \r\n[/size][/b][/font][/right]\r\n[size=5] [/size]\r\n[right][font=Arial][b][size=5]\r\n[/size][/b][/font][/right]\r\n[right][font=Arial][b][size=5] \r\n[/size][/b][/font][/right]\r\n \r\n \r\n \r\n [attachment=1 /]', 1, 'images/default_post.gif', 0, 0, 1, 1340037197, 4, '', 'images/default_post.gif', 'admin', 0, 0, 0);
+INSERT INTO `phpforyou_topics` VALUES (3, 2, 1, 'admin', 'Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', '06-19-2012 , 04:04 PM', 316, '\r\n[right][font=Arial][size=5][b]ØµÙØ­Ø§Øª Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø¹Ø±Ø¨ÙŠ[color=rgb(0, 153, 255)] [/color][/b][/size]\r\n[/font][/right]\r\n[right][color=rgb(0, 153, 255)][font=Arial][size=4]Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¨Ù† Ø¹Ù„ÙŠ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø®ØªØ§Ø±Ø© Ø¹Ù†  Ø­ÙŠØ§Ø© Ø§Ø¨ÙŠ Ø§Ù„ÙØ¶Ù„ Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØ¯ÙˆØ±Ù‡ Ø§Ù„Ù…Ø¨Ø§Ø±Ùƒ ÙÙŠ ÙˆØ§Ù‚Ø¹Ø© Ø§Ù„Ø·Ù. [/size]\r\n[size=4]Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø©: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¨Ø« Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙÙŠÙ…Ø§ ÙŠØ®Øµ Ø¥Ù†Ø¬Ø§Ø²Ø§ØªÙ‡Ø§ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ù…ÙŠØ© ÙˆØ§Ù„Ø®Ø¯Ù…ÙŠØ© ÙˆØºÙŠØ±Ù‡Ø§ØŒ ÙˆØ§Ù„Ù…Ù‚Ø¯Ù…Ø© Ù„Ù„Ø²Ø§Ø¦Ø±ÙŠÙ†. [/size]\r\n[size=4]ØªØ£Ø±ÙŠØ® Ø§Ù„Ø¹ØªØ¨Ø©: ØªØ­ØªÙˆÙŠ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¹Ù„Ù‰ ØªÙˆØ¶ÙŠØ­ Ù…Ø±Ø§Ø­Ù„ Ø§Ù„Ø¨Ù†Ø§Ø¡ ÙˆØ§Ù„ØªØ·ÙˆÙŠØ± Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙˆÙ…Ø±Ø§Ø­Ù„ Ø§Ù„ØªÙ‡Ø¯ÙŠÙ… ÙˆØ§Ù„Ø¹Ø¯ÙˆØ§Ù† Ø§Ù„ØªÙŠ ØªØ¹Ø±Ø¶Øª Ù„Ù‡Ø§.  [/size]\r\n[b] [/b]\r\n[/font][/color][/right]\r\n[right][font=Arial][color=rgb(51, 204, 0)] [/color]\r\n\r\n[/font][/right]\r\n[font=Arial] [/font]', 21, 'images/default_post.gif', 0, 0, 3, 1352060504, 46, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØ¬Ø±ÙŠØ¨ ÙÙ‚Ø·', 'images/default_post.gif', 'admin', 0, 0, 0);
+INSERT INTO `phpforyou_topics` VALUES (4, 5, 1, 'admin', 'Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', '10-26-2012 , 12:07 AM', 141, '[php]&lt;?php print *=q=*2*=q=*; ?&gt;[/php]', 5, 'images/default_post.gif', 0, 1, 1, 1352368291, 48, 'Ø±Ø¯ : Ù…ÙˆØ¶ÙˆØ¹ Ù„Ù„ØªØµØ¯ÙŠØ±', 'images/default_post.gif', 'admin', 0, 0, 1);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_trating`
+-- 
+
+CREATE TABLE `phpforyou_trating` (
+  `id` int(11) NOT NULL auto_increment,
+  `tid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `ip` varchar(100) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_trating`
+-- 
+
+INSERT INTO `phpforyou_trating` VALUES (1, 1, 1, 1339683887, '127.0.0.1');
+INSERT INTO `phpforyou_trating` VALUES (2, 4, 1, 1351969967, '127.0.0.1');
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_vistorsmsgs`
+-- 
+
+CREATE TABLE `phpforyou_vistorsmsgs` (
+  `msg_id` int(11) NOT NULL auto_increment,
+  `msg_u_id` int(11) NOT NULL,
+  `msg_by` int(11) NOT NULL default '1',
+  `msg_data` varchar(255) NOT NULL,
+  `msg_text` text NOT NULL,
+  `msg_ip` varchar(255) NOT NULL,
+  `msg_time` int(11) NOT NULL,
+  PRIMARY KEY  (`msg_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_vistorsmsgs`
+-- 
+
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (3, 1, 1, '11-02-2012 , 12:06 AM', 'ØªØ¨Ø§Ù‹ Ù„Ùƒ', '127.0.0.1', 1351803985);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (4, 1, 1, '11-03-2012', 'Ø§Ù„Ù„Ù‡Ù… ØµÙ„ Ø¹Ù„Ù‰ Ù…Ø­Ù…Ø¯ ÙˆØ¢Ù„ Ù…Ø­Ù…Ø¯ \nØ§Ù„Ø³Ù„Ø§Ù… Ø¹Ù„ÙŠÙƒÙ…\nÙƒÙŠÙ Ø§Ù„ØµØ­Ø© ØŸ\nÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„ ØŸ ', '127.0.0.1', 1351894121);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (5, 1, 1, 'Nov 03, 2012', 'Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¨Ù† Ø¹Ù„ÙŠ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù…: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø®ØªØ§Ø±Ø© Ø¹Ù† Ø­ÙŠØ§Ø© Ø§Ø¨ÙŠ Ø§Ù„ÙØ¶Ù„ Ø§Ù„Ø¹Ø¨Ø§Ø³ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø³Ù„Ø§Ù… ÙˆØ¯ÙˆØ±Ù‡ Ø§Ù„Ù…Ø¨Ø§Ø±Ùƒ ÙÙŠ ÙˆØ§Ù‚Ø¹Ø© Ø§Ù„Ø·Ù.\nØ£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø©: ØªÙ‡ØªÙ… Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¨Ø¨Ø« Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙÙŠÙ…Ø§ ÙŠØ®Øµ Ø¥Ù†Ø¬Ø§Ø²Ø§ØªÙ‡Ø§ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ù…ÙŠØ© ÙˆØ§Ù„Ø®Ø¯Ù…ÙŠØ© ÙˆØºÙŠØ±Ù‡Ø§ØŒ ÙˆØ§Ù„Ù…Ù‚Ø¯Ù…Ø© Ù„Ù„Ø²Ø§Ø¦Ø±ÙŠÙ†.\nØªØ£Ø±ÙŠØ® Ø§Ù„Ø¹ØªØ¨Ø©: ØªØ­ØªÙˆÙŠ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø© Ø¹Ù„Ù‰ ØªÙˆØ¶ÙŠØ­ Ù…Ø±Ø§Ø­Ù„ Ø§Ù„Ø¨Ù†Ø§Ø¡ ÙˆØ§Ù„ØªØ·ÙˆÙŠØ± Ù„Ù„Ø¹ØªØ¨Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯Ø³Ø© ÙˆÙ…Ø±Ø§Ø­Ù„ Ø§Ù„ØªÙ‡Ø¯ÙŠÙ… ÙˆØ§Ù„Ø¹Ø¯ÙˆØ§Ù† Ø§Ù„ØªÙŠ ØªØ¹Ø±Ø¶Øª Ù„Ù‡Ø§. ', '127.0.0.1', 1351894163);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (12, 4, 5, 'Nov 07, 2012', 'ÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„ Ø£Ø®ÙˆØ§Ù†ÙŠ \n', '127.0.0.1', 1352286406);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (6, 4, 1, 'Nov 03, 2012', 'ÙƒÙŠÙ Ø§Ù„Ø­Ø§Ù„ Ø¹Ø²ÙŠØ²ÙŠ \nØ¥Ù† Ø´Ø§Ø¡ Ø§Ù„Ù„Ù‡ Ø¨Ø®ÙŠØ±', '127.0.0.1', 1351895822);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (7, 4, 4, 'Nov 03, 2012', 'Ø§Ù„Ø­Ù…Ø¯Ù„Ù„Ù‡ Ø¨Ø®ÙŠØ± Ø£Ù†Øª Ø´Ù„ÙˆÙ†Ùƒ', '127.0.0.1', 1351895865);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (8, 4, 1, 'Nov 03, 2012', 'Ø§Ù„Ø­Ù…Ø¯Ù„Ù„Ù‡ \nØ´Ù„ÙˆÙ† Ø§Ù„Ø¯Ø±Ø§Ø³Ø© Ù…Ø¹ÙƒØŸ\n', '127.0.0.1', 1351895901);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (9, 4, 4, 'Nov 03, 2012', 'Ù„Ø§ Ø¨Ø£Ø³ Ø¬ÙŠØ¯Ø©\nÙ†Ø­Ù† Ø£Ø¨ÙØªØ±Ø© Ø§Ù„Ø¥Ù…ØªØ­Ø§Ù†Ø§Øª Ø§Ù†Ø´Ø§Ù„Ù„Ù‡ ØªØ®Ù„Øµ Ø¨Ø³Ø±Ø¹Ø©\n', '127.0.0.1', 1351895956);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (10, 4, 1, 'Nov 03, 2012', 'Ø¥Ù† Ø´Ø§Ù„Ù„Ù‡ Ø®ÙŠØ± \nØ´Ùˆ Ø¬Ø¯ÙŠØ¯Ùƒ ØŸ\n', '127.0.0.1', 1351895995);
+INSERT INTO `phpforyou_vistorsmsgs` VALUES (11, 4, 4, 'Nov 03, 2012', 'Ù†Ø²Ù„ Ù…Ø³Ù„Ø³Ù„ Ø¬Ø¯ÙŠØ¯ Ø£Ø³Ù…Ù‡ Faith (Ø§Ù„Ø¥ÙŠÙ…Ø§Ù† ) Ù‚ØµØªÙ‡ Ø±Ø§Ø¦Ø¹Ø© \nØ£Ù†ØµØ­Ùƒ ØªØ´ÙˆÙÙ‡ \nØ±Ø§Ø­ ÙŠØ¹Ø¬Ø¨Ùƒ ÙƒØ«ÙŠØ± Ù…ØªØ£ÙƒØ¯ \nØªØ±Ø¬Ù…ØªÙ‡ Ø­Ù„ÙˆØ§', '127.0.0.1', 1351896096);
+
+-- --------------------------------------------------------
+
+-- 
+-- بنية الجدول `phpforyou_warnings`
+-- 
+
+CREATE TABLE `phpforyou_warnings` (
+  `warning_id` int(11) NOT NULL auto_increment,
+  `warning_userid` int(11) NOT NULL,
+  `warning_by` int(11) NOT NULL,
+  `warning_more` text NOT NULL,
+  `warning_data` varchar(255) NOT NULL,
+  `warning_time` int(11) NOT NULL,
+  `theardid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  PRIMARY KEY  (`warning_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 
+-- إرجاع أو إستيراد بيانات الجدول `phpforyou_warnings`
+-- 
+

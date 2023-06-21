@@ -1,0 +1,28 @@
+<table width="97%" dir="ltr" style="border:0mx;" border="0" align="center">
+{loop name="{vars.rows}" sql="$this->_vars['eaf']->Profile->VistorsText"}
+<tbody id="TBody-{$rows.msg_id}"  class="msg-body">
+<tr>
+<td>
+<div class="msg-date"><strong>{UnameById.$this->_vars['rows']['msg_by']}</strong>  -   {$rows.msg_data}</div>
+<div align="center" style="display:none" id="Vm-{$rows.msg_id}" >
+<textarea rows="5" id="VEditor-{$rows.msg_id}" cols="50">{$rows.msg_text}</textarea>
+<center><input type="button" id="EditVmsg-{$rows.msg_id}" value="{lang.edit}" /></center>
+</div>
+<div  class="msg-date" id="Text-{$rows.msg_id}">
+{REBbCode.$this->_vars['rows']['msg_text']} 
+</div>
+<br /> 
+{if name="$this->_vars['uid'] == UserId()"}
+<div align="left">
+<img src="styles/{stylefolder}/edit.png" onclick="Editvmsg('{$rows.msg_id}');" />
+<img src="styles/{stylefolder}/delete.gif" onclick="Deletevmsg('{$rows.msg_id}');" />
+</div>
+{/if}
+</td>
+<td width="30px" class="msg-avatar" valign="top">{AvatarView.$this->_vars['rows']['msg_by']}</td>
+</tr>
+</tbody>
+{/loop}
+</table>
+<center>{template name="pagination"}</center>
+

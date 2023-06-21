@@ -1,0 +1,70 @@
+<div style="width:97%; margin-left:auto; margin-right:auto; position:relative;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="17%" valign="top" style="width:<?php print GetMaxAvatarSizeW(); ?>px;">
+	<div class="profile_about">
+		<h2 class="profile_username">{Profile.Username}
+        <div align="left"><sub style="font-size:12px; margin:2px;">{Profile.Usertitle}</sub></div>
+        </h2>
+        
+		<div>{Profile.Avatar}</div>
+		<div align="center"><img src="{Profile.Userstars}" /></div>
+    	<div align="left">{Profile.Online}</div>
+        <div class="profile_row">{lang.user_id} :  </div>
+        <div class="profile_value">{Profile.Userid}</div>
+        <div class="profile_row">{lang.user_mytopics}  :   </div>
+        <div class="profile_value">{Profile.Numberoftheards} </div>
+        <div class="profile_row">{lang.user_myposts} :   </div>
+        <div class="profile_value">{Profile.Numberofposts} </div>
+        <div class="profile_row">{lang.signup_date} :  </div>
+        <div class="profile_value">{Profile.JoinDate} </div>
+        <div class="profile_row">{lang.last_login} :   </div>
+        <div class="profile_value">{Profile.lastloggedin} </div>
+        <div class="profile_callme"><strong>{lang.user_call}</strong></div>
+        <div class="profile_value"><a href="index.php?action=usercp&do=sendpm&uid={Profile.Userid}">{lang.user_sendpm}</a></div>
+        <div class="profile_value"><a href="mailto:{Profile.Email}">{lang.user_send_email}</a></div>
+    </div>
+    
+    </td>
+    <td width="83%" valign="top">
+   
+   <div class="profile_pre">
+        <span>{lang.user_age} : {Profile.Userage}</span> 
+        <span>{lang.user_sex} : {Profile.Usersex}</span> 
+        <span>{lang.user_country} : {Profile.Country}</span>
+    </div>
+   
+   <div class="slide">
+ 
+        <div id="tabsSlide">
+ 
+            <ul id="nav">
+                <li><a class="current" id="tab-1"><span>{lang.user_vmsgs}</span></a></li>
+                <li><a id="tab-2"><span>{lang.user_sig}</span></a></li>
+                <li><a id="tab-4"><span>{lang.user_friends}</span></a></li>
+            </ul>
+<div id="content">
+<div id="slide-1" class="tab-slide" style="display: block">
+{template name="profile_messages"}
+{template name="profile_addmsg"}
+</div>
+
+<div id="slide-2" class="tab-slide" style="display:none;">
+{Profile.Signature}
+</div>
+
+<div id="slide-4" class="tab-slide" style="display:none;">
+{template name="profile_friends"}
+</div>
+<!-- End Slide -->
+</div>
+<!-- End content -->
+</div>
+<!-- End SlideTabs -->
+</div>
+<!-- End Slide Div -->
+    </td>
+  </tr>
+</table>
+
+</div>

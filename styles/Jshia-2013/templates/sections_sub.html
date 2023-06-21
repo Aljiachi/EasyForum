@@ -1,0 +1,78 @@
+<div id="cont">
+<table width="97%" align="center" style="border-collapse:collapse;" cellpadding="0" cellspacing="0">
+
+  <tr>
+    <td colspan="4" class="thead"><div><a href="?action=forum&fid={Show.fid}">{Show.name}</a></div></td>
+  </tr>
+
+  <tr>
+
+    <td width="3%" class="tool"> </td>
+
+    <td class="tool" width="51%">{lang.forum_name}</td>
+
+    <td class="tool" width="16%">{lang.forum_stats}</td>
+
+    <td class="tool" width="30%">{lang.last_post}</td>
+
+  </tr>
+
+  
+
+  {php} 
+  $this->_vars['HomeForums'] = $eaf->db->query("SELECT * FROM " . tablenamestart('sections') . " WHERE sort=".$this->_vars['eaf']->home->fid . " order by `order` asc"); 
+    {/php}
+
+  {loop name="{vars.row}" sql="{vars.HomeForums}"}
+
+   {php} 
+
+    $this->_vars['SortForums'] = $eaf->db->query("SELECT * FROM  " . tablenamestart('sections') . " WHERE sort=".$this->_vars['row']['fid']); 
+
+	$this->_vars['TotalSort']  = $eaf->db->dbnum($this->_vars['SortForums']); 
+
+   {/php}
+    <tr>
+
+      <td class="tct"><img src="imager.php?image={$row.catimg}&height=<?php print GetMaxIconSizeH(); ?>&width=<?php print GetMaxIconSizeW(); ?>" style="max-height:<?php print GetMaxIconSizeH(); ?>px; max-width:<?php print GetMaxIconSizeW(); ?>px;" /></td>
+
+      <td class="tct"  valign="top">
+      
+      	<div class="forumName"><a href='?action=forum&fid={$row.fid}'>{$row.name}</a></div>
+
+		{if name="!empty({vars.row:more})"}<div class="forumCaption">{$row.more}</div>{/if}
+        
+            {if name="{GetTotalModers.$this->_vars['row']['fid']} == true"}
+                 <strong>الشرفون</strong> :  {GetModers.$this->_vars['row']['fid']}
+            {/if}
+    
+            {if name="{vars.TotalSort} !== 0"} 
+            <strong>{lang.sort_sections}</strong> :
+            {loop name="{vars.rows}" sql="{vars.SortForums}"} 
+              <a href="?action=forum&fid={$rows.fid}" title="{$rows.name}">{$rows.name}</a> 
+              {/loop}
+              
+        {/if}
+        </td>
+      <td class="tct"  valign="top">
+      	<div><b>{lang.total_theard}</b> : {$row.total_topics} </div>
+        <div style="margin-top:5px;"><b>{lang.total_replay}</b> : {$row.total_replays}</div>
+      </td>
+      <td class="tct" valign="top">
+        {if name="!empty({vars.row:last_topic}) and SGroup($this->_vars['row']['fid']) == true"}
+          <div class="lastpost" style="direction:rtl;"><img src="{$row.last_posticon}" />
+          <a href="?action=showtheard&tid={$row.last_postid}" style="color:#bf5d01; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold;" title="{$row.last_postdate}">{substr.$this->_vars['row']['last_topic'],0,45}...</a>
+            <div class="lastpostInfo">
+            {lang.post_by} : <a href="index.php?action=profile&uid={$row.last_postuid}">{$row.last_postuser}</a>
+            </div>
+            <div>{$row.last_postdate}</div>
+            </div>
+       {/else}
+          <div class="addfriend" style="text-shadow:none;"><strong>{lang.nothing}</strong></div>
+      {/if}
+         </td> 
+    </tr>
+  {/loop}
+</table>
+
+</div>

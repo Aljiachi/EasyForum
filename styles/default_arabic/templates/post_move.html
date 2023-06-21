@@ -1,0 +1,24 @@
+<form name="movepost" method="post">
+<table border="0" width="60%" style="margin-top:30px;" align="center" cellspacing="0" cellpadding="0">
+    <tr>
+      <td colspan="2" class="thead">{lang.theard_move}</td>
+    </tr>
+    <tr>
+    <td class="tct">{lang.select_forum}</td>
+    <td class="tct">
+        <select name="section">
+        {ForumsList}
+        </select>
+    </td>
+    </tr>
+    <tr>
+<td class="tct"></td>
+<td class="tct"><input type="submit" name="post_move" value="{lang.move}" /></td>
+</tr>
+    <tr>
+    	<td colspan="2" class="thead">{lang.goTo} <a href="index.php">{lang.home}</a> | <a href="index.php?action=showtheard&tid={$tid}">{lang.goBack}</a></td>
+    </tr>
+    </table>
+    <input type="hidden" name="check" value="{Check}" />
+
+</form>

@@ -1,0 +1,102 @@
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+
+  <tr>
+
+    <td colspan="5" class="thead">{lang.sort_forums} " {Forum.name} "</td>
+
+  </tr>
+
+  <tr>
+
+      <td width="3%" class="tool">&nbsp;</td>
+
+    <td class="tool" width="37%">{lang.forum_name}</td>
+
+    <td class="tool" width="20%">{lang.total_theard}</td>
+
+    <td class="tool" width="20%">{lang.total_replay}</td>
+
+    <td class="tool" width="20%">{lang.last_post}</td>
+
+  </tr>
+
+  {loop name="{vars.row}" sql="{eaf.SortQuery}"}
+
+  
+
+  {php}
+
+  
+
+  	$this->_vars['ForumsSort'] = $eaf->db->query("SELECT * FROM " . tablenamestart('sections') . " WHERE sort=".$this->_vars['row']['fid'] . " order by `order` asc"); 
+
+  
+
+  	$this->_vars['Totalsort'] = $eaf->db->dbnum($this->_vars['ForumsSort']); 
+
+  
+
+  {/php}
+
+    <tr>
+
+      <td class="tct" ><? echo resizeimg($this->_vars['row']['img'],GetMaxIconSizeH(),GetMaxIconSizeW()); ?></td>
+
+      <td class="tct" ><a href="?action=forum&fid={$row.fid}" title="{$row.more}">{$row.name}</a> <br />
+        
+      {if name="{GetTotalModers.$this->_vars['row']['fid']} == true"}
+        
+      <strong>{lang.the_moders}</strong> :  {GetModers.$this->_vars['row']['fid']} <br />
+
+
+		{/if}
+
+        {if name="{vars.Totalsort} !== 0"} 
+        
+        <strong>{lang.sort_sections} :</strong> 
+
+         {loop name="{vars.rows}" sql="{vars.ForumsSort}"} 
+
+       
+         <a href="?action=forum&fid={$rows.fid}" title="{$rows.name}">{$rows.name}</a>  
+
+       
+
+         {/loop}
+
+        
+
+        {/if}
+
+        </td>
+
+      <td class="tct" >{$row.total_topics}</td>
+
+      <td class="tct" >{$row.total_replays}</td>
+
+      <td class="tct" style="padding:1px;">
+
+            {if name="!empty({vars.row:last_topic})"}
+
+
+      <div class="lastpost" style="direction:rtl;"><img src="{$row.last_posticon}" />
+      <a href="?action=showtheard&tid={$row.last_postid}" title="{$row.last_topic}">
+     {substr.$this->_vars['row']['last_topic'],0,28}...</a>  <b>{$row.last_postdate}</b><br />
+      
+        بواسطة : <a href="?action=profile&uid={$row.last_postuid}">{$row.last_postuser}</a></div>
+
+       {/else}
+
+          لا يوجد
+
+      {/if}
+
+         </td> 
+
+    </tr>
+
+  {/loop}
+
+
+</table>
+

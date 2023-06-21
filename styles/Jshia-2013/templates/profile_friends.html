@@ -1,0 +1,8 @@
+{loop name="{vars.rows}" sql="$this->_vars['eaf']->Profile->Friends"}
+	<div class="profile_friend">
+    	<div align="center" class="friend-avatar">{AvatarView.$this->_vars['rows']['friend_id']}</div>
+        <div align="center"><a href="index.php?action=profile&uid={$rows.friend_id}">{$rows.friend_name}</a></div>
+    </div>
+{/loop}
+
+<div style="clear:both"></div>

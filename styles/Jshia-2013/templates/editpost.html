@@ -1,0 +1,51 @@
+u<script src="js/editor.js" type="text/javascript"></script>
+<form name="newtheard" method="post" id="pageForm">
+<table border="0" width="97%" class="table" align="center">
+<tr>
+<td width="89%" class="tool" colspan="2"><input type="text" name="title_post" value="{PostTitle}" class="titlePostInput"></td>
+</tr>
+<tr>
+<td width="11%" class="thead">{lang.icon}</td>
+<td width="89%" class="thead">
+{loop name="{vars.icon}" sql="{Icons}"}
+<img src="{$icon.icon_url}" /><input type="radio" name="post_icon" value="{$icon.icon_url}" />
+{/loop}
+</td>
+</tr>
+<tr>
+<td width="89%" class="tct" colspan="2">
+<script type="text/javascript">getToolbar();</script>
+<textarea id="box_text" name="apost" style="width:100%; height:250px;">{PostText}</textarea>
+<script type="text/javascript">initEditor("box_text", true , 'pageForm');</script>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="tct">
+<div class="icons">
+<fieldset>
+<legend>{lang.smileys}</legend>
+{loop name="{vars.smile}" sql="{smiles}"}
+<img src="{$smile.smile_replace}" onClick="InsertSmile('<img src={$smile.smile_replace} />')" />
+{/loop}
+</fieldset>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tct">{lang.send}</td>
+<td class="tct"><input type="submit" onClick="comm._submit();" name="edit_post" value="{lang.post_edit}" /></td>
+</tr>
+</table>
+</form>
+<table  border="0" width="97%" class="table" align="center">
+<tr>
+<td class="thead">{lang.more_options}</td>
+</tr>
+<tr>
+<td class="tct">
+<button onclick="window.open('index.php?action=attach_upload','mywindow','scrollbars=yes,width=600,height=300')">{lang.add_attachment}</button>
+</td>
+
+</tr>
+
+</table>

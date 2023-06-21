@@ -1,0 +1,112 @@
+<form method="post" action="index.php?action=tools_all">
+
+<table border="0" dir="ltr" style="text-align:right;" cellspacing="1" cellpadding="4" class="tborder">
+
+  <tr>
+
+    <td colspan="7" class="thead">{lang.search_results}</td>
+
+  </tr>
+
+  <tr>
+
+  {if name="{group.7} == 1 or {group.8} == 1"}
+
+    <td class="tool" width="10%"><input type="checkbox" name="check_all" onclick="checkAll(this.form)" /></td>
+
+  {/if}
+
+    <td class="tool" width="10%">{lang.views}</td>
+
+    <td class="tool" width="9%">{lang.total_replay}</td>
+
+    <td class="tool" width="32%">{lang.write_date}</td>
+
+    <td class="tool" width="17%">{lang.write_name}</td>
+
+    <td class="tool" width="31%">{lang.theard_title}</td>
+
+    <td class="tool" width="1%">&nbsp;</td>
+
+  </tr>
+
+ {loop name="{vars.rows}" sql="{query}"}
+
+  <tr>
+
+  {if name="{group.7} == 1 or {group.8} == 1"}
+
+  <td class="tct" width="10%"><input type="checkbox" name="check[]" value="{$rows.tid}" /></td>
+
+  {/if}
+
+    <td class="tct" >{$rows.views}</td>
+
+    <td class="tct" >{$rows.txts}</td>
+
+    <td class="tct" >{$rows.data}</td>
+
+    <td class="tct" ><a href="index.php?action=profile&uid={$rows.u_id}">{$rows.username}</a></td>
+
+    <td class="tct" ><a href="index.php?action=theard&tid={$rows.tid}">{$rows.title}</a></td>
+
+    <td class="tct" ><img src="{$rows.icon_id}" /></td>
+
+  </tr>
+
+  {/loop}
+
+  <tr>
+
+    <td colspan="7" class="tdown">&nbsp;</td>
+
+  </tr>
+
+</table>	
+{if name="{group.7} == 1 or {group.8} == 1 or {is_moder} == true"}
+
+<div class="tools">
+
+<div class="arrow">
+
+<img src="styles/{stylefolder}/down.png" id="view" onclick="ToolsMenu();" />
+
+<img src="styles/{stylefolder}/up.png" id="hide" style="display:none;" onclick="ToolsMenu();"  />
+
+</div>
+
+<span>{lang.morder_tools}</span>
+
+<div class="menu" style="display:none;" id="toolsMenu">
+{if name="{group.9} == 1 or {group.8} == 1 or {moder.4} == 1"}
+
+	<input type="submit" name="close" class="link" value="{lang.selected_close}" />
+
+	<input type="submit" name="unclose"  class="link" value="{lang.selected_open}" />
+
+{/if}
+
+{if name="{group.5} == 1 or {group.8} == 1 or {moder.2} == 1"}
+
+	<input type="submit" name="stick"  class="link" value="{lang.selected_stick}" />
+
+	<input type="submit" name="unstick"  class="link" value="{lang.selected_unstick}" />
+
+{/if}
+
+{if name="{group.4} == 1  or {group.8} == 1 or {moder.3} == 1"}
+
+	<input type="submit" name="move"  class="link" value="{lang.selected_move}" />
+
+{/if}
+{if name="{group.4} == 1  or {group.8} == 1 or {moder.6} == 1"}
+	<input type="submit" name="rec"  class="link" value="{lang.selected_recy}" />
+{/if}
+</div>
+
+</div>
+
+{/if}
+</form>
+
+<div style="clear:both;"></div>

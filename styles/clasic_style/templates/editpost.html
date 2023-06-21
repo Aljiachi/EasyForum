@@ -1,0 +1,235 @@
+ <script type='text/javascript'>
+//<![CDATA[
+//path of images
+var path="js/wseditor/images/";
+// show prompt or not 1 or 0
+var prompt_bbcode = 1 ;
+var cpaletc= 5 ;
+var wbg= "#fff";
+var wcolor= "#000";
+// lang of the editor
+		var l_undo="رجوع";
+		var l_redo="إعادة";
+		var l_b="غامق";
+		var l_u="تسطير";
+		var l_i="مائل";
+		var l_remove="مسح";
+		var l_p="لون النص";
+		var l_link="إدخال رابط";
+		var l_email="إدراج بريد إلكتروني";
+		var l_flash="إدراج فلاش";
+		var l_media="إدراج فيديو";
+		var l_ram="إدراج ملف صوتي";
+		var l_link_p= 1;
+		var l_youtube_p= 1;
+		var l_email_p= 1;
+		var l_flash_p= 1;
+		var l_media_p= 1;
+		var l_ram_p= 1;
+		var url_enter_desc = "أدخال عنوان الرابط (أنقر الغاء إذا كنت قد ظللت او حددت النص )";
+		var email_enter_desc = "";
+		var l_unlink="حذف الرابط";
+		var l_youtube="إدراج فيديو يوتيوب";
+		var l_image="إضافة صورة";
+		var l_jr="محاذاة لليمين";
+		var l_jl="محاذاة لليسار";
+		var l_jc="توسيط";
+		var l_ol="إضافة قائمة مرقمة";
+		var l_ul="إضافة قائمة غير مرقمة";
+		var l_quote="إقتباس";
+		var l_code="كود";
+		var l_phpcode="إدراج كود";
+		var l_rf="مسح التنسيق";
+		var l_out="إنقاص المسافة البادئة";
+		var l_ind="زيادة المسافة البادئة";
+		var l_size="الأحجام";
+		var l_font="الخطوط";
+		var l_para="عادي";
+		var l_ex="توسيع منطقة الكتابة";
+		var l_con="تضييق منطقة الكتابة";
+		var url_enter="أدخال رابط لموقع :";
+		var email_enter="أدخال بريد إلكتروني :";
+		var image_enter="أدخال رابط الصورة :";
+	    var fontsarr=['Arial','Arial Black','Arial Narrow','Traditional Arabic','Book Antiqua','Century Gothic','Comic Sans MS','Courier New','Fixedsys','Franklin Gothic Medium','Garamond','Georgia','Impact','Lucida Console','Lucida Sans Unicode','Microsoft Sans Serif','Palatino Linotype','System','Tahoma','Times New Roman','Trebuchet MS','Verdana'];
+        var direction="rtl";
+		var l_exp="الإختصارات";
+		var l_s="يتخلله خط";
+		var l_hr="خط فاصل";
+		var l_sub="كتابة سفلية";
+		var l_sup="كتابة علوية";
+        var l_sent =['البسملة','السلام','رد السلام','ترحيب'];
+        var l_sent_value =['بسم الله الرحمن الرحيم','السلام عليكم ورحمة الله وبركاته،،','وعليكم السلام ورحمة الله وبركاته،،','حللت أهلاً .. ووطئت سهلاً ،، يسعدنا ويشرفنا ان تكون بينا،،'];
+        var l_flash_url="أدخل رابط الفلاش :";
+        var l_flash_width="أدخل إرتفاع الفلاش :";
+        var l_flash_height="أدخل عرض الفلاش :";
+        var l_media_url="أدخل رابط الفيديو :";
+        var l_ram_url="أدخل رابط الملف الصوتي :";
+        var size1="صغير جداً";
+        var size2="صغير";
+        var size3="متوسط";
+        var size4="كبير";
+        var size5="كبير جداً";
+        var change_editor="التغير من المحرر المطورًِِ إلى العادي والعكس";
+        var must_disabled_bbcode_mode="يجب تعطيل نظام البي بي كود أولا .";
+        var insert_table="إدراج جدول";
+		var rows_number="عدد الصفوف";
+		var columns_number="عدد الأعمدة";
+		var l_frame="إنشاء إطار";
+		var l_gradient="تدرج لوني";
+		var l_keyboard="لوحة المفاتيح";
+		var smiles="الابتسامات";
+        var should_mislead_or_select_text_first="يجب تضليل أو تحديد النص أولا";
+		var l_poem="تنسيق قصيدة شعرية";
+
+//]]>
+</script>
+<script type="text/javascript" src="js/wseditor/wseditor.js"></script>
+<link type="text/css" href="js/wseditor/wseditor.css" rel="stylesheet" />
+<form name="newtheard" method="post">
+
+<table  border="0" width="97%" class="table" align="center">
+
+<tr>
+
+<td width="11%" class="tool">{lang.post_title}</td>
+
+<td width="89%" class="tool"><input type="text" name="title_post" value="{PostTitle}"></td>
+
+</tr>
+
+<tr>
+
+<td width="11%" class="tool">{lang.icon}</td>
+
+<td width="89%" class="tool">
+
+{loop name="{vars.icon}" sql="{Icons}"}
+
+<img src="{$icon.icon_url}" /><input type="radio" name="post_icon" value="{$icon.icon_url}" />
+
+{/loop}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="89%" class="tct" colspan="2">
+<script>
+	
+var Editor_lang = {
+'bold' : 'الخط عريض' ,
+'Italic' : 'الخط مائل' ,
+'Underline' : 'الخط مسطر' ,
+'strikethrough' : 'خط في المنتصف' ,
+'right' : 'اليمين' ,
+'center' : 'الوسط' ,
+'left' : 'اليسار' , 
+'sub' : 'صغير للاسفل' ,
+'sup' : 'صغير للاعلى' ,
+'h1' : 'نمط الخط h1' ,
+'h2' : 'نمط الخط h2' ,
+'h3' : 'نمط الخط h3' ,
+'h4' : 'نمط الخط h4' ,
+'h5' : 'نمط الخط h5' ,
+'h6' : 'نمط الخط h6' ,
+'link' : 'إضافة رابط' ,
+'email' : 'إضافة بريد الإلكتروني' ,
+'image' : 'إضافة صورة' ,
+'font' : 'نوع الخط' ,
+'color' : 'لون الخط' ,
+'size' : 'حجم الخط' ,
+'highlight' : 'خلفية الخط' ,
+'youtube' : 'اضافة مقطع من اليوتيوب' ,
+'flash' : 'اضافة ملف فلاش' ,
+'media' : 'اضافة ملف ميديا' ,
+'php' : 'كود برمجي php' ,
+'html' : 'كود برمجي html' ,
+'quote' : 'إقتباس' ,
+'eyoutube' : 'ضع رابط ملف اليوتيوب' ,
+'elink' : 'ضع الرابط' ,
+'ephoto' : 'ضع رابط الصورة' ,
+'eemail' : 'ضع البريد الإلكتروني' ,
+'eflash' : 'ضع رابط الفلاش' ,
+'emedia' : 'ضع رابط الملف' ,
+'ewidth' : 'ضع عرض الملف' ,
+'eheigth' : 'ضع طول الملف'
+};
+
+//edToolbar('apost','full',Editor_lang);
+
+</script>
+ <script type='text/javascript'>
+//<![CDATA[
+bbcode._Print("full",250);
+//]]>
+   //<![CDATA[
+    comm._submit();
+//]]>
+</script>
+<textarea id="box_text" class="editoriframe" name="apost" rows="6">{PostText}</textarea>
+<script type='text/javascript'>
+//<![CDATA[
+    comm._toggle();
+    var smiley_wysiwyg = true;
+//]]>
+</script>
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2" class="tct">
+
+<div class="icons">
+
+<fieldset>
+
+<legend>{lang.smileys}</legend>
+
+{loop name="{vars.smile}" sql="{smiles}"}
+
+<img src="{$smile.smile_replace}" onClick="doAddSmiley('{$smile.smile_title}','apost');" />
+
+{/loop}
+
+</fieldset>
+
+</div>
+
+</td>
+</tr>
+
+<tr>
+
+<td class="tct">{lang.send}</td>
+
+<td class="tct"><input type="submit" onClick="comm._submit();" name="edit_post" value="{lang.post_edit}" /></td>
+
+</tr>
+
+</table>
+
+</form>
+
+<table  border="0" width="97%" class="table" align="center">
+
+<tr>
+
+<td class="thead">{lang.more_options}</td>
+
+</tr>
+
+<tr>
+
+<td class="tct">
+
+<button onclick="window.open('index.php?action=attach_upload','mywindow','scrollbars=yes,width=600,height=300')">{lang.add_attachment}</button>
+
+</td>
+
+</tr>
+
+</table>

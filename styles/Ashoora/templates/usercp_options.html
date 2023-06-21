@@ -1,0 +1,69 @@
+<form method="post">
+<table border="0" width="100%"  align="center" id="UsercpProfile" >
+
+<tr>
+
+<td class="thead" colspan="2">{lang.usercp_options}</td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.usercp_yourstyle}</td>
+
+<td class="tct">
+
+<select name="option_yourstyle">
+<option value="0">{lang.default_style}</option>
+{$GetStylesList}
+</select>
+</td>
+
+</tr>
+<tr>
+
+<td class="tct">{lang.usercp_view_online}</td>
+
+<td class="tct">
+
+<select name="option_online">
+<option value="0">{lang.no}</option>
+<option value="1">{lang.yes}</option>
+</select>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.usercp_getpm}</td>
+
+<td class="tct">
+
+<select name="option_getpm">
+<option value="0">{lang.yes}</option>
+<option value="1">{lang.no}</option>
+</select>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="tct">{lang.usercp_getgm}</td>
+
+<td class="tct">
+
+<select name="option_getgm">
+<option value="0">{lang.yes}</option>
+<option value="1">{lang.no}</option>
+</select>
+</td>
+
+</tr>
+
+</table>
+
+<div align="center"><input type="submit" name="edit_options" value="{lang.usercp_edit}" /></div>
+
+</form>

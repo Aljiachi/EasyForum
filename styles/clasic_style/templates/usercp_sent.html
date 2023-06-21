@@ -1,0 +1,50 @@
+
+<form action="" method="post">
+
+<table width="95%" border="0" align="center"  >
+
+  <tr>
+
+    <td colspan="4" class="thead">{lang.usercp_sent}</td>
+
+  </tr>
+
+  <tr>
+
+    <td class="Tabletitle">{lang.pm_title} </td>
+
+    <td class="Tabletitle">{lang.pm_date}</td>
+
+    <td class="Tabletitle">{lang.pm_delete}</td>
+
+  </tr>
+
+  {loop name="{vars.rows}" sql="{eaf.Sent}"}
+
+  <tr>
+
+    <td class="tct"><a href="index.php?action=usercp&do=showpm&pmid={$rows.sid}">{$rows.stitle}</a></td>
+
+    <td class="tct">{$rows.sdata}</td>
+
+    <td class="tct"><input type="checkbox" name="newsid[]" value="{$rows.sid}" /></td>
+
+  </tr>
+
+  {/loop}
+
+</table>
+
+<br  />
+
+<input type="submit" value="{lang.pm_delete_selected}" name="delete_rows" /> - 
+
+<input type="reset"  value="{lang.pm_rest}" name="rest" />
+
+</form>
+
+</td>
+
+  </tr>
+
+</table>

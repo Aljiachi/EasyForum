@@ -1,0 +1,70 @@
+<table width="97%" class="table" align="center" cellspacing="0" cellpadding="0">
+<tr align="center">
+
+<td colspan="2" class="thead"><div>{lang.stats}</div> </td>
+
+</tr>
+<tr class="border">
+
+<td colspan="2" class="tool">{$Got.GetGroupsList}</td>
+
+</tr>
+<tr>
+
+<td class="Tabletitle" colspan="2">  {lang.stats_online} [<a href="index.php?action=online">{lang.stats_fullonline}</a>]</td>
+
+</tr>
+
+<tr class="border">
+
+<td width="3%" class="tct"><img src="styles/{stylefolder}/was-online.png" /></td>
+
+<td width="97%" class="tct">
+
+{lang.stats_online_users} : {OnlineUsers} &nbsp; &nbsp;
+
+{lang.stats_online_guests} : {OnlineGuest} &nbsp; &nbsp;
+
+{lang.stats_online_all} : {OnlineAll} &nbsp; &nbsp; <br />
+
+{loop name="{vars.rows}" sql="{OnlineQuery}"}
+
+ {if name="UserGroup({vars.rows:uid},"show_in_online") == 1"}
+
+    <a href="?action=profile&uid={$rows.uid}" style="color:#bf5d01;">{$rows.name}</a>, &nbsp;  
+
+    
+ {/if}
+
+{/loop}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2" class="Tabletitle">{lang.stats_tpm}</td>
+
+</tr>
+
+<tr class="border">
+
+<td class="tct"><img src="styles/{stylefolder}/stats.png" /></td>
+
+<td class="tct">
+
+{lang.stats_theards} : {$Got.Theards} &nbsp; &nbsp;
+
+{lang.stats_posts} : {$Got.Posts} &nbsp; &nbsp;
+
+{lang.stats_members} : {$Got.Users} &nbsp; &nbsp;
+
+<br /> 
+
+{lang.stats_lastuser} : {$Got.LastUser}
+
+</td>
+
+</tr>
+</table>

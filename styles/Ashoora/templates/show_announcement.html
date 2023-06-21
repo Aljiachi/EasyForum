@@ -1,0 +1,127 @@
+<table width="100%" align="center" >
+
+<tr>
+
+<td class="thead" colspan="2">{announcement:Date}</td>
+ٍ
+</tr>
+<tr>
+
+<td class="Tabletitle" colspan="2"><img src="{announcement:Icon}" /> {announcement:Title}</td>
+
+</tr>
+
+<tr>
+
+<td class="tct" width="300px" valign="top">
+
+<span class="span">{lang.annc_info}</span>
+
+
+<div class="text" align="center">
+{Profile:announcement.Avatar}
+</div>
+
+<div class="usermore" dir="rtl">
+
+<div class="text" align="center"><a href="page=profile&id={user_id}">
+
+{Profile:announcement.Username}
+
+</a></div>
+
+<div class="text" align="center">{Profile:announcement.Usertitle}</div>
+
+
+
+<div class="text" align="center"><img src="{Profile:announcement.Userstars}" /></div>
+
+
+
+<div class="text">{Profile:announcement.Online}</div>
+
+</div>
+
+
+
+</div>
+
+<div class="text">{lang.user_id} : {Profile:announcement.Userid}</div>
+
+<div class="text">{lang.signup_date} : {Profile:announcement.JoinDate}</div>
+
+<div class="text">{lang.last_login} : {Profile:announcement.Lastloggedin}</div>
+
+<div class="text">{lang.user_sex} : {Profile:announcement.Usersex}</div>
+
+<div class="text">{lang.user_age} : {Profile:announcement.Userage}</div>
+
+<div class="text">{lang.user_country} : {Profile:announcement.Country}</div>
+
+<div class="text">{lang.user_mytopics} : {Profile:announcement.Numberoftheards}</div>
+
+<div class="text">{lang.user_myposts} : {Profile:announcement.Numberofposts}</div>
+
+<div class="text">{lang.user_reputation} : <a href="#reputation-{Profile:announcement.Userid}" onclick="window.open('index.php?action=addreputation&id={Profile:announcement.Userid}&tid={$tid}','mywindow','scrollbars=yes,width=600,height=300')" style="color:green; font-weight:bold;">{Profile:announcement.Reputation}+</a></div>
+
+<div class="text">{lang.user_warning} : <a href="#warning-{Profile:announcement.Userid}" onclick="window.open('index.php?action=addwarning&id={Profile:announcement.Userid}&tid={$tid}','mywindow','scrollbars=yes,width=600,height=300')" style="color:red; font-weight:bold;">{Profile:announcement.Warning}+</a></div>
+
+{if name="{group.10} == 1"}
+
+	
+
+  <div class="text">IP : {Profile:announcement.Ip}</div>
+
+
+
+{/if}
+
+{loop name="{vars.inputrows}" sql="{QueryInputs.announcement}"}
+
+<div class="text">{inputrows.input_name} : {$inputrows.announcement:input_value}</div>
+
+{/loop}
+
+
+
+
+<a onclick="return addfriend('{Profile:announcement.Userid}');" class="button"> {Profile:announcement.Username} {lang.user_addfriend}</a> <br />
+ 
+
+
+</td>
+
+<td class="tct" valign="top">
+
+<div style="">
+
+{announcement:Text}
+
+
+
+
+
+<div style="margin-top:15px;"></div>
+
+
+
+<fieldset style="width:60%; margin-left:auto; margin-right:auto; direction:rtl;"><legend>{lang.user_sig} : {Profile:announcement.Username}</legend>
+
+
+
+{Profile:announcement.Signature}
+
+
+
+</fieldset>
+
+
+
+</div>
+
+</td>
+
+</tr>
+
+
+</table>

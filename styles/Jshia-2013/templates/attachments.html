@@ -1,0 +1,39 @@
+
+<table width="97%" cellpadding="0" cellspacing="0" align="center" border="0">
+
+<tr>
+
+<td colspan="4" class="thead"><div>{lang.attachments}</div></td>
+
+</tr>
+
+<tr>
+
+<td class="tool">{lang.file_name}</td>
+
+<td class="tool">{lang.file_type}</td>
+
+<td class="tool">{lang.file_size}</td>
+
+<td class="tool">{lang.delete}</td>
+
+</tr>
+
+{loop name="{vars.row}" sql="{query}"}
+
+<tr>
+
+<td class="tct"><a href="index.php?action=download&aid={$row.aid}">{$row.a_name}</a></td>
+
+<td class="tct">{$row.a_type}</td>
+
+<td class="tct">{$row.a_size}</td>
+
+<td class="tct"><a href="#delete-{$row.aid}" onclick="return DeleteAttach('{$row.aid}');">حذف</a></td>
+
+</tr>
+
+{/loop}
+
+
+</table>

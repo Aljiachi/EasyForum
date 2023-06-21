@@ -1,0 +1,37 @@
+<div style="margin-top:10%"></div>
+
+<form name="movepost" method="post">
+
+  <table width="97%" border="0" align="center" >
+
+    <tr>
+
+      <td colspan="2" class="thead">{lang.theard_move}</td>
+
+    </tr>
+
+    <tr>
+
+    <td class="tct">{lang.select_forum}</td>
+
+    <td class="tct">
+
+<select name="section">
+{ForumsList}
+</select>
+
+    </td>
+
+    </tr>
+
+    <tr>
+
+<td class="tdown" colspan="2"><input type="submit" name="post_move" value="{lang.move}" /></td>
+
+</tr>
+
+    </table>
+
+    <input type="hidden" name="check" value="{Check}" />
+
+</form>

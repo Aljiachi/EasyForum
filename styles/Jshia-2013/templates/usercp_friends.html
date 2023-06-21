@@ -1,0 +1,65 @@
+
+<table width="97%" align="center" border="0" cellpadding="0" cellspacing="0">
+
+
+<tr>
+
+<td colspan="4" class="thead"><div>{lang.usercp_friends}</div></td>
+
+</tr>
+
+<tr>
+
+<td width="5px" class="badboy"></td>
+
+<td class="badboy">{lang.friend_name}</td>
+
+<td class="badboy">{lang.friend_date}</td>
+
+<td width="16px" class="badboy">{lang.friend_delete}</td>
+
+</tr>
+
+{loop name="{vars.actived}" sql="{ActivedFriends}"}
+
+<tr>
+
+<td class="tct sms-avatar">{AvatarView.$this->_vars['actived']['friend_id']}</td>
+
+<td class="tct">{$actived.friend_name}</td>
+
+<td class="tct">{$actived.friend_date}</td>
+
+<td class="tct"><a href="index.php?action=user_friends&do=delete&id={$actived.id}"><img src="styles/{stylefolder}/unactive.png"  border="0px" /></a></td>
+
+</tr>
+
+{/loop}
+
+</table>
+
+<table width="97%" align="center" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="5" class="thead"><div>{lang.fwanted}</div></td>
+</tr>
+<tr>
+<td width="50px" class="badboy"></td>
+<td class="badboy">{lang.friend_name}</td>
+<td class="badboy">{lang.friend_date}</td>
+<td class="badboy" width="16px">{lang.friend_delete}</td>
+<td class="badboy" width="16px">{lang.friend_accept}</td>
+</tr>
+
+{loop name="{vars.unactived}" sql="{UnActivedFriends}"}
+<tr>
+<td class="tct sms-avatar">{AvatarView.$this->_vars['unactived']['friend_id']}</td>
+<td class="tct">{$unactived.friend_name}</td>
+<td class="tct">{$unactived.friend_date}</td>
+<td class="tct"><a href="index.php?action=user_friends&do=delete&id={$unactived.id}"><img src="styles/{stylefolder}/unactive.png"  border="0px" /></a></td>
+<td class="tct"><a href="index.php?action=user_friends&do=accept&id={$unactived.id}"><img src="styles/{stylefolder}/active.png"  border="0px" /></a></td>
+
+</tr>
+
+{/loop}
+
+</table>

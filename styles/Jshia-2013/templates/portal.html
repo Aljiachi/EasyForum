@@ -1,0 +1,71 @@
+<div id="Portal">
+
+<!-- Right Blocks View !-->
+
+<div id="RightBlocks">
+
+{loop name="{vars.Right}" sql="{RightBlocks}"}
+
+{if name="{vars.Right:block_temp} == 0"}
+
+    <div id="Title">{RightBlocksTitle}</div>
+    
+    <div id="Content">{RightBlocksContent}</div>
+
+{else}
+    
+    {RightBlocksContent}
+    
+{/if}
+
+{/loop}
+
+
+{loop name="{vars.Left}" sql="{LeftBlocks}"}
+
+{if name="{vars.Left:block_temp} == 0"}
+
+    <div id="Title">{LeftBlocksTitle}</div>
+    
+    <div id="Content">{LeftBlocksContent}</div>
+
+{else}
+    
+    {LeftBlocksContent}
+    
+{/if}
+
+{/loop}
+
+</div>
+
+
+<!-- Center Blocks View !-->
+
+
+<div id="CenterBlocks">
+
+{loop name="{vars.Center}" sql="{CenterBlocks}"}
+
+{if name="{vars.Center:block_temp} == 0"}
+    
+    <div id="Title">{CenterBlocksTitle}</div>
+    
+    <div id="Content">{CenterBlocksContent}</div>
+
+{else}
+    
+    {CenterBlocksContent}
+    
+{/if}
+
+{/loop}
+
+</div>
+
+<!-- End Portal Div !-->
+
+</div>
+
+<div style="clear:both;"></div>
+

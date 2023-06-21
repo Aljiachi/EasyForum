@@ -1,0 +1,118 @@
+<div id="cont">
+
+<table width="97%" align="center">
+
+  <tr>
+
+    <td colspan="4" class="thead"><a href="?action=forum&fid={Show.fid}">{Show.name}</a></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="3%" class="tool"> </td>
+
+    <td class="tool" width="37%">{lang.forum_name}</td>
+
+    <td class="tool" width="15%">{lang.forum_stats}</td>
+
+    <td class="tool" width="25%">{lang.last_post}</td>
+
+  </tr>
+
+  
+
+  {php} 
+
+  
+
+  $this->_vars['HomeForums'] = $eaf->db->query("SELECT * FROM " . tablenamestart('sections') . " WHERE sort=".$this->_vars['eaf']->home->fid . " order by `order` asc"); 
+
+  
+
+  {/php}
+
+  
+
+  {loop name="{vars.row}" sql="{vars.HomeForums}"}
+
+  
+
+  {php} 
+
+  
+
+  $this->_vars['SortForums'] = $eaf->db->query("SELECT * FROM  " . tablenamestart('sections') . " WHERE sort=".$this->_vars['row']['fid']); 
+
+  
+
+  $this->_vars['TotalSort']  = $eaf->db->dbnum($this->_vars['SortForums']); 
+
+  
+
+  {/php}
+
+   
+
+    <tr>
+
+      <td class="tct"  valign="top">{print.resizeimg($this->_vars['row']['catimg'],GetMaxIconSizeH(),GetMaxIconSizeW())}</td>
+
+      <td class="tct"  valign="top"><strong><a href='forum-{$row.fid}.html' title="{$row.more}">{$row.name}</a></strong> <br />
+
+        {if name="{GetTotalModers.$this->_vars['row']['fid']} == true"}
+        
+      <strong>الشرفون</strong> :  {GetModers.$this->_vars['row']['fid']} <br />
+
+
+		{/if}
+
+        {if name="{vars.TotalSort} !== 0"} 
+        <strong>{lang.sort_sections}</strong> :
+
+        
+
+         {loop name="{vars.rows}" sql="{vars.SortForums}"} 
+
+          
+          <a href="forum-{$rows.fid}.html" title="{$rows.name}">{$rows.name}</a> 
+
+          
+
+          {/loop}
+
+        
+
+        {/if}
+
+        </td>
+
+      <td class="tct"  valign="top"><b>{lang.total_theard}</b> : {$row.total_topics} <br /> <b>{lang.total_replay}</b> : {$row.total_replays}</td>
+
+      <td class="tct" style="padding:1px;" valign="top">
+
+
+        {if name="!empty({vars.row:last_topic}) and SGroup($this->_vars['row']['fid']) == true"}
+
+      <div class="lastpost" style="direction:rtl;"><img src="{$row.last_posticon}" />
+      <a href="?action=showtheard&tid={$row.last_postid}" title="{$row.last_topic}">
+     
+     {substr.$this->_vars['row']['last_topic'],0,28}...</a>  <b>{$row.last_postdate}</b><br />
+
+        {lang.post_by} : <a href="?action=profile&uid={$row.last_postuid}"><b>{$row.last_postuser}</b></a></div>
+
+       {/else}
+
+          {lang.nothing}
+
+      {/if}
+
+         </td> 
+
+    </tr>
+
+  {/loop}
+
+</table>
+
+</div>

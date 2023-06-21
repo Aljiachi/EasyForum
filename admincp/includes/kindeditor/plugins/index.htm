@@ -1,0 +1,89 @@
+
+	function JumpMenu(){
+
+	global $eaf,$lang;
+
+	$sql_sections = $eaf->db->dbselect(tablenamestart('sections'),'sort = 0','','');
+
+	$select =  '<select name="menu" onChange="return jump(this.value)">';
+	
+	$select .= '<option>'.$lang["fast_menu"].'</option>
+	
+	';
+
+	$select .= '<option value="?home">'.$lang["home"].'</option>
+	
+	';
+
+	$select .= '<option value="?action=usercp">'.$lang["usercp"].'</option>
+	
+	';
+
+	$select .= '<option value="?action=search">'.$lang["search"].'</option>
+	
+	';
+
+	$select .= '<optgroup label="'.$lang["forums"].'">
+	
+	';
+
+	while($rows =  $eaf->db->dbrows($sql_sections)){
+		
+		$select.='<option value="?action=forum&fid='.$rows['fid'].'" style="margin-top:5px;"> » '.$rows['name'].'</option>
+		
+		';	
+		
+			$sections_sort = $eaf->db->query("select * from " . tablenamestart('sections') . "  where sort=".$rows['fid']);
+		
+			while($sort = $eaf->db->dbrows($sections_sort)){
+			
+				$select.='<option value="?action=forum&fid='.$sort['fid'].'"> »» '.$sort['name'].'</option>
+				
+				';
+			
+					$sections_more = $eaf->db->query("select * from " . tablenamestart('sections') . "  where sort=".$sort['fid']);
+				
+				while($more = $eaf->db->dbrows($sections_more)){
+					
+					$select.='<option value="?action=forum&fid='.$more['fid'].'"> »»» '.$more['name'].'</option>
+					
+					';
+					
+						$sections_x = $eaf->db->query("select * from " . tablenamestart('sections') . "  where sort=".$more['fid']);
+						
+						while($rowsx = $eaf->db->dbrows($sections_x)){
+							
+							$select.='<option value="?action=forum&fid='.$rowsx['fid'].'"> »»»» '.$rowsx['name'].'</option>
+							
+							';
+								
+								$sections_v = $eaf->db->query("select * from " . tablenamestart('sections') . "  where sort=".$rowsx['fid']);
+									
+									while($rowsv = $eaf->db->dbrows($sections_v)){
+									
+										$select.='<option value="?action=forum&fid='.$rowsv['fid'].'"> »»»»» '.$rowsv['name'].'</option>
+										
+										';
+									
+											$sections_t = $eaf->db->query("select * from " . tablenamestart('sections') . "  where sort=".$rowsv['fid']);
+									
+												while($rowst = $eaf->db->dbrows($sections_t)){
+									
+										
+												$select.='<option value="?action=forum&fid='.$rowst['fid'].'"> »»»»»» '.$rowst['name'].'</option>
+											
+												';
+									}
+							}
+					}
+			}
+		}
+		
+	}
+
+	$select.='</select>';
+
+	return $select;
+
+	}
+	

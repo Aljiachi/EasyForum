@@ -1,0 +1,143 @@
+{if name="{eaf.Forum->_Rows('sort')} !== 0"}
+
+<a href="index.php?action=newtheard&fid={$fid}" class="button" style="padding:7px;">{lang.newtheard}</a>
+
+{/if}
+
+<form method="post" action="index.php?action=tools_all&fid={$fid}">
+
+<table width="97%" align="center">
+
+  <tr>
+
+    <td colspan="7" class="thead">{lang.forum_theards} : {Forum.name}</td>
+
+  </tr>
+
+  <tr>
+      <td class="tool" width="1%">&nbsp;</td>
+
+    <td class="tool" width="31%">{lang.theard_title}</td>
+    <td class="tool" width="17%">{lang.write_name}</td>
+    <td class="tool" width="32%">{lang.write_date}</td>
+    <td class="tool" width="9%">{lang.total_replay}</td>
+    <td class="tool" width="10%">{lang.views}</td>
+
+{if name="{group.7} == 1 or {group.8} == 1 or {is_moder} == true"}
+
+    <td class="tool" width="10%"><input type="checkbox" name="check_all" onclick="checkAll(this.form)" /></td>
+
+  {/if}
+
+
+
+
+
+
+
+  </tr>
+
+{if name="{TotalStickyTheards}"}
+
+<tr>
+
+<td colspan="7" class="Tabletitle">{lang.sticky_theards}</td>
+
+</tr>
+
+ {loop name="{vars.row}" sql="$this->_vars['Got']['StickyTheards']"}
+
+  <tr>
+  
+    <td class="tct" ><img src="{$row.icon_id}" /></td>
+    <td class="tct" ><a href="theard-{$row.tid}.html">{$row.title}</a>
+     <?php print $this->_vars['eaf']->Forum->_GetFastPages($this->_vars['row']['tid']); ?></td>
+    <td class="tct" ><a href="profile-{$row.u_id}.html">{$row.username}</a></td>
+    <td class="tct" >{$row.data}</td>
+    <td class="tct" >{$row.txts}</td>
+    <td class="tct" >{$row.views}</td>
+
+ {if name="{group.7} == 1 or {group.8} == 1 or {is_moder} == true"}
+
+     <td class="tct" width="10%"><input type="checkbox" name="check[]"  value="{$row.tid}" /></td>
+
+ {/if}
+
+  </tr>
+
+  {/loop}
+
+{/if}
+
+<tr>
+
+<td colspan="7" class="Tabletitle">{lang.simple_theards}</td>
+
+</tr>
+
+ {loop name="{vars.rows}" sql="$this->_vars['Got']['TheardsQuery']"}
+
+  <tr>
+
+    <td class="tct" ><img src="{$rows.icon_id}" /></td>
+    <td class="tct" ><a href="theard-{$rows.tid}.html">{$rows.title}</a>
+    <?php print $this->_vars['eaf']->Forum->_GetFastPages($this->_vars['rows']['tid']); ?></td>
+    <td class="tct" ><a href="profile-{$rows.u_id}.html">{$rows.username}</a></td>
+    <td class="tct" >{$rows.data}</td>
+    <td class="tct" >{$rows.txts}</td>
+    <td class="tct" >{$rows.views}</td>
+{if name="{group.7} == 1 or {group.8} == 1 or {is_moder} == true"}
+    <td class="tct" width="10%"><input type="checkbox" name="check[]" value="{$rows.tid}" /></td>
+{/if}
+  </tr>
+
+  {/loop}
+
+</table>
+{if name="{group.7} == 1 or {group.8} == 1 or {is_moder} == true"}
+
+<div class="tools">
+
+<div class="arrow">
+
+<img src="styles/{stylefolder}/down.png" id="view" onclick="ToolsMenu();" />
+
+<img src="styles/{stylefolder}/up.png" id="hide" style="display:none;" onclick="ToolsMenu();"  />
+
+</div>
+
+<span>{lang.morder_tools}</span>
+
+<div class="menu" style="display:none;" id="toolsMenu">
+{if name="{group.9} == 1 or {group.8} == 1 or {moder.4} == 1"}
+
+	<input type="submit" name="close" class="link" value="{lang.selected_close}" />
+
+	<input type="submit" name="unclose"  class="link" value="{lang.selected_open}" />
+
+{/if}
+
+{if name="{group.5} == 1 or {group.8} == 1 or {moder.2} == 1"}
+
+	<input type="submit" name="stick"  class="link" value="{lang.selected_stick}" />
+
+	<input type="submit" name="unstick"  class="link" value="{lang.selected_unstick}" />
+
+{/if}
+
+{if name="{group.4} == 1  or {group.8} == 1 or {moder.3} == 1"}
+
+	<input type="submit" name="move"  class="link" value="{lang.selected_move}" />
+
+{/if}
+{if name="{group.4} == 1  or {group.8} == 1 or {moder.6} == 1"}
+	<input type="submit" name="rec"  class="link" value="{lang.selected_recy}" />
+{/if}
+</div>
+
+</div>
+
+{/if}
+
+</form>
+<div style="clear:both;"></div>

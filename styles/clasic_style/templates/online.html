@@ -1,0 +1,52 @@
+<table width="97%"style="border:0px;" border="0" align="center" >
+
+  <tr>
+
+    <td colspan="4" class="thead">{lang.online}</td>
+
+  </tr>
+
+  <tr>
+
+    <td class="Tabletitle" width="18%">{lang.guest_user}</td>
+
+    <td class="Tabletitle" width="37%">{lang.online_where}</td>
+
+ 	{if name="{group.6} == 1"}
+
+    <td class="Tabletitle" width="20%">{lang.ip}</td>
+
+    {/if}
+
+    <td class="Tabletitle" width="25%">{lang.last_move_time}</td>
+
+  </tr>
+
+ {loop name="{vars.rows}" sql="{query}"}
+
+ 
+
+ {if name="UserGroup({vars.rows:uid},"show_in_online") == 1"}
+
+  <tr>
+
+    <td class="tct" >{$rows.name}</td>
+
+    <td class="tct" >{$rows.where}</td>
+
+    {if name="{group.6} == 1"}
+
+    <td class="tct" >{$rows.ip}</td>
+
+    {/if}
+
+    <td class="tct" >{$rows.lastmove_time}</td>
+
+  </tr>
+
+  {/if}
+
+  {/loop}
+
+  </table>
+

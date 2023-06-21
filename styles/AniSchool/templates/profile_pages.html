@@ -1,0 +1,57 @@
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+<tr>
+<td class="thead"><span style="float:right; direction:rtl">{Profile.Username}</span></td>
+</tr>
+<tr>
+<td class="tct">
+<div style="float:left; width:auto;">
+{Profile.Avatar}
+</div>
+<div style="float:right;">
+{Profile.Username} &nbsp;&nbsp;{Profile.Online} <br />
+{Profile.Usertitle} <br />
+<img src="{Profile.Userstars}" />
+</div>
+</td>
+</tr>
+</table>
+ <div style="display:block; margin-bottom:5px;">
+   <div class="slide">
+ 
+        <div id="tabsSlide">
+ 
+            <ul id="nav">
+                <li><a  class="current" id="tab-1"><span>{lang.user_vmsgs}</span></a></li>
+                <li><a id="tab-2"><span>{lang.user_about}</span></a></li>
+                <li><a id="tab-3"><span>{lang.user_stats}</span></a></li>
+                <li><a id="tab-4"><span>{lang.user_friends}</span></a></li>
+                <li><a id="tab-5"><span>{lang.user_call}</span></a></li>
+            </ul>
+       <div id="content">
+<div id="slide-1" class="tab-slide" style="display: block">
+{template name="profile_messages"}
+{template name="profile_addmsg"}
+</div>
+
+<div id="slide-2" class="tab-slide" style="display:none;">
+{template name="profile_about"}
+
+</div>
+<div id="slide-3" class="tab-slide" style="display:none;">
+{template name="profile_stats"}
+</div>
+<div id="slide-4" class="tab-slide" style="display:none;">
+{template name="profile_friends"}
+</div>
+<div id="slide-5" class="tab-slide" style="display:none;">
+{template name="profile_callme"}
+
+</div>
+<!-- End Slide -->
+</div>
+<!-- End content -->
+</div>
+<!-- End SlideTabs -->
+</div>
+<!-- End Slide Div -->
+</div>

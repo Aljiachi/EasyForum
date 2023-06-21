@@ -1,0 +1,149 @@
+<a name="post-{Showpost:Postid}"></a>
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+
+<tr>
+
+<td class="thead" colspan="2">{Showpost:Date}</td>
+
+</tr>
+
+<tr>
+
+<td class="Tabletitle" colspan="2"><img src="{Showpost:Icon}" /> {Showpost:Title}</td>
+
+</tr>
+
+<tr>
+
+
+
+<td class="tct" width="300px" valign="top">
+
+<span class="span">{lang.post_info}</span>
+
+<center>
+
+<div class="text">
+
+{Profile:ShowPost.Avatar}
+
+</div>
+
+<div class="usermore" dir="rtl">
+
+<div class="text"><a href="index.php?action=profile&uid={Profile:ShowPost.Userid}">{Profile:ShowPost.Username}</a></div>
+
+<div class="text">{Profile:ShowPost.Usertitle}</div>
+
+
+
+<div class="text"><img src="{Profile:ShowPost.Userstars}" /></div>
+
+</div>
+
+</center>
+
+<div class="text">{Profile:ShowPost.Online}</div>
+
+<div class="text">{lang.user_id} : {Profile:ShowPost.Userid}</div>
+
+<div class="text">{lang.signup_date} : {Profile:ShowPost.JoinDate}</div>
+
+<div class="text">{lang.last_login} : {Profile:ShowPost.Lastloggedin}</div>
+
+<div class="text">{lang.user_sex} : {Profile:ShowPost.Usersex}</div>
+
+<div class="text">{lang.user_age} : {Profile:ShowPost.Userage}</div>
+
+<div class="text">{lang.user_country} : {Profile:ShowPost.Country}</div>
+
+<div class="text">{lang.user_mytopics} : {Profile:ShowPost.Numberoftheards}</div>
+
+<div class="text">{lang.user_myposts} : {Profile:ShowPost.Numberofposts}</div>
+
+<div class="text">{lang.user_reputation} : <a href="index.php?action=addreputation&id={Profile:ShowPost.Userid}&tid={$tid}&pid={Showpost:Postid}" rel="superbox[iframe]"  style="color:green; font-weight:bold;">{Profile:ShowPost.Reputation}+</a></div>
+
+<div class="text">{lang.user_warning} : <a href="'index.php?action=addwarning&id={Profile:ShowPost.Userid}&tid={$tid}&pid={Showpost:Postid}"  rel="superbox[iframe]"  style="color:red; font-weight:bold;">{Profile:ShowPost.Warning}+</a></div>
+
+{loop name="{vars.inputrows}" sql="{QueryInputs.ShowPost}"}
+
+<div class="text">{$inputrows.input_name} : {input_value:inputrows.ShowPost}</div>
+
+{/loop}
+
+{if name="!empty({session.username})"}
+
+<a onclick="addfriend('{Profile:ShowPost.Userid}');" class="button">{Profile:ShowPost.Username} {lang.user_addfriend}</a> <br />
+
+{/if}
+<span style="margin-right:3px;">
+{if name="{group.10} == 1"}
+
+<img src="styles/{stylefolder}/ip.png" title="{lang.ip} : {Profile:ShowPost.Ip}" />
+
+{/if}
+</span>
+
+
+</td>
+
+<td class="tct" valign="top">
+
+<div style="">
+
+{Showpost:Text}
+
+<div style="margin-top:15px;"></div>
+
+
+
+<fieldset style="width:60%; margin-left:auto; margin-right:auto; direction:rtl;"><legend>{lang.user_sig} : {Profile:ShowPost.Username}</legend>
+
+
+
+{Profile:ShowPost.Signature}
+
+
+
+</fieldset>
+
+
+
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2" class="tct">
+
+<div align="left">
+
+{if name="{group.3} == 1 or {UserEdit} or {moder.0} == 1"}
+
+	<a href="index.php?action=edit_post&pid={Showpost:Postid}&topic_id={$tid}" class="button">{lang.edit_post}</a>
+
+{/if}
+
+{if name="{group.4} == 1 or {UserDelete}"}
+
+	<a onclick="return DeletePost('{Showpost:Postid}');" class="button">{lang.delete_post}</a>
+
+{/if}
+
+{if name="{Showtheard:Closed} == 0 && !empty({session.username})"}
+
+<a href="index.php?action=add_post&do=quote&pid={Showpost:Postid}&topic_id={$tid}" class="button">{lang.add_quote_post}</a>
+
+{/if}
+
+</div>
+
+</td>
+
+</tr>
+
+</table>
+

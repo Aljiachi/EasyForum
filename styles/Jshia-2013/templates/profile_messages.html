@@ -1,0 +1,29 @@
+<table width="94%" dir="ltr" border="0" align="center">
+{loop name="{vars.rows}" sql="$this->_vars['eaf']->Profile->VistorsText"}
+<tbody id="TBody-{$rows.msg_id}"  class="msg-body" style="border-bottom:1px solid #EBEBEB;">
+<tr>
+<td style="padding:5px;">
+<div class="msg-date"><strong><a href="index.php?action=profile&uid={$rows.msg_by}" style="color:#006699;">{UnameById.$this->_vars['rows']['msg_by']}</a></strong></div>
+<div  class="sms-text" id="Text-{$rows.msg_id}">
+{REBbCode.$this->_vars['rows']['msg_text']} 
+</div>
+{if name="$this->_vars['uid'] == UserId()"}
+<div align="center" style="display:none; width:500px; padding:10px;" id="Vm-{$rows.msg_id}" >
+<div id="alert-{$rows.msg_id}"></div>
+<textarea rows="5" id="VEditor-{$rows.msg_id}" cols="50">{$rows.msg_text}</textarea>
+<center><input type="button" onclick="Editvmsg('{$rows.msg_id}');" value="{lang.edit}" /></center>
+</div>
+    <div align="left" style="padding:5px;">
+    <a class="fancybox" href="#Vm-{$rows.msg_id}"><img src="styles/{stylefolder}/edit.png" width="16" height="16" /></a>
+    <img src="styles/{stylefolder}/delete.gif" width="16" height="16" onclick="Deletevmsg('{$rows.msg_id}');" />
+    <div style="float:right; color:#777; font-size:10px;">{$rows.msg_data}</div>
+    </div>
+{/if}
+</td>
+<td width="40px" class="sms-avatar" valign="top">{AvatarView.$this->_vars['rows']['msg_by']}</td>
+</tr>
+</tbody>
+{/loop}
+</table>
+<center>{template name="pagination"}</center>
+

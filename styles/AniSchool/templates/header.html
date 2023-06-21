@@ -1,0 +1,63 @@
+
+<div id="page">
+
+<!-- Start: contnet -->
+
+<div id="content">
+
+	<!-- Start: header -->
+
+<div id="header">
+    
+	<div id="Logo"><img src="styles/AniSchool/logo.png" id="LogoImage" /></div>
+	
+<div id="headbar">
+
+				<ul>
+
+					<li><a href="index.php">{lang.home}</a></li>
+
+  					<li><a href="index.php?action=portal">{lang.portal}</a></li>
+
+					<li><a href="index.php?action=search">{lang.search}</a></li>
+
+					<li><a href="index.php?action=members">{lang.members}</a></li>
+                               
+					{loop name="{vars.prows}" sql="{getpages}"}
+
+					<li><a href="index.php?action=getpage&id={$prows.page_id}">{$prows.page_name}</a></li>
+
+                	{/loop}
+ 				                
+					<li><a href="index.php?action=contact">{lang.contact}</a></li>
+                
+
+				</ul>
+
+					<div id="UserBar">
+					
+					<ul class='UserArea'>
+
+                    {if name="empty({session.username})"}  
+                   	
+					<li><a href="index.php?action=register">{lang.signup}</a></li>
+                   	<li><a href="index.php?action=login">{lang.login}</a></li>
+                   	
+                    {else}
+       
+					<li><span class="loggedMsg">أهلاً وسهلاً بك يا : {$username} نورت المنتدى</span></li>
+                    <li><a href="index.php?action=usercp">{lang.usercp}</a></li>
+                    <li><a href="index.php?action=logout">{lang.logout}</a></li>                
+					<li><a href="index.php?action=usercp&do=friends">{$Got.NewFriends} {lang.fwanted}</a></li> 
+					<li><a href="index.php?action=usercp&do=pm&act=new">{$Got.Newpm} {lang.pminbox}</a></li>
+                           
+                     {/if}
+					 
+					 </ul>
+
+      
+		</div>
+		</div>
+
+	</div>
+

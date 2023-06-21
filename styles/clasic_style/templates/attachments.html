@@ -1,0 +1,44 @@
+
+<table  width="97%" align="center" border="0">
+
+<tr>
+
+<td colspan="4" class="head">{lang.attachments}</td>
+
+</tr>
+
+<tr>
+
+<td class="tool">{lang.file_name}</td>
+
+<td class="tool">{lang.file_type}</td>
+
+<td class="tool">{lang.file_size}</td>
+
+<td class="tool">{lang.delete}</td>
+
+</tr>
+
+{loop name="{vars.row}" sql="{query}"}
+
+<tr>
+
+<td class="tct">{$row.a_name}</td>
+
+<td class="tct">{$row.a_type}</td>
+
+<td class="tct">{$row.a_size}</td>
+
+<td class="tct"><a onclick="return DeleteAttach('{$row.aid}');">حذف</a></td>
+
+</tr>
+
+{/loop}
+
+<tr>
+
+<td colspan="4" class="tool">&nbsp;</td>
+
+</tr>
+
+</table>

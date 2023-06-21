@@ -1,0 +1,39 @@
+
+<div class="navbar">
+	{$Got.NavLinks}
+</div>
+
+{if name="!empty({session.username})"}
+
+<div id="divsize" style="margin-bottom:0px; padding:0px;">
+
+    <div class="userAlerts">
+        <div class="welcome"><a href="index.php?action=profile&uid={$UserId}">أهلاً وسهلاً بك : {$username}</a></div>
+        <div class="alert"><a href="index.php?action=usercp&do=friends" id="HSLink">{$Got.NewFriends} {lang.fwanted}</a> </div>
+        <div class="alert"><a href="index.php?action=usercp&do=pm&act=new" id="HSLink">{$Got.Newpm} {lang.pminbox}</a></div>
+        <div><form name="fastsearch" method="post" action="index.php?action=search_do">
+        <input type="text" name="search_word" style="margin:0px;" />
+        <input type="submit" name="search_do" value=" " class="fastSearchbutton" />
+    </form></div>
+        
+    </div>
+
+</div>
+
+{else}
+
+<div id="divsize" style="margin-bottom:0px; padding:0px;">
+
+    <div class="userAlerts">
+
+        <div><form name="fastsearch" method="post" action="index.php?action=search_do">
+        <input type="text" name="search_word" style="margin:0px;" />
+        <input type="submit" name="search_do" value=" " class="fastSearchbutton" />
+    </form></div>
+        
+    </div>
+
+</div> 
+{/if}
+
+<div style="clear:both;"></div>

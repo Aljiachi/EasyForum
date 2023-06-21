@@ -1,0 +1,71 @@
+<table width="100%" align="center">
+
+<tr>
+
+<td class="thead" colspan="2">{PmDate}</td>
+
+</tr>
+
+<tr>
+
+<td class="Tabletitle" colspan="2">{PmTitle}</td>
+
+</tr>
+
+<tr>
+
+
+
+<td class="tct" width="200px" valign="top">
+
+<span class="span">{lang.pm_info}</span>
+
+<div class="text">{Profile:Pm.Avatar}</div>
+
+<div class="text" align="center"><a href="?action=profile&uid={Profile:Pm.Userid}">{Profile:Pm.Username}</a></div>
+
+<div class="text" align="center">{Profile:Pm.Usertitle}</div>
+
+<div class="text" align="center"><img src="{Profile:Pm.Userstars}" /></div>
+
+<div class="text">{Profile:Pm.Online}</div>
+
+<div class="text">{lang.user_id} : {Profile:Pm.Userid}</div>
+
+<div class="text">{lang.signup_date} : {Profile:Pm.JoinDate}</div>
+
+<div class="text">{lang.last_login} : {Profile:Pm.Lastloggedin}</div>
+
+<div class="text">{lang.user_sex} : {Profile:Pm.Usersex}</div>
+
+<div class="text">{lang.user_age} : {Profile:Pm.Userage}</div>
+
+<div class="text">{lang.user_country} : {Profile:Pm.Country}</div>
+
+<div class="text">{lang.user_mytopics} : {Profile:Pm.Numberoftheards}</div>
+
+<div class="text">{lang.user_myposts} : {Profile:Pm.Numberofposts}</div>
+
+{if name="{group.10} == 1"}
+
+  <div class="text" align="left">IP : {Profile:Pm.Ip}</div>
+
+{/if}
+<a onclick="addfriend('{Profile:Pm.Userid}');" class="button"> {Profile:Pm.Username} {lang.user_addfriend}</a>
+</td>
+<td class="tct" valign="top">
+<div id="smsText">{PmText}</div>
+<div style="margin-top:15px;">
+<fieldset style="width:60%; margin-left:auto; margin-right:auto; direction:rtl;"><legend>{lang.user_sig} : {Profile:Pm.Username}</legend>
+{Profile:Pm.Signature}
+</fieldset>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="tool">
+<div align="left"><a href="index.php?action=usercp&do=sendpm&uid={Profile:Pm.Userid}" class="button">{lang.pm_replay}</a></div>
+</td>
+</tr>
+</table>
+

@@ -1,0 +1,12 @@
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+<tr>
+<td class='thead'>{lang.user_friends}</td>
+</tr>
+<tr>
+<td class='tct'>
+{loop name="{vars.rows}" sql="$this->_vars['eaf']->Profile->Friends"}
+<strong><a href="index.php?action=profile&uid={$rows.friend_id}">{$rows.friend_name}</a></strong> , 
+{/loop}
+</td>
+</tr>
+</table>

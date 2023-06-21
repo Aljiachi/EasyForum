@@ -1,0 +1,170 @@
+<a name="post"></a>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+$("#AjaxAddPost").click(function(){
+	var Icon = $("#icon").val();	
+	var Post = $("#post_text").val();
+	var Send = $("#Send").val();
+	var post_tid = $("#post_tid").val();	
+	var post_fid = $("#post_fid").val();	
+	var post_title = $("#post_title").val();
+	var LastPage = $("#lastpage").val();
+	var GetLastPost = $("#lastpost").val();
+	var LastPost = parseInt(GetLastPost) + parseInt(1);
+	
+	if(LastPage != 0 || LastPage !== 1){
+		
+	var page = "index.php?action=showtheard&tid=" + post_tid + "&page=" + LastPage + "#post-" + LastPost;
+	
+	}else{
+
+	var page = "index.php?action=showtheard&tid=" + post_tid + "#post-" + LastPost;
+		
+	}
+	
+	if(Post == ""){
+		
+		$("#AddInfo").html('<img src="images/error.png" />');	
+		
+		return false;
+	}
+	
+		$("#AddInfo").html('<img src="images/loading.gif" />').delay(1200);	
+		
+		$.post("index.php?action=addpost&do=ajax",{
+			"post_title" : post_title,
+			"post_tid" : post_tid ,
+			"post_fid" : post_fid ,
+			"post_text" : Post ,
+			"post_icon" : Icon ,
+			"addfastpost" : "send"
+				
+				}
+				,function(){
+
+		$("#AddInfo").html('<img src="images/ok.png" /> {lang.addpost_ok}').delay(1200);
+		
+		document.location.href = page;
+		
+		});
+	
+return false;	
+});	
+});
+</script>
+
+<form name="newpost" method="post">
+
+<table border="0" cellspacing="1" cellpadding="4" class="tborder">
+
+<tr>
+
+<td class="thead" colspan="2">{lang.fastpost}</td>
+
+</tr>
+
+<tr>
+
+<td style="padding:3px;" width="89%"colspan="2" class="tct">
+<script>
+	
+var Editor_lang = {
+'bold' : 'الخط عريض' ,
+'Italic' : 'الخط مائل' ,
+'Underline' : 'الخط مسطر' ,
+'strikethrough' : 'خط في المنتصف' ,
+'right' : 'اليمين' ,
+'center' : 'الوسط' ,
+'left' : 'اليسار' , 
+'sub' : 'صغير للاسفل' ,
+'sup' : 'صغير للاعلى' ,
+'h1' : 'نمط الخط h1' ,
+'h2' : 'نمط الخط h2' ,
+'h3' : 'نمط الخط h3' ,
+'h4' : 'نمط الخط h4' ,
+'h5' : 'نمط الخط h5' ,
+'h6' : 'نمط الخط h6' ,
+'link' : 'إضافة رابط' ,
+'email' : 'إضافة بريد الإلكتروني' ,
+'image' : 'إضافة صورة' ,
+'font' : 'نوع الخط' ,
+'color' : 'لون الخط' ,
+'size' : 'حجم الخط' ,
+'highlight' : 'خلفية الخط' ,
+'youtube' : 'اضافة مقطع من اليوتيوب' ,
+'flash' : 'اضافة ملف فلاش' ,
+'media' : 'اضافة ملف ميديا' ,
+'php' : 'كود برمجي php' ,
+'html' : 'كود برمجي html' ,
+'quote' : 'إقتباس' ,
+'eyoutube' : 'ضع رابط ملف اليوتيوب' ,
+'elink' : 'ضع الرابط' ,
+'ephoto' : 'ضع رابط الصورة' ,
+'eemail' : 'ضع البريد الإلكتروني' ,
+'eflash' : 'ضع رابط الفلاش' ,
+'emedia' : 'ضع رابط الملف' ,
+'ewidth' : 'ضع عرض الملف' ,
+'eheigth' : 'ضع طول الملف'
+};
+
+edToolbar('post_text','mini',Editor_lang);
+
+</script>
+<textarea id="post_text" name="post_text" rows="6"></textarea>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="padding:3px;" colspan="2" width="11%" class="tct">
+
+<div class="icons">
+
+<fieldset>
+
+<legend>{lang.smileys}</legend>
+
+{loop name="{vars.smile}" sql="{smiles}"}
+
+<img src="{$smile.smile_replace}" onClick="doAddSmiley('{$smile.smile_title}','post_text');" />
+
+{/loop}
+
+</fieldset>
+
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="padding:3px;"  class="tct">{lang.send}</td>
+
+<td style="padding:3px;"  class="tct">
+
+<input type="submit" name="addfastpost" id="AjaxAddPost" value="{lang.add_replay}" />
+<span id="AddInfo"></span>
+
+</td>
+
+</tr>
+
+</table>
+
+<input type="hidden" name="post_fid" id="post_fid" value="{Showtheard:Fid}" />
+
+<input type="hidden" name="post_tid" id="post_tid" value="{$tid}" />
+
+<input type="hidden" name="post_title" id="post_title" value="{lang.RE} : {Showtheard:Title}" />
+
+<input type="hidden" name="lastpage" id="lastpage" value="{Showtheard:LastPage}" />
+
+<input type="hidden" name="lastpost" id="lastpost" value="{Showtheard:LastPost}" />
+
+</form>
